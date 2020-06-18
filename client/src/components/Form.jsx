@@ -38,5 +38,4 @@ class Form extends Component {
 
 export default Form;
 
-const wrapper = document.getElementById('reviews');
-wrapper ? ReactDOM.render(<Form />, wrapper) : false;
+ReactDOM.render(<Form />, document.getElementById('reviews'));
