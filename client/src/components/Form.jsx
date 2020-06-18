@@ -25,7 +25,7 @@ class Form extends Component {
     const { value } = this.state;
     return (
       <form>
-        <h1>I am Groot!!</h1>
+        <h1>I am the reviews service!</h1>
         <input
           type="text"
           value={value}
