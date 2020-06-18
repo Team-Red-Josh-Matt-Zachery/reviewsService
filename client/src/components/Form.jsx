@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import StarRatings from './StarRatings.jsx';
 
 class Form extends Component {
   constructor() {
@@ -25,6 +26,7 @@ class Form extends Component {
     const { value } = this.state;
     return (
       <form>
+        <StarRatings />
         <h1>I am the reviews service!</h1>
         <input
           type="text"
