@@ -1,5 +1,7 @@
 import React from 'react';
 
+const moment = require('moment');
+
 class StarRating extends React.Component {
   constructor(props) {
     super(props);
@@ -32,19 +34,25 @@ class StarRating extends React.Component {
   
   render() {
     const { starPercentageRounded } = this.state;
+    const { name } = this.props;
     const widthStyle = {
         width: starPercentageRounded,
     }
+    const date = this.props.date.substring(0, 10);
     return (
-      <tr className="philips">
-        <td>{`${this.props.name} 4K TV`}</td>
-          <td>
+      <div className={`${name}`}>
+        <h2>{this.props.summary}</h2>
+          <div>
             <div className="stars-outer">
               <div className="stars-inner" style={widthStyle}></div>
             </div>
             <span className="number-rating"></span>
-        </td>
-      </tr>
+        </div>
+        <p>{moment(date).format('MMMM Do YYYY')}</p>
+        <p>User: {`${name}`}</p>
+        <p>{this.props.body}</p>
+        <p>Helpful? Yes: ({this.props.helpfulness}) | Report</p>
+      </div>
     )
   }
 }
