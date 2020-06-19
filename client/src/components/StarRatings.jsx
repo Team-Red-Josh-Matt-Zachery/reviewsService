@@ -20,6 +20,7 @@ class StarRatings extends React.Component {
                 body={product.body}
                 date={product.date}
                 helpfulness={product.helpfulness}
+                recommend={product.recommend}
                 reviewData={this.props.reviewData}
               />
               )}
