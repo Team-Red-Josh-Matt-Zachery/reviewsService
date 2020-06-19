@@ -25,7 +25,7 @@ class Form extends Component {
   render() {
     const { value } = this.state;
     return (
-      <form>
+      <div>
         <StarRatings />
         <h1>I am the reviews service!</h1>
         <input
@@ -33,7 +33,7 @@ class Form extends Component {
           value={value}
           onChange={this.handleChange}
         />
-      </form>
+      </div>
     );
   }
 }
