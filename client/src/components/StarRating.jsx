@@ -7,53 +7,90 @@ class StarRating extends React.Component {
     super(props);
 
     this.state = {
-      starPercentageRounded: 100
+      starPercentageRounded: 100,
+      helpfulness: this.props.helpfulness
     };
     this.getRatings = this.getRatings.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.addHepful = this.addHelpful.bind(this);
   }
 
   componentDidMount() {
     this.getRatings();
   }
 
+  onClick() {
+    // const { helpfulState } = this.state;
+    // const { helpfulness } = this.props;
+    if (this.state.helpfulness === this.props.helpfulness) {
+      this.addHelpful();
+    }
+  }
+
   getRatings() {
     const starsTotal = 5;
-    console.log('ran');
-    // const ratings = this.state;
-    // for (let rating in ratings) {
-    //   const starPercentage = (ratings[rating] / starsTotal) * 100;
-    //   const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
-    // }
     const { rating } = this.props;
     const starPercentage = (rating / starsTotal) * 100;
     const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
     this.setState({
-        starPercentageRounded: starPercentageRounded
+      starPercentageRounded,
     });
   }
-  
+
+  addHelpful() {
+    let helpfulPlusOne = this.state.helpfulness+= 1
+    this.setState({
+      helpfulness: helpfulPlusOne,
+    });
+  }
+
+
   render() {
     const { starPercentageRounded } = this.state;
-    const { name } = this.props;
+    const { name, summary, helpfulness } = this.props;
+    // const { summary } = this.props;
+    // const { helpfulness } = this.props;
     const widthStyle = {
-        width: starPercentageRounded,
-    }
+      width: starPercentageRounded,
+    };
     const date = this.props.date.substring(0, 10);
+    const { recommend } = this.props;
+    const { body } = this.props;
     return (
       <div className={`${name}`}>
-        <h2>{this.props.summary}</h2>
-          <div>
-            <div className="stars-outer">
-              <div className="stars-inner" style={widthStyle}></div>
-            </div>
-            <span className="number-rating"></span>
+        <div className="starsParent">
+          <div className="stars-outer">
+            <div className="stars-inner" style={widthStyle}></div>
+          </div>
+          <span className="number-rating"></span>
         </div>
-        <p>{moment(date).format('MMMM Do YYYY')}</p>
-        <p>User: {`${name}`}</p>
-        <p>{this.props.body}</p>
-        <p>Helpful? Yes: ({this.props.helpfulness}) | Report</p>
+        <p className="checkMark-userName-date-stars">
+          <div className="checkMark">
+            <img className="checkmark" alt="checkmark" src="https://bit.ly/2Ygb3dD" style={recommend ? { float: 'right' } : { display: 'none' }} />
+          </div>
+          <div className="userName-Date">
+            {`${name} `}
+            &nbsp;
+            {moment(date).format('MMMM Do YYYY')}
+          </div>
+        </p>
+        <h2>
+          {summary}
+        </h2>
+        <p className="reviewBody">{body}</p>
+        <p className="helpfulness">
+          Helpful?
+          &nbsp;
+          <a href="#" 
+            onClick={this.onClick}>
+              Yes
+          </a>
+          ({this.state.helpfulness})
+           |Report
+        </p>
+        <hr></hr>
       </div>
-    )
+    );
   }
 }
 

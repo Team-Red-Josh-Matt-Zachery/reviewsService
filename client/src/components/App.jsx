@@ -41,7 +41,6 @@ class App extends Component {
         <StarRatings
           reviewData={reviews}
         />
-        <h1>I am the reviews service!</h1>
         <input
           type="text"
           onChange={this.handleChange}
