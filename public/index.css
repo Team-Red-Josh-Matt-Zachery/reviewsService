@@ -78,3 +78,29 @@ hr {
     margin: 1em 0;
     padding: 0;
 }
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: text-top;
+    margin: 0 auto;
+}
+
+.ratingBody {
+    display: inline-block;
+    vertical-align: text-top;
+    margin: 0 auto;
+}
+
+
+.sidebarAndRatings {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+}
+
+
+
+

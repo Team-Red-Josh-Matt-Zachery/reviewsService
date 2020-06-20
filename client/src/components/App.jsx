@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import StarRatings from './StarRatings.jsx';
+import StarRatings from './StarRatings';
+import Sidebar from './Sidebar';
 
 class App extends Component {
   constructor() {
@@ -37,13 +38,10 @@ class App extends Component {
   render() {
     const { reviews } = this.state;
     return (
-      <div>
+      <div className="sidebarAndRatings">
+        <Sidebar />
         <StarRatings
           reviewData={reviews}
-        />
-        <input
-          type="text"
-          onChange={this.handleChange}
         />
       </div>
     );
