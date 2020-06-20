@@ -57,7 +57,7 @@ class StarRating extends React.Component {
     const { recommend } = this.props;
     const { body } = this.props;
     return (
-      <div className={`${name}`}>
+      <div className="ratingBody">
         <div className="starsParent">
           <div className="stars-outer">
             <div className="stars-inner" style={widthStyle}></div>
