@@ -6,9 +6,16 @@ class Sidebar extends React.Component {
 
     this.state = {
       reviews: [],
+      averageRating: 0,
       starPercentage: '0',
+      star5: 0,
+      star4: 0,
+      star3: 0,
+      star2: 0,
+      star1: 0,
     };
     this.averageStarRating = this.averageStarRating.bind(this);
+    this.updateEachStarBar = this.updateEachStarBar.bind(this);
   }
 
   componentDidMount() {
@@ -17,22 +24,35 @@ class Sidebar extends React.Component {
       .then(data => this.setState({
         reviews: data.results,
       }))
-      .then(moarData => this.averageStarRating());
+      .then(moarData => this.averageStarRating())
+      .then(smoreData => this.updateEachStarBar());
   }
 
   averageStarRating() {
     const { reviews } = this.state;
     let ratingSum = 0;
     for (let i = 0; i < reviews.length; i++) {
-      ratingSum += reviews[i].rating
+      ratingSum += reviews[i].rating;
     }
     if (ratingSum) {
       const averageRating = ratingSum / reviews.length;
       const starPercentage = (averageRating / 5) * 100;
-      console.log('starPercentage', starPercentage)
       this.setState({
-        starPercentage: starPercentage
-      })
+        starPercentage,
+        averageRating,
+      });
+    }
+
+  }
+
+  updateEachStarBar() {
+    const { reviews } = this.state;
+    for (let i = 0; i < reviews.length; i++) {
+      let updateStateVal = reviews[i].rating++
+      console.log('updatestateval:', updateStateVal)
+    //   this.setState({
+    //     star
+    //   })
     }
   }
 
@@ -46,21 +66,30 @@ class Sidebar extends React.Component {
         <ul className="list-unstyled components">
           <li>
             <div className="sb-starsParent">
-              <p className="sidebarStarNum">3.5</p>
+              <p className="sidebarStarNum">{(this.state.averageRating).toFixed(1)}</p>
               <div className="sb-stars-outer">
                 <div className="sb-stars-inner" style={widthStyle}></div>
               </div>
               <span className="sb-number-rating"></span>
             </div>
-            <br></br>
             <div className="sidebarRecommend">100% of reviews recommend this product</div>
             <div className="sidebarStarGraph">
-              <p>5 stars</p>
-              <p>4 stars</p>
-              <p>3 stars</p>
-              <p>2 stars</p>
-              <p>1 star</p>
-              <p>test:</p>
+              <div className="sb-star-label-wrapper">
+                <div className="sb-star-labels">{`5 stars: `}
+                    <div className="sb-star-breakdown" style={{width: '25%'}}>  
+                        <span></span>
+                    </div>
+                </div>
+                <br></br>
+                <div className="sb-star-labels">{`4 stars: `}<div className="sb-star-breakdown" style={{width: '25%'}}></div></div>
+                <br></br>
+                <div className="sb-star-labels">{`3 stars: `}<div className="sb-star-breakdown" style={{width: '25%'}}></div></div>
+                <br></br>
+                <div className="sb-star-labels">{`2 stars: `}<div className="sb-star-breakdown" style={{width: '25%'}}></div></div>
+                <br></br>
+                <div className="sb-star-labels">{`1 stars: `}<div className="sb-star-breakdown" style={{width: '25%'}}></div></div>
+                <br></br>
+              </div>
             </div>
             <div className="sizeChart">
               <p>size</p>

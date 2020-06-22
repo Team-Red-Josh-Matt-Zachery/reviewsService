@@ -116,7 +116,7 @@ hr {
 
 .sb-starsParent {
     position: relative;
-    margin: 10px 0 10px 0;
+    margin: 5px 0 10px 0;
 }
 
 .sb-stars-outer {
@@ -147,6 +147,36 @@ hr {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     color: #f8ce0b;
+}
+
+/* STAR BARS (PRODUCT BREAKDOWN) */
+/* .sb-star-breakdown {
+    display: inline-block;
+    border: 1px solid black;
+    width: 100px;
+    margin: auto;
+} */
+
+/* This is just the styling for the bars */
+.sb-star-breakdown {
+    height: 20px;  /* Can be anything */
+    display: relative;
+	background: #555;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;
+	border-radius: 25px;
+	padding: 10px;
+	box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+
+.bars-outer {
+    display: inline-block;
+}
+
+.sb-star-label-wrapper {
+    overflow-x: auto;
+    white-space: nowrap;
+    position: relative;
 }
 
 
