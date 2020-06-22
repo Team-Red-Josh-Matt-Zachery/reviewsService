@@ -31,7 +31,8 @@ class StarRating extends React.Component {
     const starsTotal = 5;
     const { rating } = this.props;
     const starPercentage = (rating / starsTotal) * 100;
-    const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
+    // const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
+    const starPercentageRounded = `${(starPercentage / 10) * 10}%`;
     this.setState({
       starPercentageRounded,
     });
@@ -64,7 +65,7 @@ class StarRating extends React.Component {
           </div>
           <span className="number-rating"></span>
         </div>
-        <p className="checkMark-userName-date-stars">
+        <div className="checkMark-userName-date-stars">
           <div className="checkMark">
             <img className="checkmark" alt="checkmark" src="https://bit.ly/2Ygb3dD" style={recommend ? { float: 'right' } : { display: 'none' }} />
           </div>
@@ -73,7 +74,7 @@ class StarRating extends React.Component {
             &nbsp;
             {moment(date).format('MMMM Do YYYY')}
           </div>
-        </p>
+        </div>
         <h2>
           {summary}
         </h2>

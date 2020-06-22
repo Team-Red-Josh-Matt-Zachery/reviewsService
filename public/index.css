@@ -1,3 +1,9 @@
+* {
+    font-family: helvetica;
+}
+
+/* ***STARS IN REVIEWS*** */
+
 .starsParent {
     position: relative;
     margin: 10px 0 10px 0;
@@ -75,6 +81,22 @@ hr {
     width: 100%;
 }
 
+/* ***SIDEBAR*** */
+
+.sidebarTitle {
+    margin: 5px auto 40px auto;
+}
+
+.sidebarRecommend {
+    margin: auto;
+}
+
+.sidebarStarNum {
+    position: relative;
+    top: -30px;
+    font-size: 60px;
+}
+
 #sidebar {
     min-width: 250px;
     max-width: 250px;
@@ -84,18 +106,51 @@ hr {
     margin: 0 auto;
 }
 
-/* .ratingBody {
-    display: inline-block;
-    vertical-align: text-top;
-    margin: 0 auto;
-} */
-
-
 .sidebarAndRatings {
     width: 100%;
     display: flex;
     align-items: stretch;
 }
+
+/* Sidebar Stars */
+
+.sb-starsParent {
+    position: relative;
+    margin: 10px 0 10px 0;
+}
+
+.sb-stars-outer {
+    position: absolute;
+    top: -10px;
+    left: 90px;
+    display: block;
+}
+
+.sb-stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+.sb-stars-outer::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #ccc;
+}
+
+.sb-stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #f8ce0b;
+}
+
+
+
 
 
 

@@ -39,7 +39,9 @@ class App extends Component {
     const { reviews } = this.state;
     return (
       <div className="sidebarAndRatings">
-        <Sidebar />
+        <Sidebar
+          reviewData={reviews}
+        />
         <StarRatings
           reviewData={reviews}
         />
