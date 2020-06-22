@@ -86,7 +86,9 @@ class StarRating extends React.Component {
               Yes
           </a>
           ({this.state.helpfulness})
-           |Report
+          |
+          &nbsp;
+          Report
         </p>
         <hr></hr>
       </div>
