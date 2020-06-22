@@ -5,15 +5,16 @@ class StarRatings extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = [];
+    this.state = null;
   }
 
   render() {
     return (
       <div className="container">
         <div className="table table-striped">
-            {this.props.reviewData.map((product) =>
-              <StarRating 
+            {this.props.reviewData.map((product, i) =>
+              <StarRating
+                key={i} 
                 name={product.reviewer_name}
                 rating={product.rating}
                 summary={product.summary}
