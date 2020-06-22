@@ -13,11 +13,18 @@ class Sidebar extends React.Component {
     const { someState } = this.state;
     return (
       <div id="sidebar">
-        <div classNAme="sidebar-header"><h3>I am sidebar header</h3></div>
+        <div classNAme="sidebar-header"><h3>{`Ratings&Reviews`}</h3></div>
         <ul className="list-unstyled components">
-          <p>Stupid heading</p>
+          <p>3.5 Stars</p>
           <li>
-            <p>Somethign could go here</p>
+            <p>100% of reviews recommend this product</p>
+            <p>5 stars</p>
+            <p>4 stars</p>
+            <p>3 stars</p>
+            <p>2 stars</p>
+            <p>1 star</p>
+            <p>size</p>
+            <p>comfort</p>
           </li>
         </ul>
         <div id="content">
