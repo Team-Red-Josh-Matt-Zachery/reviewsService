@@ -1,7 +1,7 @@
 import React from 'react';
-import StarRating from './StarRating.jsx';
+import Review from './Review.jsx';
 
-class StarRatings extends React.Component {
+class ReviewList extends React.Component {
   constructor(props) {
     super(props);
 
@@ -13,7 +13,7 @@ class StarRatings extends React.Component {
       <div className="container">
         <div className="table table-striped">
             {this.props.reviewData.map((product, i) =>
-              <StarRating
+              <Review
                 key={i} 
                 name={product.reviewer_name}
                 rating={product.rating}
@@ -31,4 +31,4 @@ class StarRatings extends React.Component {
   }
 }
 
-export default StarRatings;
+export default ReviewList;

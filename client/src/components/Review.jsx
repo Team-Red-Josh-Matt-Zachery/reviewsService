@@ -2,7 +2,7 @@ import React from 'react';
 
 import moment from 'moment';
 
-class StarRating extends React.Component {
+class Review extends React.Component {
   constructor(props) {
     super(props);
 
@@ -98,4 +98,4 @@ class StarRating extends React.Component {
   }
 }
 
-export default StarRating;
+export default Review;

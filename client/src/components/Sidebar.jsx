@@ -1,4 +1,5 @@
 import React from 'react';
+import StarBars from './StarBars.jsx'
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class Sidebar extends React.Component {
   }
 
   componentDidMount() {
-    fetch(' http://52.26.193.201:3000/reviews/2/list')
+    fetch(' http://52.26.193.201:3000/reviews/1/list')
       .then(res => res.json())
       .then(data => this.setState({
         reviews: data.results,
@@ -94,24 +95,9 @@ class Sidebar extends React.Component {
               <span className="sb-number-rating"></span>
             </div>
             <div className="sidebarRecommend">100% of reviews recommend this product</div>
-            <div className="sidebarStarGraph">
-              <div className="sb-star-label-wrapper">
-                <div className="sb-star-labels">{`5 stars: `}
-                    <div className="sb-star-breakdown" style={{width: barPercents[4]}}>  
-                        <span></span>
-                    </div>
-                </div>
-                <br></br>
-                <div className="sb-star-labels">{`4 stars: `}<div className="sb-star-breakdown" style={{width: barPercents[3]}}></div></div>
-                <br></br>
-                <div className="sb-star-labels">{`3 stars: `}<div className="sb-star-breakdown" style={{width: barPercents[2]}}></div></div>
-                <br></br>
-                <div className="sb-star-labels">{`2 stars: `}<div className="sb-star-breakdown" style={{width: barPercents[1]}}></div></div>
-                <br></br>
-                <div className="sb-star-labels">{`1 stars: `}<div className="sb-star-breakdown" style={{width: barPercents[0]}}></div></div>
-                <br></br>
-              </div>
-            </div>
+            <StarBars
+              barPercents={barPercents}
+            />
             <div className="sizeChart">
               {/* <p>size</p>
               <p>comfort</p> */}
