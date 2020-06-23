@@ -13,6 +13,7 @@
     position: absolute;
     top: -10px;
     display: block;
+    font-size: 13px;
 }
 
 .stars-inner {
@@ -46,6 +47,13 @@
 
 .reviewBody {
     margin: auto;
+    font-size: 18px;
+}
+
+.summary {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
 }
 
 .checkMark-userName-date-stars {
@@ -56,9 +64,10 @@
 }
 
 .helpfulness{
-    margin: 10px 0 10px 0;
+    margin: 10px 0 0px 0;
     display: block;
-    padding: 5px 0 5px;
+    padding: 5px 0 0 0;
+    font-size: 14px;
 }
 
 h2 {
@@ -73,10 +82,10 @@ h2 {
 
 hr {
     display: block;
-    height: 1.6px;
+    height: 1.0px;
     border: 0;
     border-top: 1.2px solid #ccc;
-    margin: 2em 0;
+    margin: 1em 0 2.5em;
     padding: 0;
     width: 100%;
 }
@@ -85,16 +94,21 @@ hr {
 
 .sidebarTitle {
     margin: 5px auto 40px auto;
+    text-transform: uppercase;
+    letter-spacing: .1em;
 }
 
 .sidebarRecommend {
-    margin: auto;
+    font-size: 13px;
+    white-space: nowrap;
+    margin: 0 0 20px 0;
 }
 
 .sidebarStarNum {
     position: relative;
     top: -30px;
     font-size: 60px;
+    margin: 0 0 0 0;
 }
 
 #sidebar {
@@ -116,7 +130,6 @@ hr {
 
 .sb-starsParent {
     position: relative;
-    margin: 5px 0 10px 0;
 }
 
 .sb-stars-outer {
@@ -124,6 +137,7 @@ hr {
     top: -10px;
     left: 90px;
     display: block;
+    font-size: 13px;
 }
 
 .sb-stars-inner {
@@ -133,6 +147,7 @@ hr {
     white-space: nowrap;
     overflow: hidden;
     width: 0;
+    font-size: 13px;
 }
 
 .sb-stars-outer::before {
@@ -157,16 +172,16 @@ hr {
     margin: auto;
 } */
 
+.sb-star-labels {
+    font-size: 15px;
+}
+
 /* This is just the styling for the bars */
 .sb-star-breakdown {
-    height: 20px;  /* Can be anything */
-    display: relative;
-	background: #555;
-	-moz-border-radius: 25px;
-	-webkit-border-radius: 25px;
-	border-radius: 25px;
-	padding: 10px;
-	box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+    height: 8px;
+    display: inline-block;
+	background: #444;
+	padding: 0px 12px;
 }
 
 .bars-outer {

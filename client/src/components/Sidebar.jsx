@@ -8,18 +8,21 @@ class Sidebar extends React.Component {
       reviews: [],
       averageRating: 0,
       starPercentage: '0',
-      star5: 0,
-      star4: 0,
-      star3: 0,
-      star2: 0,
-      star1: 0,
+      barPercents: [],
+      stars: [
+        { name: 1, count: 0},
+        { name: 2, count: 0},
+        { name: 3, count: 0},
+        { name: 4, count: 0},
+        { name: 5, count: 0},
+      ]
     };
     this.averageStarRating = this.averageStarRating.bind(this);
     this.updateEachStarBar = this.updateEachStarBar.bind(this);
   }
 
   componentDidMount() {
-    fetch(' http://52.26.193.201:3000/reviews/1/list')
+    fetch(' http://52.26.193.201:3000/reviews/2/list')
       .then(res => res.json())
       .then(data => this.setState({
         reviews: data.results,
@@ -46,23 +49,41 @@ class Sidebar extends React.Component {
   }
 
   updateEachStarBar() {
-    const { reviews } = this.state;
+    const { reviews, stars } = this.state;
+    let ratingCounter = 0;
     for (let i = 0; i < reviews.length; i++) {
-      let updateStateVal = reviews[i].rating++
-      console.log('updatestateval:', updateStateVal)
-    //   this.setState({
-    //     star
-    //   })
+      let currentRating = reviews[i].rating;
+      for (let j = 0; j < stars.length; j++) {
+        if (stars[j].name === currentRating) {
+          ratingCounter++
+          let oldState = stars;
+          let updateState = stars[j].count += 1
+          oldState[j].count = updateState;
+          console.log(oldState);
+          this.setState({
+            stars: oldState,
+          });
+        }
+      }
     }
+    let barPercents = [];
+    for (let k = 0; k < stars.length; k++) {
+      let percentage = ((stars[k].count / ratingCounter) * 100).toFixed(1);
+      barPercents.push(`${percentage}%`);
+    }
+    this.setState({
+      barPercents,
+    });
   }
 
   render() {
     let widthStyle = {
       width: `${this.state.starPercentage}%`,
     };
+    let { barPercents } = this.state;
     return (
       <div id="sidebar">
-        <div className="sidebar-header"><h3 className="sidebarTitle">{`Ratings&Reviews`}</h3></div>
+        <div className="sidebar-header"><div className="sidebarTitle">{`Ratings & Reviews`}</div></div>
         <ul className="list-unstyled components">
           <li>
             <div className="sb-starsParent">
@@ -76,29 +97,29 @@ class Sidebar extends React.Component {
             <div className="sidebarStarGraph">
               <div className="sb-star-label-wrapper">
                 <div className="sb-star-labels">{`5 stars: `}
-                    <div className="sb-star-breakdown" style={{width: '25%'}}>  
+                    <div className="sb-star-breakdown" style={{width: barPercents[4]}}>  
                         <span></span>
                     </div>
                 </div>
                 <br></br>
-                <div className="sb-star-labels">{`4 stars: `}<div className="sb-star-breakdown" style={{width: '25%'}}></div></div>
+                <div className="sb-star-labels">{`4 stars: `}<div className="sb-star-breakdown" style={{width: barPercents[3]}}></div></div>
                 <br></br>
-                <div className="sb-star-labels">{`3 stars: `}<div className="sb-star-breakdown" style={{width: '25%'}}></div></div>
+                <div className="sb-star-labels">{`3 stars: `}<div className="sb-star-breakdown" style={{width: barPercents[2]}}></div></div>
                 <br></br>
-                <div className="sb-star-labels">{`2 stars: `}<div className="sb-star-breakdown" style={{width: '25%'}}></div></div>
+                <div className="sb-star-labels">{`2 stars: `}<div className="sb-star-breakdown" style={{width: barPercents[1]}}></div></div>
                 <br></br>
-                <div className="sb-star-labels">{`1 stars: `}<div className="sb-star-breakdown" style={{width: '25%'}}></div></div>
+                <div className="sb-star-labels">{`1 stars: `}<div className="sb-star-breakdown" style={{width: barPercents[0]}}></div></div>
                 <br></br>
               </div>
             </div>
             <div className="sizeChart">
-              <p>size</p>
-              <p>comfort</p>
+              {/* <p>size</p>
+              <p>comfort</p> */}
             </div>
           </li>
         </ul>
         <div id="content">
-          <p>Content</p>
+          {/* <p>Content</p> */}
         </div>
       </div>
     );
