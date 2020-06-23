@@ -70,14 +70,15 @@ class StarRating extends React.Component {
             <img className="checkmark" alt="checkmark" src="https://bit.ly/2Ygb3dD" style={recommend ? { float: 'right' } : { display: 'none' }} />
           </div>
           <div className="userName-Date">
-            {`${name} `}
+            {`${name}, `}
             &nbsp;
             {moment(date).format('MMMM Do YYYY')}
+            &nbsp;
           </div>
         </div>
-        <h2>
+        <div className="summary">
           {summary}
-        </h2>
+        </div>
         <p className="reviewBody">{body}</p>
         <p className="helpfulness">
           Helpful?
