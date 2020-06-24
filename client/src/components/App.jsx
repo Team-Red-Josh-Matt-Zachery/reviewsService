@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReviewList from './ReviewList';
 import Sidebar from './Sidebar';
+import { createPortal } from 'react-dom';
 
 class App extends Component {
   constructor() {
@@ -8,6 +9,12 @@ class App extends Component {
 
     this.state = {
       reviews: [],
+      filterReviews: [],
+      hide5Stars: false,
+      hide4Stars: false,
+      hide3Stars: false,
+      hide2Stars: false,
+      hide1Stars: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,25 +37,45 @@ class App extends Component {
       };
     });
   }
-  
+
   // Come back to this tomorrow
   filterReviewList(e) {
     // console.log(e.target.innerText)
     let { reviews } = this.state;
-    let newReviewState = reviews.filter(review => review.rating === Number(e.target.innerText[0]));
-    console.log(newReviewState);
+    const newReviewState = [];
+    for (let i = 0; i < reviews.length; i++) {
+      if (reviews[i].rating === Number(e.target.innerText[0])) {
+        newReviewState.push(reviews[i]);
+      }
+      for (let key in this.state ) {
+        if (key.includes(e.target.innerText[0])) {
+          let keyTruth = !!!this.state.key
+          console.log(keyTruth)
+          this.setState({
+            [key]: keyTruth,
+          })
+        }
+      }
+    }
+    // Here I am filtering and then reseting the original
+    // review array
+    Promise.resolve(
+      this.setState({
+        filterReviews: newReviewState,
+      }),
+    );
   }
 
   render() {
-    const { reviews } = this.state;
+    const { reviews, filterReviews } = this.state;
     return (
       <div className="sidebarAndRatings">
         <Sidebar
-          reviewData={reviews}
+          reviewData={filterReviews}
           filter={this.filterReviewList}
         />
         <ReviewList
-          reviewData={reviews}
+          reviewData={filterReviews}
         />
       </div>
     );
