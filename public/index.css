@@ -2,7 +2,7 @@
     font-family: helvetica;
 }
 
-/* ***STARS IN REVIEWS*** */
+/* ***STAR STLYING FOR EACH REVIEW*** */
 
 .starsParent {
     position: relative;
@@ -36,24 +36,24 @@
     content: "\f005 \f005 \f005 \f005 \f005";
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    color: #f8ce0b;
+    color: #525252;
+}
+
+.reviewBody {
+    margin: auto;
+    font-size: 14px;
+}
+
+.summary {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
 }
 
 .checkmark {
     width: 2%;
     height: 2%;
     display: inline-block;
-}
-
-.reviewBody {
-    margin: auto;
-    font-size: 18px;
-}
-
-.summary {
-    font-size: 22px;
-    font-weight: bold;
-    margin: 0 0 5px 0;
 }
 
 .checkMark-userName-date-stars {
@@ -67,7 +67,7 @@
     margin: 10px 0 0px 0;
     display: block;
     padding: 5px 0 0 0;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 h2 {
@@ -79,6 +79,8 @@ h2 {
     font-weight: bold;
 
 }
+
+/* this is the horizontal line for after each review */
 
 hr {
     display: block;
@@ -99,9 +101,9 @@ hr {
 }
 
 .sidebarRecommend {
-    font-size: 13px;
+    font-size: 12px;
     white-space: nowrap;
-    margin: 0 0 20px 0;
+    margin: 0 0px 0px 0px;
 }
 
 .sidebarStarNum {
@@ -117,7 +119,7 @@ hr {
     padding: 20px;
     display: inline-block;
     vertical-align: text-top;
-    margin: 0 auto;
+    margin: 0 30px;
 }
 
 .sidebarAndRatings {
@@ -130,6 +132,7 @@ hr {
 
 .sb-starsParent {
     position: relative;
+    margin: 0px 0px 0px 0px;
 }
 
 .sb-stars-outer {
@@ -161,43 +164,59 @@ hr {
     content: "\f005 \f005 \f005 \f005 \f005";
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    color: #f8ce0b;
+    color: #525252;
 }
 
 /* STAR BARS (PRODUCT BREAKDOWN) */
-/* .sb-star-breakdown {
-    display: inline-block;
-    border: 1px solid black;
-    width: 100px;
-    margin: auto;
-} */
 
+
+/*the collection of star labels */
 .sb-star-labels {
     font-size: 15px;
-    margin: 7px 0 7px 0;
+    margin: 7px 0 7px 0px;
+    position: absolute;
+    white-space: nowrap;
+}
+
+/*each individual label i.e. 5stars: */
+
+.starlabel {
+    margin: 0px 0 5px 0;
+    cursor: pointer;
 }
 
 /* This is just the styling for the bars */
 .sb-star-breakdown {
-    height: 8px;
-    display: inline-block;
+    height: 7px;
+    display: absolute;
 	background: #444;
-	padding: 0px 12px;
+    padding: 0px 12px;
+    /* newstuff */
+    margin: 5px 0 20px 0;
+    position: inline-block;
 }
 
 .bars-outer {
-    /* height: 8px; */
-    /* width: 100%; */
-    /* display: inline-block; */
-	/* background: lightgrey; */
-	/* padding: 0px 12px; */
+    position: relative;
+    white-space: nowrap;
+    width: 80%;
+    background: lightgrey;
+    /* padding: 0px 12px; */
+    margin: 10px 0px 0px 53px;
+    top: 15px;
 }
 
-.sb-star-label-wrapper {
-    overflow-x: auto;
-    white-space: nowrap;
-    position: relative;
+/* SORT */
+
+.sort-container {
+    margin: 80px 0 40px 0;
+    font-weight: bold;
 }
+
+.sort-text > a {
+    color: black;
+}
+
 
 
 
