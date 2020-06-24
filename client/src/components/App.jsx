@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReviewList from './ReviewList';
 import Sidebar from './Sidebar';
-import { createPortal } from 'react-dom';
 
 class App extends Component {
   constructor() {
@@ -19,6 +18,9 @@ class App extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.filterReviewList = this.filterReviewList.bind(this);
+    this.toggleSelected = this.toggleSelected.bind(this);
+    // this.updateReviews = this.updateReviews.bind(this);
+    // this.handleFilter = this.handleFilter.bind(this);
   }
 
   componentDidMount() {
@@ -26,6 +28,7 @@ class App extends Component {
       .then(res => res.json())
       .then(data => this.setState({
         reviews: data.results,
+        filterReviews: data.results,
       }));
   }
 
@@ -39,32 +42,64 @@ class App extends Component {
   }
 
   // Come back to this tomorrow
+  // filterReviewList(e) {
+  //   // console.log(e.target.innerText)
+  //   let { reviews } = this.state;
+  //   let newReviewState = [...this.state.filterReviews];
+  //   for (let i = 0; i < reviews.length; i++) {
+  //     for (let key in this.state ) {
+  //       if (key.includes(e.target.innerText[0])) {
+  //         // this is a cool way of toggling state booleans
+  //         if (reviews[i].rating === Number(e.target.innerText[0]) && !this.state[key]) {
+  //           newReviewState.unshift(reviews[i]);
+  //           this.setState(prevState => ({
+  //             [key]: !prevState[key],
+  //           }))
+  //         }
+  //       }
+  //     }
+  //   }
+  //   console.log(newReviewState)
+  //   // Here I am filtering and then reseting the original
+  //   // review array
+  //     this.setState({
+  //       filterReviews: newReviewState,
+  //     })
+  // }
+
   filterReviewList(e) {
-    // console.log(e.target.innerText)
     let { reviews } = this.state;
-    const newReviewState = [];
-    for (let i = 0; i < reviews.length; i++) {
-      if (reviews[i].rating === Number(e.target.innerText[0])) {
-        newReviewState.push(reviews[i]);
-      }
-      for (let key in this.state ) {
-        if (key.includes(e.target.innerText[0])) {
-          let keyTruth = !!!this.state.key
-          console.log(keyTruth)
-          this.setState({
-            [key]: keyTruth,
-          })
-        }
+    let newReviewState = reviews;
+    //toggle
+    this.toggleSelected(e)
+    //check for toggle
+
+    // this.setState({
+    //   filterReviews: newReviewState,
+    // });
+
+  }
+
+  componentDidUpdate() {
+    console.log(this.state)
+  }
+
+  toggleSelected(e) {
+    let { reviews } = this.state;
+    let newReviewState = reviews;
+    let stateEntries = Object.entries(this.state);
+    for (let i = 0; i < stateEntries.length; i++) {
+      if (!Array.isArray(stateEntries[i][1]) && stateEntries[i][0].includes(Number(e.target.innerText[0]))) {
+        this.setState(prevState => ({
+          [stateEntries[i][0]]: !prevState[stateEntries[i][0]],
+        }));
       }
     }
-    // Here I am filtering and then reseting the original
-    // review array
-    Promise.resolve(
-      this.setState({
-        filterReviews: newReviewState,
-      }),
-    );
   }
+
+  // updateReviews() {
+  //   console.log(this.state)
+  // }
 
   render() {
     const { reviews, filterReviews } = this.state;
