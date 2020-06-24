@@ -11,7 +11,7 @@ class App extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    // this.getReviewData = this.getReviewData.bind(this);
+    this.filterReviewList = this.filterReviewList.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +30,14 @@ class App extends Component {
       };
     });
   }
+  
+  // Come back to this tomorrow
+  filterReviewList(e) {
+    // console.log(e.target.innerText)
+    let { reviews } = this.state;
+    let newReviewState = reviews.filter(review => review.rating === Number(e.target.innerText[0]));
+    console.log(newReviewState);
+  }
 
   render() {
     const { reviews } = this.state;
@@ -37,6 +45,7 @@ class App extends Component {
       <div className="sidebarAndRatings">
         <Sidebar
           reviewData={reviews}
+          filter={this.filterReviewList}
         />
         <ReviewList
           reviewData={reviews}

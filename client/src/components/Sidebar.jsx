@@ -60,7 +60,6 @@ class Sidebar extends React.Component {
           let oldState = stars;
           let updateState = stars[j].count += 1
           oldState[j].count = updateState;
-          console.log(oldState);
           this.setState({
             stars: oldState,
           });
@@ -97,6 +96,7 @@ class Sidebar extends React.Component {
             <div className="sidebarRecommend">100% of reviews recommend this product</div>
             <StarBars
               barPercents={barPercents}
+              filter={this.props.filter}
             />
             <div className="sizeChart">
               {/* <p>size</p>
