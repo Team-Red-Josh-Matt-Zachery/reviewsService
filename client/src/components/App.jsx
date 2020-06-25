@@ -68,26 +68,40 @@ class App extends Component {
   // }
 
   filterReviewList(e) {
-    let { reviews } = this.state;
-    let newReviewState = reviews;
     //toggle
     this.toggleSelected(e)
-    //check for toggle
-
-    // this.setState({
-    //   filterReviews: newReviewState,
-    // });
+    //check for toggle within comp.D.U.
 
   }
 
-  componentDidUpdate() {
-    console.log(this.state)
+  componentDidUpdate(previousProps, previousState) {
+    let { filterReviews, reviews } = this.state;
+    // let newReviewState = reviews;
+
+    let newArr = [];
+    let stateEntries = Object.entries(this.state);
+    for (let j = 0; j < stateEntries.length; j++) {
+      if (!stateEntries[j][1] && !Array.isArray(stateEntries[j][1])) {
+        let num = Number(stateEntries[j][0].substring(4, 5))
+        console.log(num)
+        for (let k = 0; k < reviews.length; k++) {
+          if (reviews[k].rating === num) {
+            newArr.push(reviews[k])
+          }
+        }
+        //need to push the review that contains this num within this element
+      }
+    }
+    let previousStateStrung = JSON.stringify(previousState)
+    if (previousStateStrung !== JSON.stringify(this.state)) {
+      this.setState({
+        filterReviews: newArr,
+      });
+    }
   }
 
   toggleSelected(e) {
-    let { reviews } = this.state;
-    let newReviewState = reviews;
-    let stateEntries = Object.entries(this.state);
+    const stateEntries = Object.entries(this.state);
     for (let i = 0; i < stateEntries.length; i++) {
       if (!Array.isArray(stateEntries[i][1]) && stateEntries[i][0].includes(Number(e.target.innerText[0]))) {
         this.setState(prevState => ({
