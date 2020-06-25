@@ -57,7 +57,6 @@ class StarBars extends React.Component {
         <button className="stars2-button" type="button" onClick={filter} style={!hide2Stars ? {display: style } : { display: 'none'}}>2 stars</button>
         <button className="stars1-button" type="button" onClick={filter} style={!hide1Stars ? {display: style } : { display: 'none'}}>1 stars</button>
         <button className="remove-filter-button" type="button" onClick={removeFilter} style={isAnyStarShowing ? {display: style } : { display: 'none'}}>Remove filters</button>
-
       </div>
     );
   }
