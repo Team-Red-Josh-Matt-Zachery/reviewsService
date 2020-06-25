@@ -207,6 +207,10 @@ hr {
     top: 15px;
 }
 
+.bars-outer:hover {
+    cursor: pointer;
+}
+
 /* SORT */
 
 .sort-container {
@@ -230,6 +234,12 @@ hr {
     display: none;
     width: 100%;
     margin: 5px 0;
+}
+
+/* more review / add review buttons */
+
+.more-reviews-button, .add-review-button {
+    margin: 0px 0px 100px 0px;
 }
 
 
