@@ -81,6 +81,7 @@ class Sidebar extends React.Component {
       width: `${this.state.starPercentage}%`,
     };
     let { barPercents } = this.state;
+    let { hide5Stars, hide4Stars, hide3Stars, hide2Stars, hide1Stars, style } = this.props;
     return (
       <div id="sidebar">
         <div className="sidebar-header"><div className="sidebarTitle">{`Ratings & Reviews`}</div></div>
@@ -97,6 +98,12 @@ class Sidebar extends React.Component {
             <StarBars
               barPercents={barPercents}
               filter={this.props.filter}
+              hide5Stars={hide5Stars}
+              hide4Stars={hide4Stars}
+              hide3Stars={hide3Stars}
+              hide2Stars={hide2Stars}
+              hide1Stars={hide1Stars}
+              style={style}
             />
             <div className="sizeChart">
               {/* <p>size</p>
