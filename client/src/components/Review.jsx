@@ -27,6 +27,12 @@ class Review extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (JSON.stringify(prevProps) !== JSON.stringify(this.props)) {
+      this.getRatings();
+    }
+  }
+
   getRatings() {
     const starsTotal = 5;
     const { rating } = this.props;
