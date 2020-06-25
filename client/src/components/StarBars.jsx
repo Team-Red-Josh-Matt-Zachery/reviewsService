@@ -14,6 +14,9 @@ class StarBars extends React.Component {
 
 
     return (
+      /* NOTE: The only reason I can use filter on both the labels
+       and the the buttons is because they both have the same inner text,
+       */
       <div className="sidebarStarGraph">
         <div className="sb-star-labels">
           <div className="starlabel" onClick={filter}>5 stars</div>
@@ -38,11 +41,11 @@ class StarBars extends React.Component {
           <div className="sb-star-breakdown" style={{width: barPercents[0]}}></div>
         </div>
         <div className="star-button-title">Filters Selected:</div>
-        <button className="stars5-button" style={!hide5Stars ? {display: style } : { display: 'none'}}>5 stars</button>
-        <button className="stars4-button" style={!hide4Stars ? {display: style } : { display: 'none'}}>4 stars</button>
-        <button className="stars3-button" style={!hide3Stars ? {display: style } : { display: 'none'}}>3 stars</button>
-        <button className="stars2-button" style={!hide2Stars ? {display: style } : { display: 'none'}}>2 stars</button>
-        <button className="stars1-button" style={!hide1Stars ? {display: style } : { display: 'none'}}>1 stars</button>
+        <button className="stars5-button" onClick={filter} style={!hide5Stars ? {display: style } : { display: 'none'}}>5 stars</button>
+        <button className="stars4-button" onClick={filter} style={!hide4Stars ? {display: style } : { display: 'none'}}>4 stars</button>
+        <button className="stars3-button" onClick={filter} style={!hide3Stars ? {display: style } : { display: 'none'}}>3 stars</button>
+        <button className="stars2-button" onClick={filter} style={!hide2Stars ? {display: style } : { display: 'none'}}>2 stars</button>
+        <button className="stars1-button" onClick={filter} style={!hide1Stars ? {display: style } : { display: 'none'}}>1 stars</button>
         {/* <img src="https://bit.ly/2Ygb3dD" style={recommend ? { float: 'right' } : { display: 'none' }} /> */}
         {/* style={{width: barPercents[4]}} */}
       </div>
