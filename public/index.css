@@ -225,7 +225,7 @@ hr {
     font-size: 14px;
 }
 
-.stars5-button, .stars4-button, .stars3-button, .stars2-button, .stars1-button {
+.stars5-button, .stars4-button, .stars3-button, .stars2-button, .stars1-button, .remove-filter-button {
     display: none;
     width: 100%;
     margin: 5px 0;

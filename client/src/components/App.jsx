@@ -21,6 +21,7 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.filterReviewList = this.filterReviewList.bind(this);
     this.toggleSelected = this.toggleSelected.bind(this);
+    this.removeFilter = this.removeFilter.bind(this);
   }
 
   componentDidMount() {
@@ -96,6 +97,18 @@ class App extends Component {
     }
   }
 
+  removeFilter() {
+    this.setState({
+      hide5Stars: false,
+      hide4Stars: false,
+      hide3Stars: false,
+      hide2Stars: false,
+      hide1Stars: false,
+      style: 'none',
+      filterCounter: 0,
+    });
+  }
+
   render() {
     const { reviews, filterReviews, hide5Stars, hide4Stars, hide3Stars, hide2Stars, hide1Stars, style } = this.state;
     return (
@@ -103,6 +116,7 @@ class App extends Component {
         <Sidebar
           reviewData={filterReviews}
           filter={this.filterReviewList}
+          removeFilter={this.removeFilter}
           hide5Stars={hide5Stars}
           hide4Stars={hide4Stars}
           hide3Stars={hide3Stars}
