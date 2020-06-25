@@ -8,10 +8,11 @@ class Sort extends Component {
   }
 
   render() {
+    let { reviewData } = this.props;
     return (
       <div className="sort-container">
         <div className="sort-text">
-          248 reviews, sorted by
+          {reviewData.length} reviews, sorted by
           &nbsp;
           <a href="http://www.google.com">
             relevance
