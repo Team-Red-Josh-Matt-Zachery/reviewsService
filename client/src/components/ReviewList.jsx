@@ -10,9 +10,12 @@ class ReviewList extends React.Component {
   }
 
   render() {
+    let { reviewData } = this.props;
     return (
       <div className="container">
-        <Sort />
+        <Sort
+          reviewData={reviewData}
+        />
         <div className="table table-striped">
           {this.props.reviewData.map((product, i) =>
             <Review
@@ -24,7 +27,7 @@ class ReviewList extends React.Component {
               date={product.date}
               helpfulness={product.helpfulness}
               recommend={product.recommend}
-              reviewData={this.props.reviewData}
+              reviewData={reviewData}
             />
           )}
         </div>
