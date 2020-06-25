@@ -9,6 +9,9 @@ class StarBars extends React.Component {
 
   render() {
     let { barPercents, filter } = this.props;
+    let { hide5Stars, hide4Stars, hide3Stars, hide2Stars, hide1Stars } = this.props;
+    let { style } = this.props;
+
 
     return (
       <div className="sidebarStarGraph">
@@ -34,6 +37,14 @@ class StarBars extends React.Component {
         <div className="bars-outer">
           <div className="sb-star-breakdown" style={{width: barPercents[0]}}></div>
         </div>
+        <div className="star-button-title">Filters Selected:</div>
+        <button className="stars5-button" style={!hide5Stars ? {display: style } : { display: 'none'}}>5 stars</button>
+        <button className="stars4-button" style={!hide4Stars ? {display: style } : { display: 'none'}}>4 stars</button>
+        <button className="stars3-button" style={!hide3Stars ? {display: style } : { display: 'none'}}>3 stars</button>
+        <button className="stars2-button" style={!hide2Stars ? {display: style } : { display: 'none'}}>2 stars</button>
+        <button className="stars1-button" style={!hide1Stars ? {display: style } : { display: 'none'}}>1 stars</button>
+        {/* <img src="https://bit.ly/2Ygb3dD" style={recommend ? { float: 'right' } : { display: 'none' }} /> */}
+        {/* style={{width: barPercents[4]}} */}
       </div>
     );
   }

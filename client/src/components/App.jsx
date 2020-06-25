@@ -9,18 +9,18 @@ class App extends Component {
     this.state = {
       reviews: [],
       filterReviews: [],
+      filterCounter: 0,
       hide5Stars: false,
       hide4Stars: false,
       hide3Stars: false,
       hide2Stars: false,
       hide1Stars: false,
+      style: 'none',
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.filterReviewList = this.filterReviewList.bind(this);
     this.toggleSelected = this.toggleSelected.bind(this);
-    // this.updateReviews = this.updateReviews.bind(this);
-    // this.handleFilter = this.handleFilter.bind(this);
   }
 
   componentDidMount() {
@@ -32,64 +32,26 @@ class App extends Component {
       }));
   }
 
-  handleChange(event) {
-    const { value } = event.target;
-    this.setState(() => {
-      return {
-        value,
-      };
-    });
-  }
-
-  // Come back to this tomorrow
-  // filterReviewList(e) {
-  //   // console.log(e.target.innerText)
-  //   let { reviews } = this.state;
-  //   let newReviewState = [...this.state.filterReviews];
-  //   for (let i = 0; i < reviews.length; i++) {
-  //     for (let key in this.state ) {
-  //       if (key.includes(e.target.innerText[0])) {
-  //         // this is a cool way of toggling state booleans
-  //         if (reviews[i].rating === Number(e.target.innerText[0]) && !this.state[key]) {
-  //           newReviewState.unshift(reviews[i]);
-  //           this.setState(prevState => ({
-  //             [key]: !prevState[key],
-  //           }))
-  //         }
-  //       }
-  //     }
-  //   }
-  //   console.log(newReviewState)
-  //   // Here I am filtering and then reseting the original
-  //   // review array
-  //     this.setState({
-  //       filterReviews: newReviewState,
-  //     })
-  // }
-
   filterReviewList(e) {
     //toggle
+    this.setState({
+      style: 'block'
+    })
     this.toggleSelected(e)
-    //check for toggle within comp.D.U.
-
   }
 
   componentDidUpdate(previousProps, previousState) {
     let { filterReviews, reviews } = this.state;
-    // let newReviewState = reviews;
-
     let newArr = [];
     let stateEntries = Object.entries(this.state);
     for (let j = 0; j < stateEntries.length; j++) {
       if (!stateEntries[j][1] && !Array.isArray(stateEntries[j][1])) {
         let num = Number(stateEntries[j][0].substring(4, 5))
-        console.log(num)
         for (let k = 0; k < reviews.length; k++) {
           if (reviews[k].rating === num) {
             newArr.push(reviews[k])
           }
         }
-        //need to push the review that contains this num within this element
       }
     }
     let previousStateStrung = JSON.stringify(previousState)
@@ -100,10 +62,33 @@ class App extends Component {
     }
   }
 
+  handleChange(event) {
+    const { value } = event.target;
+    this.setState(() => {
+      return {
+        value,
+      };
+    });
+  }
+
   toggleSelected(e) {
     const stateEntries = Object.entries(this.state);
+    let { filterCounter } = this.state;
+    let { hide5Stars, hide4Stars, hide3Stars, hide2Stars, hide1Stars } = this.state;
     for (let i = 0; i < stateEntries.length; i++) {
-      if (!Array.isArray(stateEntries[i][1]) && stateEntries[i][0].includes(Number(e.target.innerText[0]))) {
+      if (filterCounter === 0 && stateEntries[i][0].includes(Number(e.target.innerText[0]))) {
+        this.setState({
+          hide5Stars: true,
+          hide4Stars: true,
+          hide3Stars: true,
+          hide2Stars: true,
+          hide1Stars: true,
+          filterCounter: 1,
+        });
+        this.setState(prevState => ({
+          [stateEntries[i][0]]: !prevState[stateEntries[i][0]],
+        }));
+      } else if (!Array.isArray(stateEntries[i][1]) && stateEntries[i][0].includes(Number(e.target.innerText[0]))) {
         this.setState(prevState => ({
           [stateEntries[i][0]]: !prevState[stateEntries[i][0]],
         }));
@@ -111,17 +96,19 @@ class App extends Component {
     }
   }
 
-  // updateReviews() {
-  //   console.log(this.state)
-  // }
-
   render() {
-    const { reviews, filterReviews } = this.state;
+    const { reviews, filterReviews, hide5Stars, hide4Stars, hide3Stars, hide2Stars, hide1Stars, style } = this.state;
     return (
       <div className="sidebarAndRatings">
         <Sidebar
           reviewData={filterReviews}
           filter={this.filterReviewList}
+          hide5Stars={hide5Stars}
+          hide4Stars={hide4Stars}
+          hide3Stars={hide3Stars}
+          hide2Stars={hide2Stars}
+          hide1Stars={hide1Stars}
+          style={style}
         />
         <ReviewList
           reviewData={filterReviews}
