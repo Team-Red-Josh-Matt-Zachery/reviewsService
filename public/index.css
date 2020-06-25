@@ -176,6 +176,7 @@ hr {
     margin: 7px 0 7px 0px;
     position: absolute;
     white-space: nowrap;
+    text-decoration: underline;
 }
 
 /*each individual label i.e. 5stars: */
