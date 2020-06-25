@@ -35,19 +35,19 @@ class StarBars extends React.Component {
           <div className="starlabel" onClick={filter}>2 stars</div>
           <div className="starlabel" onClick={filter}>1 stars</div>
         </div>
-        <div className="bars-outer">
+        <div className="bars-outer" onClick={filter}>
           <div className="sb-star-breakdown" style={{width: barPercents[4]}}></div>
         </div>
-        <div className="bars-outer">
+        <div className="bars-outer" onClick={filter}>
           <div className="sb-star-breakdown" style={{width: barPercents[3]}}></div>
         </div>
-        <div className="bars-outer">
+        <div className="bars-outer" onClick={filter}>
           <div className="sb-star-breakdown" style={{width: barPercents[2]}}></div>
         </div>
-        <div className="bars-outer">
+        <div className="bars-outer" onClick={filter}>
           <div className="sb-star-breakdown" style={{width: barPercents[1]}}></div>
         </div>
-        <div className="bars-outer">
+        <div className="bars-outer" onClick={filter}>
           <div className="sb-star-breakdown" style={{width: barPercents[0]}}></div>
         </div>
         <div className="star-button-title" style={isAnyStarShowing ? {display: style } : { display: 'none'}}>Filters Selected:</div>
