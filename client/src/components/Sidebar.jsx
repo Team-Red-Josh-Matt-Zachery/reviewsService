@@ -98,6 +98,7 @@ class Sidebar extends React.Component {
             <StarBars
               barPercents={barPercents}
               filter={this.props.filter}
+              removeFilter={this.props.removeFilter}
               hide5Stars={hide5Stars}
               hide4Stars={hide4Stars}
               hide3Stars={hide3Stars}
