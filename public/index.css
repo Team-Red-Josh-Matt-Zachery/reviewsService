@@ -207,10 +207,6 @@ hr {
     top: 15px;
 }
 
-.bars-outer:hover {
-    cursor: pointer;
-}
-
 /* SORT */
 
 .sort-container {
@@ -241,6 +237,9 @@ hr {
 .more-reviews-button, .add-review-button {
     margin: 0px 0px 100px 0px;
 }
+
+/* MODAL STYLING */
+
 
 
 
