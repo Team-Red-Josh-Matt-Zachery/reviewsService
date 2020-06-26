@@ -241,7 +241,7 @@ hr {
 /* more review / add review buttons */
 
 .more-reviews-button {
-    margin: 0px 0px 50px 0px;
+    margin: 0px 0px 50px 2.5px;
     padding: .375rem;
     background-color: #eeeeee;
     color: black;
@@ -277,6 +277,10 @@ hr {
 .btn {
     background-color: #78b877;
     border: 1px solid #78b877;
+}
+
+.btn-secondary, .btn-primary {
+    margin: 2.5px;
 }
 
 .btn:hover {
