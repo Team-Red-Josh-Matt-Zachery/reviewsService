@@ -1,5 +1,6 @@
 import React from 'react';
 import AddReviewTable from './AddReviewTable';
+import AddReviewStars from './AddReviewStars';
 
 class AddReview extends React.Component {
   constructor(props) {
@@ -14,7 +15,6 @@ class AddReview extends React.Component {
     // }
     return (
         <div>
-
         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
             Add Review
         </button>
@@ -29,6 +29,7 @@ class AddReview extends React.Component {
             </div>
             <div className="modal-body">
               <div className="modal-star-rating">Rate the product 1-5:</div>
+              <AddReviewStars />
               <div className="modal-recommend">Would you recommend this produdct?</div>
 
               <AddReviewTable />

@@ -257,6 +257,21 @@ hr {
 
 /* MODAL STYLING */
 
+.rating {
+	cursor: pointer;
+}
+
+.add-rating-stars .rating-star {
+  display: inline-block;
+  position: relative;
+  padding-right: 5px;
+  margin-left: -5px;
+  color: #e3cf7a;
+}
+.add-rating-stars .selected:before {
+  content: '\f005';
+}
+
 /* button styling */
 
 .btn {
@@ -268,6 +283,8 @@ hr {
     background-color: #4c774b;
     border: 1px solid #4c774b;
 }
+
+
 
 
 
