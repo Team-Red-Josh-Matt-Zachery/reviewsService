@@ -47,7 +47,7 @@ class AddReviewStars extends React.Component {
   onClick(e) {
     console.log(e.target.id.substring(7, 8))
     this.setState({
-      clicked: true,
+      clicked: !this.state.clicked,
     })
     this.onMouseOver(e);
   }

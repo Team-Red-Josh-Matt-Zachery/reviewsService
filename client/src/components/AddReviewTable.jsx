@@ -12,12 +12,6 @@ class AddReviewTable extends Component {
       <table className="table table-lg">
         <thead>
           <tr>
-            <th scope="col"></th>
-            <th scope="col">5</th>
-            <th scope="col">4</th>
-            <th scope="col">3</th>
-            <th scope="col">2</th>
-            <th scope="col">1</th>
           </tr>
         </thead>
         <tbody>

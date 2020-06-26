@@ -288,6 +288,23 @@ hr {
     border: 1px solid #4c774b;
 }
 
+.modal-body, .modal-title, .close-button, .submit-button {
+    margin: 0px 20px 0px 20px;
+}
+
+.modal-title {
+    font-size: 30px;
+}
+
+.review-message-title, .input-group-text {
+    display: block;
+    white-space: nowrap;
+}
+
+.modal-subtitle {
+    display: block;
+    font-size: 20px;
+}
 
 
 
