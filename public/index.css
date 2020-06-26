@@ -36,7 +36,7 @@
     content: "\f005 \f005 \f005 \f005 \f005";
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    color: #525252;
+    color: #78b877;
 }
 
 .reviewBody {
@@ -164,7 +164,7 @@ hr {
     content: "\f005 \f005 \f005 \f005 \f005";
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    color: #525252;
+    color: #78b877;
 }
 
 /* STAR BARS (PRODUCT BREAKDOWN) */
@@ -190,7 +190,7 @@ hr {
 .sb-star-breakdown {
     height: 7px;
     display: absolute;
-	background: green;
+	background: #78b877;
     padding: 0px 12px;
     /* newstuff */
     margin: 5px 0 20px 0;
@@ -228,17 +228,46 @@ hr {
 
 .stars5-button, .stars4-button, .stars3-button, .stars2-button, .stars1-button, .remove-filter-button {
     display: none;
-    width: 100%;
+    width: 220px;
     margin: 5px 0;
+    padding: .375rem;
+    background-color: #eeeeee;
+    color: black;
+    border-radius: .25rem;
+    line-height: 1.5;
+    font-size: 1rem;
 }
 
 /* more review / add review buttons */
 
-.more-reviews-button, .add-review-button {
-    margin: 0px 0px 100px 0px;
+.more-reviews-button {
+    margin: 0px 0px 50px 0px;
+    padding: .375rem;
+    background-color: #eeeeee;
+    color: black;
+    border-radius: .25rem;
+    line-height: 1.5;
+    font-size: 1rem;
+    /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18); */
+}
+
+.btn, .btn-primary {
+    margin: 0 0 50px 0;
 }
 
 /* MODAL STYLING */
+
+/* button styling */
+
+.btn {
+    background-color: #78b877;
+    border: 1px solid #78b877;
+}
+
+.btn:hover {
+    background-color: #4c774b;
+    border: 1px solid #4c774b;
+}
 
 
 
