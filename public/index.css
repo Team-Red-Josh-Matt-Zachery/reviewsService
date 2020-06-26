@@ -266,7 +266,7 @@ hr {
   position: relative;
   padding-right: 5px;
   margin-left: -5px;
-  color: #e3cf7a;
+  color: #78b877;
 }
 .add-rating-stars .selected:before {
   content: '\f005';

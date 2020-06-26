@@ -19,7 +19,7 @@ class AddReviewStars extends React.Component {
     let num = Number(e.target.id.substring(7, 8));
     let stateKeys = Object.keys(this.state);
     stateKeys.map(key => {
-      if (key.substring(8, 9) < num) {
+      if (key.substring(8, 9) <= num) {
         this.setState({
           [key]: "fa fa-star fa-2x rating-star"
         })
