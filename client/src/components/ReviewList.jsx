@@ -1,6 +1,7 @@
 import React from 'react';
 import Review from './Review.jsx';
 import Sort from './Sort';
+import AddReview from './AddReview.jsx';
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -9,8 +10,13 @@ class ReviewList extends React.Component {
     this.state = {
       showing: 2,
       reviewList: [],
+      showAdd: false,
     }
     this.moreReviews = this.moreReviews.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.onClose = this.onClose.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   moreReviews() {
@@ -24,6 +30,28 @@ class ReviewList extends React.Component {
     let newReviewList = this.props.reviewData.slice(0, this.state.showing)
     this.setState({
       reviewList: newReviewList,
+    })
+  }
+
+  onClick(e) {
+    this.showModal();
+  }
+
+  onClose() {
+    console.log('onClose')
+    this.closeModal();
+  }
+
+  showModal() {
+    this.setState({
+      showAdd: true,
+    });
+  }
+
+  closeModal() {
+    console.log('closeModal')
+    this.setState({
+      showAdd: false,
     })
   }
 
@@ -54,7 +82,7 @@ class ReviewList extends React.Component {
           })}
         </div>
         <button className="more-reviews-button" style={visibleStyle} onClick={this.moreReviews}>More Reviews</button>
-        <button className="add-review-button">Add a Review</button>
+        <AddReview show={this.state.showAdd} />
       </div>
     );
   }
