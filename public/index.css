@@ -253,7 +253,13 @@ hr {
 
 .btn, .btn-primary {
     margin: 0 0 50px 0;
+    
 }
+
+.btn-primary:focus {     
+    background-color:#4c774b;    
+}
+
 
 /* MODAL STYLING */
 

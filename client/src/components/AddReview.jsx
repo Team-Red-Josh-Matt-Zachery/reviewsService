@@ -9,19 +9,20 @@ class AddReview extends React.Component {
     this.state = {
       productName: '',
     }
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   componentDidMount() {
-    // fetch('http://52.26.193.201:3000/products/30/')
-    //   .then(response => response.json())
-    //   .then(data => console.log(data))
-    // }
     fetch('http://52.26.193.201:3000/products/30/')
       .then(response => response.json())
       .then(data => this.setState({
         productName: data.name
       }))
       .catch(err => console.log(err));
+  }
+
+  onSubmit() {
+    console.log('submit')
   }
 
   render() {
