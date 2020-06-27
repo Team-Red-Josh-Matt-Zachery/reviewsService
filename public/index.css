@@ -312,6 +312,15 @@ hr {
     font-size: 20px;
 }
 
+.YesNoRadio-parent {
+    display: absolute;
+}
+
+#noRadio, #yesRadio {
+    display: relative;
+    left: 150px;
+}
+
 
 
 

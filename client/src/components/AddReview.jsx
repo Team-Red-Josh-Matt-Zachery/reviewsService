@@ -50,8 +50,29 @@ class AddReview extends React.Component {
               <div className="modal-star-rating">Rate the product 1-5:</div>
               <AddReviewStars />
               <br></br>
-              <div className="modal-recommend">Would you recommend this produdct?</div>
-              <p>yes | no</p>
+              <div className="modal-recommend">Would you recommend this product?</div>
+              <table className="table table-sm">
+                <thead>
+                </thead>
+                <tbody>
+                  <tr>
+                  <th scope="row">
+                    Yes
+                  </th>
+                    <td>
+                      <input className="form-check-input" type="radio" value="" id="yesRadio" name="YesNoRadio"></input>
+                    </td>
+                  </tr>
+                  <tr className="YesNoRadio-parent">
+                  <th scope="row">
+                    No
+                  </th>
+                    <td>
+                      <input className="form-check-input" type="radio" value="" id="noRadio" name="YesNoRadio"></input>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
               <br></br>
               <p>Please rate the product on the following qualities.</p>
               <AddReviewTable />
