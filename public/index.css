@@ -327,6 +327,11 @@ hr {
     font-size: 12px;
 }
 
+.star-explanation {
+    display: inline-block;
+    left: 300px;
+}
+
 
 
 
