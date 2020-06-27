@@ -6,6 +6,7 @@ class Sidebar extends React.Component {
     super(props);
 
     this.state = {
+      recommend: '100%',
       reviews: [],
       averageRating: 0,
       starPercentage: '0',
@@ -20,6 +21,7 @@ class Sidebar extends React.Component {
     };
     this.averageStarRating = this.averageStarRating.bind(this);
     this.updateEachStarBar = this.updateEachStarBar.bind(this);
+    this.checkForReco = this.checkForReco.bind(this);
   }
 
   componentDidMount() {
@@ -29,7 +31,20 @@ class Sidebar extends React.Component {
         reviews: data.results,
       }))
       .then(moarData => this.averageStarRating())
-      .then(smoreData => this.updateEachStarBar());
+      .then(smoreData => this.updateEachStarBar())
+      .then(smoreSmoreData => this.checkForReco());
+  }
+
+  checkForReco() {
+    let recommends = 0;
+    for (let i = 0; i < this.state.reviews.length; i++) {
+      recommends += this.state.reviews[i].recommend
+    }
+    let percentage = (recommends / this.state.reviews.length) * 100
+    let percentageText = `${percentage}%`
+    this.setState({
+      recommend: percentageText,
+    })
   }
 
   averageStarRating() {
@@ -94,7 +109,10 @@ class Sidebar extends React.Component {
               </div>
               <span className="sb-number-rating"></span>
             </div>
-            <div className="sidebarRecommend">100% of reviews recommend this product</div>
+            <div className="sidebarRecommend">
+              {this.state.recommend} of reviews recommend this product
+            </div>
+            
             <StarBars
               barPercents={barPercents}
               filter={this.props.filter}
