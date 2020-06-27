@@ -10,11 +10,13 @@ class AddReviewStars extends React.Component {
       selected3: "fa fa-star-o fa-2x rating-star",
       selected4: "fa fa-star-o fa-2x rating-star",
       selected5: "fa fa-star-o fa-2x rating-star",
+      explainMessage: "",
       clicked: false,
     }
     this.onMouseOver = this.onMouseOver.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.starExplain = this.starExplain.bind(this)
   }
 
   onMouseOver(e) {
@@ -52,6 +54,41 @@ class AddReviewStars extends React.Component {
     this.onMouseOver(e);
   }
 
+  starExplain() {
+    let { selected1, selected2, selected3, selected4, selected5 } = this.state;
+    if (selected1 === "fa fa-star fa-2x rating-star" && selected2 === "fa fa-star-o fa-2x rating-star") {
+      this.setState({
+        explainMessage: "1 Stars - Poor"
+      });
+    } else if (selected2 === "fa fa-star fa-2x rating-star" && selected3 === "fa fa-star-o fa-2x rating-star") {
+      this.setState({
+        explainMessage: "2 Stars - Fair"
+      });
+    } else if (selected3 === "fa fa-star fa-2x rating-star" && selected4 === "fa fa-star-o fa-2x rating-star") {
+      this.setState({
+        explainMessage: "3 Stars - Average"
+      });
+    } else if (selected4 === "fa fa-star fa-2x rating-star" && selected5 === "fa fa-star-o fa-2x rating-star") {
+      this.setState({
+        explainMessage: "4 Stars - Good"
+      });
+    } else if (selected4 === "fa fa-star fa-2x rating-star" && selected5 === "fa fa-star fa-2x rating-star") {
+      this.setState({
+        explainMessage: "5 Stars - Great"
+      });
+    } else {
+      this.setState({
+        explainMessage: ""
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (JSON.stringify(prevState) !== JSON.stringify(this.state)) {
+      this.starExplain();
+    }
+  }
+
   render() {
     return (
       <div>
@@ -61,6 +98,7 @@ class AddReviewStars extends React.Component {
           <i className={`${this.state.selected3}`} onMouseOver={this.onMouseOver} onMouseLeave={this.onMouseLeave} onClick={this.onClick} id="rating-3" data-rating="3" tabIndex="0" aria-label="Rate as three out of 5 stars" role="radio"></i>
           <i className={`${this.state.selected4}`} onMouseOver={this.onMouseOver} onMouseLeave={this.onMouseLeave} onClick={this.onClick} id="rating-4" data-rating="4" tabIndex="0" aria-label="Rate as four out of 5 stars" role="radio"></i>
           <i className={`${this.state.selected5}`} onMouseOver={this.onMouseOver} onMouseLeave={this.onMouseLeave} onClick={this.onClick} id="rating-5" data-rating="5" tabIndex="0" aria-label="Rate as five out of 5 stars" role="radio"></i>
+          <div className="star-explanation">{`${this.state.explainMessage}`}</div>
         </div>
       </div>
     );
