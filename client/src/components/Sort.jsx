@@ -18,6 +18,16 @@ class Sort extends Component {
           <button onClick={this.props.sortByNew}>
             relevance
           </button>
+          <div className="dropdown">
+          <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Search by:
+          </button>
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a className="dropdown-item" href="#">Relevance</a>
+            <a className="dropdown-item" href="#">New</a>
+            <a className="dropdown-item" href="#">Helpful</a>
+          </div>
+        </div>
         </div>
       </div>
     );
