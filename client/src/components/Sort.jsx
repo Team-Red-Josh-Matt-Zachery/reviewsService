@@ -12,11 +12,12 @@ class Sort extends Component {
     return (
       <div className="sort-container">
         <div className="sort-text">
-          {reviewData.length} reviews, sorted by
+          {reviewData.length}
+          reviews, sorted by
           &nbsp;
-          <a href="http://www.google.com">
+          <button onClick={this.props.sortByNew}>
             relevance
-          </a>
+          </button>
         </div>
       </div>
     );

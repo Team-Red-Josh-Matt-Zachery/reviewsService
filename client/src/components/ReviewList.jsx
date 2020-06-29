@@ -63,6 +63,7 @@ class ReviewList extends React.Component {
       <div className="container">
         <Sort
           reviewData={reviewData}
+          sortByNew={this.props.sortByNew}
         />
         <div className="table table-striped">
           {this.props.reviewData.map(function(product, i) {

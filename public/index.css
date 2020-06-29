@@ -246,6 +246,7 @@ hr {
     background-color: #eeeeee;
     color: black;
     border-radius: .25rem;
+    border: 0px;
     line-height: 1.5;
     font-size: 1rem;
     /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18); */
