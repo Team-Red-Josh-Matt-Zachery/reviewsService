@@ -22,6 +22,7 @@ class App extends Component {
     this.filterReviewList = this.filterReviewList.bind(this);
     this.toggleSelected = this.toggleSelected.bind(this);
     this.removeFilter = this.removeFilter.bind(this);
+    this.sortByNew = this.sortByNew.bind(this);
   }
 
   componentDidMount() {
@@ -109,6 +110,22 @@ class App extends Component {
     });
   }
 
+  sortByNew() {
+    let state = this.state.filterReviews;
+    function customSort(a, b) {
+      if (a.date > b.date) {
+        return -1;
+      } else if (a.date < b.date) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }
+    this.setState({
+      filterReviews: state.sort(customSort)
+    })
+  }
+
   render() {
     const { reviews, filterReviews, hide5Stars, hide4Stars, hide3Stars, hide2Stars, hide1Stars, style } = this.state;
     return (
@@ -126,6 +143,7 @@ class App extends Component {
         />
         <ReviewList
           reviewData={filterReviews}
+          sortByNew={this.sortByNew}
         />
       </div>
     );
