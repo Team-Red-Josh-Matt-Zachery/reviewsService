@@ -115,15 +115,14 @@ class App extends Component {
     function customSort(a, b) {
       if (a.date > b.date) {
         return -1;
-      } else if (a.date < b.date) {
+      } if (a.date < b.date) {
         return 1;
-      } else {
-        return 0;
       }
+      return 0;
     }
     this.setState({
-      filterReviews: state.sort(customSort)
-    })
+      filterReviews: state.sort(customSort),
+    });
   }
 
   render() {
