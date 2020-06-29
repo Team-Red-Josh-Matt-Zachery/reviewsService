@@ -4,7 +4,30 @@ class Sort extends Component {
   constructor(props) {
     super(props);
 
-    this.state = null;
+    this.state = {
+      sortBy: 'relevance',
+    };
+    this.sortRelevance = this.sortRelevance.bind(this);
+    this.sortNew = this.sortNew.bind(this);
+    this.sortHelpful = this.sortHelpful.bind(this);
+  }
+
+  sortRelevance() {
+    this.setState({
+      sortBy: 'relevance',
+    });
+  }
+
+  sortNew() {
+    this.setState({
+      sortBy: 'new',
+    });
+  }
+
+  sortHelpful() {
+    this.setState({
+      sortBy: 'helpful',
+    });
   }
 
   render() {
@@ -13,19 +36,18 @@ class Sort extends Component {
       <div className="sort-container">
         <div className="sort-text">
           {reviewData.length}
+          &nbsp;
           reviews, sorted by
           &nbsp;
-          <button onClick={this.props.sortByNew}>
-            relevance
-          </button>
+          {`${this.state.sortBy}`}
           <div className="dropdown">
           <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Search by:
+            Sort by:
           </button>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a className="dropdown-item" href="#">Relevance</a>
-            <a className="dropdown-item" href="#">New</a>
-            <a className="dropdown-item" href="#">Helpful</a>
+            <button onClick={this.props.sortByRelevance, this.sortRelevance} className="dropdown-item" type="button">Relevance</button>
+            <button onClick={this.props.sortByNew, this.sortNew} className="dropdown-item" type="button">New</button>
+            <button onClick={this.props.sortByHelpful, this.sortHelpful} className="dropdown-item" type="button">Helpful</button>
           </div>
         </div>
         </div>
