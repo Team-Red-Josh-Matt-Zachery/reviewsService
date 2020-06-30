@@ -22,7 +22,7 @@ class AddReview extends React.Component {
   }
 
   onSubmit() {
-    console.log('submit')
+    console.log('submitted')
   }
 
   render() {
@@ -30,7 +30,7 @@ class AddReview extends React.Component {
     //   return null;
     // }
     return (
-        <div>
+        <div className="add-review-module">
         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
             Add Review
         </button>
