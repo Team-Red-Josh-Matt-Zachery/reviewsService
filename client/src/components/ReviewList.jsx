@@ -56,16 +56,16 @@ class ReviewList extends React.Component {
   }
 
   render() {
-    let { reviewData } = this.props;
+    let { reviewData, sortByNew, sortByHelpful, sortByRelevant } = this.props;
     let { showing } = this.state;
     let visibleStyle = (this.state.showing > this.props.reviewData.length ? {display: 'none'} : {display: 'inline-block'})
     return (
       <div className="container">
         <Sort
           reviewData={reviewData}
-          sortByNew={this.props.sortByNew}
-          sortByHelpful={this.props.sortByHelpful}
-          sortByRelevant={this.props.sortByRelevant}
+          sortByNew={sortByNew}
+          sortByHelpful={sortByHelpful}
+          sortByRelevant={sortByRelevant}
         />
         <div className="table table-striped">
           {this.props.reviewData.map(function(product, i) {
