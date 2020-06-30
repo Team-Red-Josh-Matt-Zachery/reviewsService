@@ -60,7 +60,7 @@ class AddReview extends React.Component {
                     Yes
                   </th>
                     <td>
-                      <input className="form-check-input" type="radio" value="" id="yesRadio" name="YesNoRadio"></input>
+                      <input className="form-check-input" type="radio" value="" id="yesRadio" name="YesNoRadio" required></input>
                     </td>
                   </tr>
                   <tr className="YesNoRadio-parent">
@@ -68,14 +68,16 @@ class AddReview extends React.Component {
                     No
                   </th>
                     <td>
-                      <input className="form-check-input" type="radio" value="" id="noRadio" name="YesNoRadio"></input>
+                      <input className="form-check-input" type="radio" value="" id="noRadio" name="YesNoRadio" required></input>
                     </td>
                   </tr>
                 </tbody>
               </table>
               <br></br>
               <p>Please rate the product on the following qualities.</p>
-              <AddReviewTable />
+              <div className="table-responsive">
+                <AddReviewTable />
+              </div>
               <ul className="list-group">
                 <li className="list-group-item">
                 <div className="input-group input-group-sm mb-3">
@@ -120,7 +122,6 @@ class AddReview extends React.Component {
                 </li>
 
               </ul>
-              
             </div>
             <div className="modal-footer">
               <button type="button" className="close-button btn btn-secondary" data-dismiss="modal">Close</button>
