@@ -84,8 +84,8 @@ class ReviewList extends React.Component {
             }
           })}
         </div>
-        <button className="more-reviews-button" style={visibleStyle} onClick={this.moreReviews}>View More</button>
-        <AddReview show={this.state.showAdd} />
+          <button className="more-reviews-button" style={visibleStyle} onClick={this.moreReviews}>More Reviews</button>
+          <AddReview show={this.state.showAdd} />
       </div>
     );
   }
