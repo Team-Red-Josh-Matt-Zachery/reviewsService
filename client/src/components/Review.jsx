@@ -93,7 +93,7 @@ class Review extends React.Component {
             onClick={this.onClick}>
               Yes
           </a>
-          ({this.state.helpfulness})
+          ({this.props.helpfulness})
           |
           &nbsp;
           Report

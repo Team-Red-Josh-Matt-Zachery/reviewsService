@@ -129,9 +129,9 @@ class App extends Component {
   sortByHelpful() {
     let state = this.state.filterReviews;
     function customSort(a, b) {
-      if (a.helpful > b.helpful) {
+      if (a.helpfulness > b.helpfulness) {
         return -1;
-      } if (a.helpful < b.helpful) {
+      } if (a.helpfulness < b.helpfulness) {
         return 1;
       }
       return 0;
