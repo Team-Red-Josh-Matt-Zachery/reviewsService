@@ -316,6 +316,20 @@ hr {
 
 /* MODAL STYLING */
 
+@media (min-width: 768px) {
+    .modal-xl {
+      width: 90%;
+      max-width:1024px;
+    }
+  }
+
+@media (min-width: 1025px) {
+  .modal-xl {
+     width: 60%;
+     max-width:1400px;
+  }
+}
+
 .rating {
 	cursor: pointer;
 }
