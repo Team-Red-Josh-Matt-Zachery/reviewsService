@@ -25,7 +25,7 @@ class Sidebar extends React.Component {
   }
 
   componentDidMount() {
-    fetch(' http://52.26.193.201:3000/reviews/30/list')
+    fetch(' http://52.26.193.201:3000/reviews/31/list')
       .then(res => res.json())
       .then(data => this.setState({
         reviews: data.results,
