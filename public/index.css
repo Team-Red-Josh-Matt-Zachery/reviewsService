@@ -60,6 +60,10 @@
     padding: 10px 0 0;
 }
 
+.userName-Date > span {
+    font-weight: bold;
+}
+
 .checkMark-userName-date-stars {
     text-align: right;
     margin: 0 0 2%;
@@ -231,16 +235,19 @@ hr {
     font-size: 14px;
 }
 
-.stars5-button, .stars4-button, .stars3-button, .stars2-button, .stars1-button, .remove-filter-button {
+.star-filter-buttons {
     display: none;
     width: 220px;
     margin: 5px 0;
     padding: .375rem;
-    background-color: #eeeeee;
+    background-color: white;
     color: black;
+    border: .5px solid black;
     border-radius: .25rem;
     line-height: 1.5;
-    font-size: 1rem;
+    font-size: .75rem;
+    padding: 4%;
+    text-transform: uppercase;
 }
 
 /* more review / add review buttons */
@@ -255,6 +262,10 @@ hr {
     line-height: 1.5;
     font-size: 1rem;
     /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18); */
+}
+
+.more-reviews-button:hover {
+    background-color: #c7c7c7;
 }
 
 .btn, .btn-primary {
