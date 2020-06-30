@@ -65,6 +65,7 @@ class ReviewList extends React.Component {
           reviewData={reviewData}
           sortByNew={this.props.sortByNew}
           sortByHelpful={this.props.sortByHelpful}
+          sortByRelevant={this.props.sortByRelevant}
         />
         <div className="table table-striped">
           {this.props.reviewData.map(function(product, i) {
