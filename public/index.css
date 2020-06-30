@@ -227,12 +227,12 @@ hr {
 
 .star-button-title {
     text-align: center;
-    margin: 5px 0px;
+    margin: 10% 0px;
     font-size: 14px;
 }
 
 .star-filter-buttons {
-    display: none;
+    /* display: none;
     width: 220px;
     margin: 5px 0;
     padding: .375rem;
@@ -243,16 +243,12 @@ hr {
     line-height: 1.5;
     font-size: .75rem;
     padding: 4%;
-    text-transform: uppercase;
-}
-
-/* more review / add review buttons */
-
-.more-reviews-button {
-    margin: 0px 0px 50px 2.5px;
+    text-transform: uppercase; */
+    width: 100%;
+    margin: 0px 3% 0px 10%;
+    font-size: .75rem;
+    padding: .75rem .75rem;
     line-height: 1.5;
-    font-size: 1rem;
-    padding: 1% 1%;
     color: black;
     background-color: white;
     border: 1px solid black;
@@ -260,6 +256,26 @@ hr {
     transition: all 0.5s ease;
     text-transform: uppercase;
     letter-spacing: .1em;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* more review / add review buttons */
+
+.more-reviews-button {
+    margin: 0px 0px 50px 2.5px;
+    line-height: 1.5;
+    font-size: .75rem;
+    padding: .75rem .75rem;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0px;
+    transition: all 0.5s ease;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    white-space: nowrap;
+    text-align: center;
     /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18); */
 }
 
@@ -270,9 +286,9 @@ hr {
 }
 
 .btn, .btn-primary {
-    margin: 2.5px 3% 0px 3%;
-    font-size: 1rem;
-    padding: 1% 1%;
+    margin: 0px 3% 0px 10%;
+    font-size: .75rem;
+    padding: .75rem .75rem;
     line-height: 1.5;
     color: black;
     background-color: white;
@@ -281,6 +297,8 @@ hr {
     transition: all 0.5s ease;
     text-transform: uppercase;
     letter-spacing: .1em;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .btn:hover, .btn-primary:hover {
