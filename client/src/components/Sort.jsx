@@ -42,12 +42,12 @@ class Sort extends Component {
           {`${this.state.sortBy}`}
           <div className="dropdown">
           <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Sort by:
+            Sort by: {`${this.state.sortBy}`}
           </button>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <button onClick={this.props.sortByRelevance, this.sortRelevance} className="dropdown-item" type="button">Relevance</button>
-            <button onClick={this.props.sortByNew, this.sortNew} className="dropdown-item" type="button">New</button>
-            <button onClick={this.props.sortByHelpful, this.sortHelpful} className="dropdown-item" type="button">Helpful</button>
+            <button onClick={this.props.sortByRelevance, this.sortRelevance} className="dropdown-item" type="button">Most relevant</button>
+            <button onClick={this.sortNew, this.props.sortByNew} className="dropdown-item" type="button">Newest</button>
+            <button onClick={this.props.sortByHelpful, this.sortHelpful} className="dropdown-item" type="button">Most helpful</button>
           </div>
         </div>
         </div>

@@ -6,7 +6,7 @@
 
 .starsParent {
     position: relative;
-    margin: 10px 0 10px 0;
+    margin: 5% 0 5% 0;
 }
 
 .stars-outer {
@@ -47,7 +47,7 @@
 .summary {
     font-size: 16px;
     font-weight: bold;
-    margin: 0 0 5px 0;
+    margin: 1% 0px 2.5% 0px;
 }
 
 .checkmark {
@@ -56,9 +56,13 @@
     display: inline-block;
 }
 
+.userName-Date {
+    padding: 10px 0 0;
+}
+
 .checkMark-userName-date-stars {
     text-align: right;
-    margin: 0;
+    margin: 0 0 2%;
     font-size: 12px;
     white-space: nowrap;
 }
@@ -151,6 +155,7 @@ hr {
     overflow: hidden;
     width: 0;
     font-size: 13px;
+    margin: 0 0 0px 0;
 }
 
 .sb-stars-outer::before {
@@ -332,6 +337,13 @@ hr {
     display: inline-block;
     left: 300px;
 }
+
+#dropdownMenuButton {
+    display: relative;
+    left: 500px;
+}
+
+
 
 
 
