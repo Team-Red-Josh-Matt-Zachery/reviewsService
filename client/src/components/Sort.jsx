@@ -12,10 +12,15 @@ class Sort extends Component {
     this.sortHelpful = this.sortHelpful.bind(this);
   }
 
+  componentDidMount() {
+    setTimeout(this.sortRelevance, 1000)
+  }
+
   sortRelevance() {
     this.setState({
       sortBy: 'Most Relevant',
     });
+    this.props.sortByRelevant();
   }
 
   sortNew() {
