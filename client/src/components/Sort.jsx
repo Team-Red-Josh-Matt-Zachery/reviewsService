@@ -47,7 +47,7 @@ class Sort extends Component {
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <button onClick={this.props.sortByRelevance, this.sortRelevance} className="dropdown-item" type="button">Most relevant</button>
             <button onClick={this.sortNew, this.props.sortByNew} className="dropdown-item" type="button">Newest</button>
-            <button onClick={this.props.sortByHelpful, this.sortHelpful} className="dropdown-item" type="button">Most helpful</button>
+            <button onClick={this.sortHelpful, this.props.sortByHelpful, this.sortHelpful} className="dropdown-item" type="button">Most helpful</button>
           </div>
         </div>
         </div>

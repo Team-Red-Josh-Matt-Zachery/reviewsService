@@ -23,10 +23,11 @@ class App extends Component {
     this.toggleSelected = this.toggleSelected.bind(this);
     this.removeFilter = this.removeFilter.bind(this);
     this.sortByNew = this.sortByNew.bind(this);
+    this.sortByHelpful = this.sortByHelpful.bind(this);
   }
 
   componentDidMount() {
-    fetch(' http://52.26.193.201:3000/reviews/30/list')
+    fetch(' http://52.26.193.201:3000/reviews/31/list')
       .then(res => res.json())
       .then(data => this.setState({
         reviews: data.results,
@@ -125,6 +126,21 @@ class App extends Component {
     });
   }
 
+  sortByHelpful() {
+    let state = this.state.filterReviews;
+    function customSort(a, b) {
+      if (a.helpful > b.helpful) {
+        return -1;
+      } if (a.helpful < b.helpful) {
+        return 1;
+      }
+      return 0;
+    }
+    this.setState({
+      filterReviews: state.sort(customSort),
+    });
+  }
+
   render() {
     const { reviews, filterReviews, hide5Stars, hide4Stars, hide3Stars, hide2Stars, hide1Stars, style } = this.state;
     return (
@@ -143,6 +159,7 @@ class App extends Component {
         <ReviewList
           reviewData={filterReviews}
           sortByNew={this.sortByNew}
+          sortByHelpful={this.sortByHelpful}
         />
       </div>
     );
