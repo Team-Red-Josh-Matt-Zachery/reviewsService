@@ -145,9 +145,14 @@ class App extends Component {
   sortByRelevant() {
     let state = this.state.filterReviews;
     function customSort(a, b) {
-      if (a.helpfulness > b.helpfulness && a.date > b.date) {
+      let aggregate = 0;
+      let dateScoreA = (new Date(a.date).getTime() / 1000.0) / 10000000;
+      let scoreA = dateScoreA + ((a.helpfulness / 10) * (a.helpfulness / 2));
+      let dateScoreB = (new Date(b.date).getTime() / 1000.0) / 10000000;
+      let scoreB = dateScoreB + ((b.helpfulness / 10) * (a.helpfulness / 2));
+      if (scoreA > scoreB) {
         return -1;
-      } if (a.helpfulness < b.helpfulness && a.date < b.date) {
+      } if (scoreA < scoreB) {
         return 1;
       }
       return 0;

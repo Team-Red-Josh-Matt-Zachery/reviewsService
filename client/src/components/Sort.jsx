@@ -13,7 +13,7 @@ class Sort extends Component {
   }
 
   componentDidMount() {
-    setTimeout(this.sortRelevance, 1000)
+    setTimeout(this.sortRelevance, 1000);
   }
 
   sortRelevance() {

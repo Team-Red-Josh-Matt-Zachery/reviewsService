@@ -286,7 +286,7 @@ hr {
 }
 
 .btn, .btn-primary {
-    margin: 0px 3% 0px 10%;
+    margin: 0px 3% 0px 20%;
     font-size: .75rem;
     padding: .75rem .75rem;
     line-height: 1.5;
@@ -310,6 +310,7 @@ hr {
 
 .add-review-module {
     display: inline-block;
+    margin: 0 0 15% 0;
 }
 
 
