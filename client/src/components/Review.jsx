@@ -76,7 +76,7 @@ class Review extends React.Component {
             <img className="checkmark" alt="checkmark" src="https://bit.ly/2Ygb3dD" style={recommend ? { float: 'right' } : { display: 'none' }} />
           </div>
           <div className="userName-Date">
-            {`${name}, `}
+            <span>{`${name}, `}</span>
             &nbsp;
             {moment(date).format('MMMM Do YYYY')}
             &nbsp;

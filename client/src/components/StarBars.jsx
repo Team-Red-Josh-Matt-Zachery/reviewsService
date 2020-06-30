@@ -51,12 +51,12 @@ class StarBars extends React.Component {
           <div className="sb-star-breakdown" style={{width: barPercents[0]}}></div>
         </div>
         <div className="star-button-title" style={isAnyStarShowing ? {display: style } : { display: 'none'}}>Filters Selected:</div>
-        <button className="stars5-button" type="button" onClick={filter} style={!hide5Stars ? {display: style } : { display: 'none'}}>5 stars</button>
-        <button className="stars4-button" type="button" onClick={filter} style={!hide4Stars ? {display: style } : { display: 'none'}}>4 stars</button>
-        <button className="stars3-button" type="button" onClick={filter} style={!hide3Stars ? {display: style } : { display: 'none'}}>3 stars</button>
-        <button className="stars2-button" type="button" onClick={filter} style={!hide2Stars ? {display: style } : { display: 'none'}}>2 stars</button>
-        <button className="stars1-button" type="button" onClick={filter} style={!hide1Stars ? {display: style } : { display: 'none'}}>1 stars</button>
-        <button className="remove-filter-button" type="button" onClick={removeFilter} style={isAnyStarShowing ? {display: style } : { display: 'none'}}>Remove filters</button>
+        <button className="stars5-button star-filter-buttons" type="button" onClick={filter} style={!hide5Stars ? {display: style } : { display: 'none'}}>5 stars</button>
+        <button className="stars4-button star-filter-buttons" type="button" onClick={filter} style={!hide4Stars ? {display: style } : { display: 'none'}}>4 stars</button>
+        <button className="stars3-button star-filter-buttons" type="button" onClick={filter} style={!hide3Stars ? {display: style } : { display: 'none'}}>3 stars</button>
+        <button className="stars2-button star-filter-buttons" type="button" onClick={filter} style={!hide2Stars ? {display: style } : { display: 'none'}}>2 stars</button>
+        <button className="stars1-button star-filter-buttons" type="button" onClick={filter} style={!hide1Stars ? {display: style } : { display: 'none'}}>1 stars</button>
+        <button className="remove-filter-button star-filter-buttons" type="button" onClick={removeFilter} style={isAnyStarShowing ? {display: style } : { display: 'none'}}>Remove filters</button>
       </div>
     );
   }
