@@ -8,8 +8,10 @@ class AddReview extends React.Component {
 
     this.state = {
       productName: '',
+      currentBodyLength: 0,
     }
     this.onSubmit = this.onSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +25,14 @@ class AddReview extends React.Component {
 
   onSubmit() {
     console.log('submitted')
+  }
+
+  onChange(e) {
+    if (e.target.value.length <= 50) {
+      this.setState({
+        currentBodyLength: e.target.value.length,
+      })
+    }
   }
 
   render() {
@@ -91,7 +101,8 @@ class AddReview extends React.Component {
                 </li>
                 <li className="list-group-item">
                 <div className="form-group">
-                <textarea placeholder="* Please enter your review..." className="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                <textarea placeholder="* Please enter your review..." onChange={this.onChange} minLength="50" className="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                <span className="minimum-message">{ (this.state.currentBodyLength === 50) ? <div>Minimum reached</div> : <div>* Minimum required characters left: {50 - this.state.currentBodyLength}</div>}</span>
               </div>
                 </li>
                 <li className="list-group-item">
