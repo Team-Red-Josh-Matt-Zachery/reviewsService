@@ -346,6 +346,32 @@ hr {
   }
 }
 
+/* image modals */
+
+@media (min-width: 768px) {
+    .modal-lg {
+      width: 100%;
+      height: 100%;
+      max-width:1024px;
+    }
+  }
+
+@media (min-width: 1025px) {
+  .modal-lg {
+     width: 100%;
+     height: 100%;
+     max-width:1400px;
+  }
+}
+
+@media (min-width: 1401px) {
+    .modal-lg {
+       width: 100%;
+       height: 100%;
+       max-width:2200px;
+    }
+  }
+
 .rating {
 	cursor: pointer;
 }
