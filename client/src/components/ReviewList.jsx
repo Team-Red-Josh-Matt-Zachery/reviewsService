@@ -79,6 +79,7 @@ class ReviewList extends React.Component {
               date={product.date}
               helpfulness={product.helpfulness}
               recommend={product.recommend}
+              photos={product.photos}
               reviewData={reviewData}
             />
             }

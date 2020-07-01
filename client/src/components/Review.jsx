@@ -1,6 +1,7 @@
 import React from 'react';
 
 import moment from 'moment';
+import ImageModal from './ImageModal';
 
 class Review extends React.Component {
   constructor(props) {
@@ -98,6 +99,10 @@ class Review extends React.Component {
           &nbsp;
           Report
         </p>
+        &nbsp;
+        <div>
+          {this.props.photos.length > 0 ? <ImageModal photo={this.props.photos[0].url} id={this.props.photos[0].id} /> : null}
+        </div>
         <hr></hr>
       </div>
     );
