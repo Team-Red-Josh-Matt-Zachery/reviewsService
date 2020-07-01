@@ -368,11 +368,11 @@ hr {
     margin: 2.5px;
 }
 
-.modal-body, .modal-title, .close-button, .submit-button {
+.modal-header > .modal-body, .modal-title, .close-button, .submit-button {
     margin: 0px 20px 0px 20px;
 }
 
-.modal-title {
+.modal-header > .modal-title {
     font-size: 30px;
 }
 
@@ -381,7 +381,7 @@ hr {
     white-space: nowrap;
 }
 
-.modal-subtitle {
+.modal-header > .modal-subtitle {
     display: block;
     font-size: 20px;
 }
