@@ -20,7 +20,7 @@ class AddReviewTable extends Component {
             <td>
             {/*one checkbox */}
             <div className="form-check">
-              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="SizeRadios"></input>
+              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="SizeRadios" required></input>
                 <label className="form-check-label" htmlFor="materialUnchecked">
                   A size too wide
                 </label>
@@ -64,7 +64,7 @@ class AddReviewTable extends Component {
             <td>
             {/*one checkbox */}
             <div className="form-check">
-              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="WidthRadios"></input>
+              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="WidthRadios" required></input>
                 <label className="form-check-label" htmlFor="materialUnchecked">
                   Too wide
                 </label>
@@ -108,7 +108,7 @@ class AddReviewTable extends Component {
             <td>
             {/*one checkbox */}
             <div className="form-check">
-              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="ComfortRadios"></input>
+              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="ComfortRadios" required></input>
                 <label className="form-check-label" htmlFor="materialUnchecked">
                   Perfect
                 </label>
@@ -152,7 +152,7 @@ class AddReviewTable extends Component {
             <td>
             {/*one checkbox */}
             <div className="form-check">
-              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="QualityRadios"></input>
+              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="QualityRadios" required></input>
                 <label className="form-check-label" htmlFor="materialUnchecked">
                   Perfect
                 </label>
@@ -196,7 +196,7 @@ class AddReviewTable extends Component {
             <td>
             {/*one checkbox */}
             <div className="form-check">
-              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="LengthRadios"></input>
+              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="LengthRadios" required></input>
                 <label className="form-check-label" htmlFor="materialUnchecked">
                   Runs long
                 </label>
@@ -240,7 +240,7 @@ class AddReviewTable extends Component {
             <td>
             {/*one checkbox */}
             <div className="form-check">
-              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="FitRadios"></input>
+              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="FitRadios" required></input>
                 <label className="form-check-label" htmlFor="materialUnchecked">
                   Runs long
                 </label>

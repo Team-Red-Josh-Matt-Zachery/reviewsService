@@ -248,7 +248,6 @@ hr {
     margin: 0px 3% 0px 10%;
     font-size: .75rem;
     padding: .75rem .75rem;
-    line-height: 1.5;
     color: black;
     background-color: white;
     border: 1px solid black;
@@ -258,6 +257,14 @@ hr {
     letter-spacing: .1em;
     white-space: nowrap;
     text-align: center;
+    transition: all 0.5s ease;
+
+}
+
+.star-filter-buttons:hover {
+    background-color: black;
+    color: white;
+    transition: all 0.5s ease;
 }
 
 /* more review / add review buttons */
@@ -283,6 +290,10 @@ hr {
     background-color: black;
     color: white;
     transition: all 0.5s ease;
+}
+
+.more-reviews-button:focus {
+    outline: none;
 }
 
 .btn, .btn-primary {

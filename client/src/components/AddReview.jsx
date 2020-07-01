@@ -31,7 +31,8 @@ class AddReview extends React.Component {
     // }
     return (
         <div className="add-review-module">
-        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          <form>
+        <button type="button" className="more-reviews-button" data-toggle="modal" data-target="#exampleModalCenter">
             Add Review
         </button>
         <div className="modal fade bd-example-modal-xl" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -47,10 +48,10 @@ class AddReview extends React.Component {
               </button>
             </div>
             <div className="modal-body">
-              <div className="modal-star-rating">Rate the product 1-5:</div>
+              <div className="modal-star-rating">* Rate the product 1-5:</div>
               <AddReviewStars />
               <br></br>
-              <div className="modal-recommend">Would you recommend this product?</div>
+              <div className="modal-recommend">* Would you recommend this product?</div>
               <table className="table table-sm">
                 <thead>
                 </thead>
@@ -74,7 +75,7 @@ class AddReview extends React.Component {
                 </tbody>
               </table>
               <br></br>
-              <p>Please rate the product on the following qualities.</p>
+              <p>* Please rate the product on the following qualities.</p>
               <div className="table-responsive">
                 <AddReviewTable />
               </div>
@@ -85,51 +86,50 @@ class AddReview extends React.Component {
                   <label className="review-message-title" htmlFor="exampleFormControlTextarea1"></label>
                   <span className="input-group-text" id="inputGroup-sizing-sm">Review Title</span>
                 </div>
-                <input type="text" className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" required></input>
-              </div>
-                </li>
-                <li className="list-group-item">
-                <div className="form-group">
-                <textarea placeholder="Please enter your review..." className="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
-              </div>
-                </li>
-                <li className="list-group-item">
-                <div className="input-group input-group-sm mb-3">
-                <div className="input-group-prepend">
-                  <span className="input-group-text" id="inputGroup-sizing-sm">Nickname</span>
-                </div>
-                <input type="text" className="form-control" placeholder="Example: jackson11!" aria-label="Small" aria-describedby="inputGroup-sizing-sm" required></input>
-              </div>
-              <span className="email-privacy">For privacy reasons, do not use your full name or email address.</span>
-                </li>
-                <li className="list-group-item">
-                <div className="input-group input-group-sm mb-3">
-                <div className="input-group-prepend">
-                  <span className="input-group-text" id="inputGroup-sizing-sm">Email</span>
-                </div>
                 <input type="text" className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></input>
               </div>
                 </li>
                 <li className="list-group-item">
+                <div className="form-group">
+                <textarea placeholder="* Please enter your review..." className="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+              </div>
+                </li>
+                <li className="list-group-item">
+                <div className="input-group input-group-sm mb-3">
+                <div className="input-group-prepend">
+                  <span className="input-group-text" id="inputGroup-sizing-sm">* Nickname</span>
+                </div>
+                <input type="text" className="form-control" placeholder="Example: jackson11!" aria-label="Small" aria-describedby="inputGroup-sizing-sm" required></input>
+              </div>
+              <span className="email-privacy">* For privacy reasons, do not use your full name or email address.</span>
+                </li>
+                <li className="list-group-item">
+                <div className="input-group input-group-sm mb-3">
+                <div className="input-group-prepend">
+                  <span className="input-group-text" id="inputGroup-sizing-sm">* Email</span>
+                </div>
+                <input type="text" className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" required></input>
+              </div>
+                </li>
+                <li className="list-group-item">
                   <div className="modal-subtitle">Image upload:</div>
-                  <form>
                     <div className="form-group">
                     <label className="btn btn-secondary">
                       Browse <input type="file" hidden></input>
                     </label>
                     </div>
-                  </form>
                 </li>
 
               </ul>
             </div>
             <div className="modal-footer">
               <button type="button" className="close-button btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" className="submit-button btn btn-primary" data-dismiss="modal">Submit review</button>
+              <button type="submit" onClick={this.onSubmit} className="btn btn-primary">Submit review</button>
             </div>
           </div>
         </div>
       </div>
+      </form>
       </div>
 
     )
