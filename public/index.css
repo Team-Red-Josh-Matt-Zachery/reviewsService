@@ -460,9 +460,12 @@ hr {
     left: -25%;
 }
 
-.attr-breakdown {
+/* the left amount is what will slide the triangle over */
+
+.attr-breakdown-comfort, .attr-breakdown-fit, .attr-breakdown-quality, .attr-breakdown-length, .attr-breakdown-size, .attr-breakdown-width {
     position: relative;
-    left: 25%
+    width: 5%;
+    /* left: 25%; */
 }
 
 
