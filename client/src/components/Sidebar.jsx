@@ -1,5 +1,7 @@
 import React from 'react';
-import StarBars from './StarBars.jsx'
+
+import StarBars from './StarBars.jsx';
+import AttributeGraph from './AttributeGraph.jsx';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -124,10 +126,7 @@ class Sidebar extends React.Component {
               hide1Stars={hide1Stars}
               style={style}
             />
-            <div className="sizeChart">
-              {/* <p>size</p>
-              <p>comfort</p> */}
-            </div>
+            <AttributeGraph />
           </li>
         </ul>
         <div id="content">
