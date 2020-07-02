@@ -44,41 +44,49 @@ class AttributeGraph extends Component {
           <div className="size-graph" style={ size ? {display: 'block'} : {display : 'none'} }>
             <div className="attr-label">Size</div>
             <div className="attr-outer">
-              <img className="attr-breakdown-size" height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+              <img className="attr-breakdown-size" height="5%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_triangle.svg/1200px-Black_triangle.svg.png"></img>
             </div>
+            <div className="left-to-right-explanation"><span className="too-small">too small</span><span> perfect </span><span className="too-wide">too wide</span></div>
           </div>
 
           <div className="width-graph" style={ width ? {display: 'block'} : {display : 'none'} }>
             <div className="attr-label">Width</div>
             <div className="attr-outer">
-              <img className="attr-breakdown-width" style={ width ? {left: width} : {display : 'none'} } height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+              <img className="attr-breakdown-width" style={ width ? {left: width} : {display : 'none'} } height="5%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_triangle.svg/1200px-Black_triangle.svg.png"></img>
             </div>
+            <div className="left-to-right-explanation"><span className="too-small">too small</span><span> perfect </span><span className="too-wide">too wide</span></div>
           </div>
 
           <div className="comfort-graph" style={ comfort ? {display: 'block'} : {display : 'none'} }>
             <div className="attr-label">Comfort</div>
             <div className="attr-outer">
-              <img className="attr-breakdown-comfort" style={ comfort ? {left: comfort} : {display : 'none'} } height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+              <img className="attr-breakdown-comfort" style={ comfort ? {left: comfort} : {display : 'none'} } height="5%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_triangle.svg/1200px-Black_triangle.svg.png"></img>
             </div>
+            <div className="left-to-right-explanation"><span className="too-small">too small</span><span> perfect </span><span className="too-wide">too wide</span></div>
           </div>
 
           <div className="quality-graph" style={ quality ? {display: 'block'} : {display : 'none'} }>
             <div className="attr-label">Quality</div>
             <div className="attr-outer">
-              <img className="attr-breakdown-quality" style={ quality ? {left: quality} : {display : 'none'} } height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+              <img className="attr-breakdown-quality" style={ quality ? {left: quality} : {display : 'none'} } height="5%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_triangle.svg/1200px-Black_triangle.svg.png"></img>
             </div>
+            <div className="left-to-right-explanation"><span className="too-small">too small</span><span> perfect </span><span className="too-wide">too wide</span></div>
           </div>
-          <div className="length-graph" style={ length ? {display: 'block'} : {display : 'none'} }>
+
+          <div className="length-graph">
             <div className="attr-label">Length</div>
             <div className="attr-outer">
-              <img className="attr-breakdown-length" style={ length ? {left: length} : {display : 'none'} } height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+              <img className="attr-breakdown-length" style={ length ? {left: length} : {display : 'none'} } height="5%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_triangle.svg/1200px-Black_triangle.svg.png"></img>
             </div>
+            <div className="left-to-right-explanation"><span className="too-small">too small</span><span> perfect </span><span className="too-wide">too wide</span></div>
           </div>
+
           <div className="fit-graph" style={ fit ? {display: 'block'} : {display : 'none'} }>
             <div className="attr-label">Fit</div>
             <div className="attr-outer">
-              <img className="attr-breakdown-fit" style={ fit ? {left: fit} : {display: 'none'} } height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+              <img className="attr-breakdown-fit" style={ fit ? {left: fit} : {display: 'none'} } height="5%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_triangle.svg/1200px-Black_triangle.svg.png"></img>
             </div>
+            <div className="left-to-right-explanation"><span className="too-small">too small</span><span> perfect </span><span className="too-wide">too wide</span></div>
           </div>
       </div>
     );
