@@ -9,9 +9,12 @@ class AddReview extends React.Component {
     this.state = {
       productName: '',
       currentBodyLength: 0,
+      photoShowId: '',
+      photoShowIds: [],
     }
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.submitImage = this.submitImage.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +35,19 @@ class AddReview extends React.Component {
       this.setState({
         currentBodyLength: e.target.value.length,
       })
+    }
+  }
+
+  submitImage(e) {
+    this.setState({
+      photoShowId: e.target.files[0],
+    });
+    if (this.state.photoShowIds.length < 5) {
+      let addImageArr = this.state.photoShowIds;
+      addImageArr.push(URL.createObjectURL(e.target.files[0]))
+      this.setState({
+        photoShowIds: addImageArr,
+      });
     }
   }
 
@@ -126,8 +142,13 @@ class AddReview extends React.Component {
                   <div className="modal-subtitle">Image upload:</div>
                     <div className="form-group">
                     <label className="btn btn-secondary">
-                      Browse <input type="file" hidden></input>
+                      Browse <input onChange={this.submitImage} id="upload-button" type="file" hidden></input>
                     </label>
+                    {this.state.photoShowIds.map((id, key) => 
+                      <div key={key} id="upload_prev">
+                        <img id="photoShowId" src={id} width="50%" height="50%" style={ id === '' ? { display:'none'} : {display : 'block'} }/>
+                      </div>
+                    )}
                     </div>
                 </li>
 
