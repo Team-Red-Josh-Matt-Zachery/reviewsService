@@ -41,23 +41,44 @@ class AttributeGraph extends Component {
     let stateKeys = Object.keys(this.state);
     return (
         <div className="attribute-graph">
-          <div className="attr-outer">
-            <img className="attr-breakdown-size" style={{left: size}} height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+          <div className="size-graph" style={ size ? {display: 'block'} : {display : 'none'} }>
+            <div className="attr-label">Size</div>
+            <div className="attr-outer">
+              <img className="attr-breakdown-size" height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+            </div>
           </div>
-          <div className="attr-outer">
-            <img className="attr-breakdown-width" style={{left: width}} height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+
+          <div className="width-graph" style={ width ? {display: 'block'} : {display : 'none'} }>
+            <div className="attr-label">Width</div>
+            <div className="attr-outer">
+              <img className="attr-breakdown-width" style={ width ? {left: width} : {display : 'none'} } height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+            </div>
           </div>
-          <div className="attr-outer">
-            <img className="attr-breakdown-comfort" style={{left: comfort}} height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+
+          <div className="comfort-graph" style={ comfort ? {display: 'block'} : {display : 'none'} }>
+            <div className="attr-label">Comfort</div>
+            <div className="attr-outer">
+              <img className="attr-breakdown-comfort" style={ comfort ? {left: comfort} : {display : 'none'} } height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+            </div>
           </div>
-          <div className="attr-outer">
-            <img className="attr-breakdown-quality" style={{left: quality}} height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+
+          <div className="quality-graph" style={ quality ? {display: 'block'} : {display : 'none'} }>
+            <div className="attr-label">Quality</div>
+            <div className="attr-outer">
+              <img className="attr-breakdown-quality" style={ quality ? {left: quality} : {display : 'none'} } height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+            </div>
           </div>
-          <div className="attr-outer">
-            <img className="attr-breakdown-length" style={{left: length}} height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+          <div className="length-graph" style={ length ? {display: 'block'} : {display : 'none'} }>
+            <div className="attr-label">Length</div>
+            <div className="attr-outer">
+              <img className="attr-breakdown-length" style={ length ? {left: length} : {display : 'none'} } height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+            </div>
           </div>
-          <div className="attr-outer">
-            <img className="attr-breakdown-fit" style={{left: fit}} height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+          <div className="fit-graph" style={ fit ? {display: 'block'} : {display : 'none'} }>
+            <div className="attr-label">Fit</div>
+            <div className="attr-outer">
+              <img className="attr-breakdown-fit" style={ fit ? {left: fit} : {display: 'none'} } height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+            </div>
           </div>
       </div>
     );
