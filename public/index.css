@@ -443,12 +443,30 @@ hr {
     border-radius: 0px;
 }
 
-/* come back to */ 
-/* .sidebarAndRatings {
-    -webkit-column-count: 1;
-       -moz-column-count: 1;
-            column-count: 1;
-} */
+.attribute-graph {
+    margin: 30% 0px 0px 0px;
+}
+
+.attr-outer {
+    position: relative;
+    white-space: nowrap;
+    width: 100%;
+    background: lightgrey;
+    /* padding: 0px 12px; */
+    margin: 10px 0px 0px 53px;
+    top: 15px;
+    left: -25%;
+}
+
+.attr-breakdown {
+    height: 7px;
+    display: absolute;
+	background: black;
+    padding: 0px 12px;
+    /* newstuff */
+    margin: 5px 0 20px 0;
+    position: inline-block;
+}
 
 
 
