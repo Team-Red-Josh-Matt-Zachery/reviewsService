@@ -42,7 +42,13 @@ class AddReview extends React.Component {
     this.setState({
       photoShowId: e.target.files[0],
     });
-    if (this.state.photoShowIds.length < 5) {
+    let fileExt = e.target.files[0].name.split('.')[1];
+    let okExtensions = ['png', 'jpeg', 'gif', 'bmp', 'jfif']
+    if (!okExtensions.includes(fileExt)) {
+      alert("Sorry, you can only upload images!")
+      return;
+    }
+    if (this.state.photoShowIds.length < 5 && e.target.files[0]) {
       let addImageArr = this.state.photoShowIds;
       addImageArr.push(URL.createObjectURL(e.target.files[0]))
       this.setState({
