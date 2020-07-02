@@ -14,19 +14,27 @@ class AttributeGraph extends Component {
     return (
         <div className="attribute-graph">
         <div className="attr-outer">
-          <div className="attr-breakdown" style={{width: barPercents[4]}}></div>
+          {/* <div className="attr-breakdown" style={{width: barPercents[4]}}></div> */}
+          <img className="attr-breakdown" width="50%" height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
         </div>
         <div className="attr-outer">
-          <div className="attr-breakdown" style={{width: barPercents[3]}}></div>
+          {/* <div className="attr-breakdown" style={{width: barPercents[3]}}></div> */}
+          <img width="5%" height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
         </div>
         <div className="attr-outer">
-          <div className="attr-breakdown" style={{width: barPercents[2]}}></div>
+          {/* <div className="attr-breakdown" style={{width: barPercents[2]}}></div> */}
+          <img width="5%" height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+
         </div>
         <div className="attr-outer">
-          <div className="attr-breakdown" style={{width: barPercents[1]}}></div>
+          {/* <div className="attr-breakdown" style={{width: barPercents[1]}}></div> */}
+          <img width="5%" height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+
         </div>
         <div className="attr-outer">
-          <div className="attr-breakdown" style={{width: barPercents[0]}}></div>
+          {/* <div className="attr-breakdown" style={{width: barPercents[0]}}></div> */}
+          <img width="5%" height="5%" src="https://i.ya-webdesign.com/images/vector-triangles-upside-down-2.png"></img>
+
         </div>
       </div>
     );

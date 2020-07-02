@@ -445,6 +445,8 @@ hr {
 
 .attribute-graph {
     margin: 30% 0px 0px 0px;
+    position: relative;
+
 }
 
 .attr-outer {
@@ -459,13 +461,8 @@ hr {
 }
 
 .attr-breakdown {
-    height: 7px;
-    display: absolute;
-	background: black;
-    padding: 0px 12px;
-    /* newstuff */
-    margin: 5px 0 20px 0;
-    position: inline-block;
+    position: relative;
+    left: 25%
 }
 
 
