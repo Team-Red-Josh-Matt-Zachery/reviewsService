@@ -36,7 +36,7 @@
     content: "\f005 \f005 \f005 \f005 \f005";
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    color: #78b877;
+    color: #f8ce0b;
 }
 
 .reviewBody {
@@ -169,7 +169,7 @@ hr {
     content: "\f005 \f005 \f005 \f005 \f005";
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    color: #78b877;
+    color: #f8ce0b;
 }
 
 /* STAR BARS (PRODUCT BREAKDOWN) */
@@ -381,7 +381,7 @@ hr {
   position: relative;
   padding-right: 5px;
   margin-left: -5px;
-  color: #78b877;
+  color: #f8ce0b;
 }
 .add-rating-stars .selected:before {
   content: '\f005';
@@ -501,6 +501,10 @@ hr {
 
 .too-wide {
     margin: 0px 0px 0px 15%;
+}
+
+.reviewsSpacer {
+    margin: auto;
 }
 
 
