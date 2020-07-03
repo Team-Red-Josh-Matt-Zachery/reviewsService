@@ -165,9 +165,8 @@ class App extends Component {
   render() {
     const { reviews, filterReviews, hide5Stars, hide4Stars, hide3Stars, hide2Stars, hide1Stars, style } = this.state;
     return (
-      <div className="row">
-        <div className="reviewsSpacer d-none d-lg-block col-lg-2">
-          <div className="sidebarAndRatings">
+      <div className="row container">
+          {/* <div className="sidebarAndRatings"> */}
             <Sidebar
               reviewData={filterReviews}
               filter={this.filterReviewList}
@@ -179,14 +178,17 @@ class App extends Component {
               hide1Stars={hide1Stars}
               style={style}
             />
+            <div className="col-lg">
             <ReviewList
               reviewData={filterReviews}
               sortByNew={this.sortByNew}
               sortByHelpful={this.sortByHelpful}
               sortByRelevant={this.sortByRelevant}
             />
-          </div>
-        </div>
+            </div>
+          {/* </div> */}
+        {/* <div className="d-none d-sm-block col-lg-2"></div> */}
+        {/* </div> */}
       </div>
     );
   }
