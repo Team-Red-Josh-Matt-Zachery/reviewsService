@@ -4,10 +4,40 @@ class AddReviewTable extends Component {
   constructor() {
     super();
 
-    this.state = null;
+    this.state = {
+      size: false,
+      width: false,
+      comfort: false,
+      quality: false,
+      length: false,
+      fit: false,
+    }
+    this.hideRows = this.hideRows.bind(this);
   }
 
+  componentDidMount() {
+    fetch('http://52.26.193.201:3000/reviews/102/meta')
+      .then(res => res.json()) 
+      .then(data => this.hideRows(data));
+  }
+
+  hideRows(data) {
+    let dataKeys = Object.keys(data.characteristics);
+    console.log(dataKeys)
+    let stateKeys = Object.keys(this.state);
+    console.log(stateKeys)
+    for (let i = 0; i < dataKeys.length; i++) {
+      if (stateKeys.includes(dataKeys[i].toLowerCase())) {
+        this.setState({
+          [dataKeys[i].toLowerCase()]: true,
+        })
+      }
+    }
+  }
+  
+
   render() {
+    let { size, width, comfort, quality, length, fit } = this.state;
     return (
       <table className="table table-lg">
         <thead>
@@ -15,12 +45,12 @@ class AddReviewTable extends Component {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr style={ size ? {display: 'block'} : {display : 'none'} }>
             <th scope="row">Size</th>
             <td>
             {/*one checkbox */}
             <div className="form-check">
-              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="SizeRadios" required></input>
+              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="SizeRadios"></input>
                 <label className="form-check-label" htmlFor="materialUnchecked">
                   A size too wide
                 </label>
@@ -59,12 +89,12 @@ class AddReviewTable extends Component {
             </div>
             </td>
           </tr>
-          <tr>
+          <tr style={ width ? {display: 'block'} : {display : 'none'} }>
             <th scope="row">Width</th>
             <td>
             {/*one checkbox */}
             <div className="form-check">
-              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="WidthRadios" required></input>
+              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="WidthRadios"></input>
                 <label className="form-check-label" htmlFor="materialUnchecked">
                   Too wide
                 </label>
@@ -103,12 +133,12 @@ class AddReviewTable extends Component {
             </div>
             </td>
           </tr>
-          <tr>
+          <tr style={ comfort ? {display: 'block'} : {display : 'none'} }>
           <th scope="row">Comfort</th>
             <td>
             {/*one checkbox */}
             <div className="form-check">
-              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="ComfortRadios" required></input>
+              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="ComfortRadios"></input>
                 <label className="form-check-label" htmlFor="materialUnchecked">
                   Perfect
                 </label>
@@ -147,12 +177,12 @@ class AddReviewTable extends Component {
             </div>
             </td>
           </tr>
-          <tr>
+          <tr style={ quality ? {display: 'block'} : {display : 'none'} }>
             <th scope="row">Quality</th>
             <td>
             {/*one checkbox */}
             <div className="form-check">
-              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="QualityRadios" required></input>
+              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="QualityRadios"></input>
                 <label className="form-check-label" htmlFor="materialUnchecked">
                   Perfect
                 </label>
@@ -191,12 +221,12 @@ class AddReviewTable extends Component {
             </div>
             </td>
           </tr>
-          <tr>
+          <tr style={ length ? {display: 'block'} : {display : 'none'} }>
             <th scope="row">Length</th>
             <td>
             {/*one checkbox */}
             <div className="form-check">
-              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="LengthRadios" required></input>
+              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="LengthRadios"></input>
                 <label className="form-check-label" htmlFor="materialUnchecked">
                   Runs long
                 </label>
@@ -235,12 +265,12 @@ class AddReviewTable extends Component {
             </div>
             </td>
           </tr>
-          <tr>
+          <tr style={ fit ? {display: 'block'} : {display : 'none'} }>
             <th scope="row">Fit</th>
             <td>
             {/*one checkbox */}
             <div className="form-check">
-              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="FitRadios" required></input>
+              <input className="form-check-input" type="radio" value="" id="materialUnchecked" name="FitRadios"></input>
                 <label className="form-check-label" htmlFor="materialUnchecked">
                   Runs long
                 </label>
