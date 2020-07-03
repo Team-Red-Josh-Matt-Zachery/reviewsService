@@ -46,7 +46,7 @@
 
 
 .review-container {
-    width: 50%;
+    width: 100%;
 }
 
 .summary {
@@ -125,6 +125,7 @@ hr {
 #sidebar {
     min-width: 20%;
     max-width: 20%;
+    margin: 0px 5% 0px 0px;
     /* padding: 20px; */
     /* display: inline-block; */
     vertical-align: text-top;

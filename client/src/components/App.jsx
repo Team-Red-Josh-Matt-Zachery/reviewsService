@@ -166,6 +166,7 @@ class App extends Component {
     const { reviews, filterReviews, hide5Stars, hide4Stars, hide3Stars, hide2Stars, hide1Stars, style } = this.state;
     return (
       <div className="row container">
+        <div className="d-none d-sm-block col-lg-2"></div>
           {/* <div className="sidebarAndRatings"> */}
             <Sidebar
               reviewData={filterReviews}
@@ -189,6 +190,7 @@ class App extends Component {
           {/* </div> */}
         {/* <div className="d-none d-sm-block col-lg-2"></div> */}
         {/* </div> */}
+        <div className="d-none d-sm-block col-lg-2"></div>
       </div>
     );
   }
