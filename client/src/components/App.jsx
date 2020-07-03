@@ -165,24 +165,28 @@ class App extends Component {
   render() {
     const { reviews, filterReviews, hide5Stars, hide4Stars, hide3Stars, hide2Stars, hide1Stars, style } = this.state;
     return (
-      <div className="sidebarAndRatings">
-        <Sidebar
-          reviewData={filterReviews}
-          filter={this.filterReviewList}
-          removeFilter={this.removeFilter}
-          hide5Stars={hide5Stars}
-          hide4Stars={hide4Stars}
-          hide3Stars={hide3Stars}
-          hide2Stars={hide2Stars}
-          hide1Stars={hide1Stars}
-          style={style}
-        />
-        <ReviewList
-          reviewData={filterReviews}
-          sortByNew={this.sortByNew}
-          sortByHelpful={this.sortByHelpful}
-          sortByRelevant={this.sortByRelevant}
-        />
+      <div className="row">
+        <div className="reviewsSpacer d-none d-lg-block col-lg-2">
+          <div className="sidebarAndRatings">
+            <Sidebar
+              reviewData={filterReviews}
+              filter={this.filterReviewList}
+              removeFilter={this.removeFilter}
+              hide5Stars={hide5Stars}
+              hide4Stars={hide4Stars}
+              hide3Stars={hide3Stars}
+              hide2Stars={hide2Stars}
+              hide1Stars={hide1Stars}
+              style={style}
+            />
+            <ReviewList
+              reviewData={filterReviews}
+              sortByNew={this.sortByNew}
+              sortByHelpful={this.sortByHelpful}
+              sortByRelevant={this.sortByRelevant}
+            />
+          </div>
+        </div>
       </div>
     );
   }
