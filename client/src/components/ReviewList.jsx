@@ -60,7 +60,7 @@ class ReviewList extends React.Component {
     let { showing } = this.state;
     let visibleStyle = (this.state.showing > this.props.reviewData.length ? {display: 'none'} : {display: 'inline-block'})
     return (
-      <div className="container">
+      <div className="review-container">
         <Sort
           reviewData={reviewData}
           sortByNew={sortByNew}

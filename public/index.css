@@ -44,6 +44,11 @@
     font-size: 14px;
 }
 
+
+.review-container {
+    width: 50%;
+}
+
 .summary {
     font-size: 16px;
     font-weight: bold;
@@ -118,19 +123,22 @@ hr {
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    padding: 20px;
-    display: inline-block;
+    min-width: 20%;
+    max-width: 20%;
+    /* padding: 20px; */
+    /* display: inline-block; */
     vertical-align: text-top;
-    margin: 0 30px;
+    /* margin: 0 30px; */
 }
 
 .sidebarAndRatings {
     width: 100%;
-    display: flex;
+    /* display: inline-block; */
+    /* NEED MEDDIA QUERY HERE? */
     align-items: stretch;
 }
+
+/* display flex works great for PC but not mobile */
 
 /* Sidebar Stars */
 
