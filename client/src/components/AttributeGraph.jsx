@@ -54,7 +54,7 @@ class AttributeGraph extends Component {
             <div className="attr-outer">
               <img className="attr-breakdown-width" style={ width ? {left: width} : {display : 'none'} } height="5%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_triangle.svg/1200px-Black_triangle.svg.png"></img>
             </div>
-            <div className="left-to-right-explanation"><span className="too-small">too small</span><span> perfect </span><span className="too-wide">too wide</span></div>
+            <div className="left-to-right-explanation"><span className="too-small">too narrow</span><span> perfect </span><span className="too-wide">too wide</span></div>
           </div>
 
           <div className="comfort-graph" style={ comfort ? {display: 'block'} : {display : 'none'} }>
@@ -62,7 +62,7 @@ class AttributeGraph extends Component {
             <div className="attr-outer">
               <img className="attr-breakdown-comfort" style={ comfort ? {left: comfort} : {display : 'none'} } height="5%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_triangle.svg/1200px-Black_triangle.svg.png"></img>
             </div>
-            <div className="left-to-right-explanation"><span className="too-small">too small</span><span> perfect </span><span className="too-wide">too wide</span></div>
+            <div className="left-to-right-explanation"><span className="too-small">uncomfortable</span><span> ok </span><span className="too-wide">perfect</span></div>
           </div>
 
           <div className="quality-graph" style={ quality ? {display: 'block'} : {display : 'none'} }>
@@ -70,7 +70,7 @@ class AttributeGraph extends Component {
             <div className="attr-outer">
               <img className="attr-breakdown-quality" style={ quality ? {left: quality} : {display : 'none'} } height="5%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_triangle.svg/1200px-Black_triangle.svg.png"></img>
             </div>
-            <div className="left-to-right-explanation"><span className="too-small">too small</span><span> perfect </span><span className="too-wide">too wide</span></div>
+            <div className="left-to-right-explanation"><span className="too-small">poor</span><span> acceptable </span><span className="too-wide">perfect</span></div>
           </div>
 
           <div className="length-graph">
@@ -78,7 +78,7 @@ class AttributeGraph extends Component {
             <div className="attr-outer">
               <img className="attr-breakdown-length" style={ length ? {left: length} : {display : 'none'} } height="5%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_triangle.svg/1200px-Black_triangle.svg.png"></img>
             </div>
-            <div className="left-to-right-explanation"><span className="too-small">too small</span><span> perfect </span><span className="too-wide">too wide</span></div>
+            <div className="left-to-right-explanation"><span className="too-small">too short</span><span> perfect </span><span className="too-wide">too long</span></div>
           </div>
 
           <div className="fit-graph" style={ fit ? {display: 'block'} : {display : 'none'} }>
@@ -86,7 +86,7 @@ class AttributeGraph extends Component {
             <div className="attr-outer">
               <img className="attr-breakdown-fit" style={ fit ? {left: fit} : {display: 'none'} } height="5%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Black_triangle.svg/1200px-Black_triangle.svg.png"></img>
             </div>
-            <div className="left-to-right-explanation"><span className="too-small">too small</span><span> perfect </span><span className="too-wide">too wide</span></div>
+            <div className="left-to-right-explanation"><span className="too-small">too tight</span><span> perfect </span><span className="too-wide">too loose</span></div>
           </div>
       </div>
     );
