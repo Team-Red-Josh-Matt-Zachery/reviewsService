@@ -179,7 +179,7 @@ class App extends Component {
               hide1Stars={hide1Stars}
               style={style}
             />
-            <div className="col-lg">
+            <div className="col-xl">
             <ReviewList
               reviewData={filterReviews}
               sortByNew={this.sortByNew}
