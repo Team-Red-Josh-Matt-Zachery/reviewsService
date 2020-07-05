@@ -64,10 +64,10 @@ class AddReview extends React.Component {
     return (
         <div className="add-review-module">
           <form>
-        <button type="button" className="more-reviews-button" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" className="more-reviews-button" data-toggle="modal" data-target="#addReviewModalCenter">
             Add Review
         </button>
-        <div className="modal fade bd-example-modal-xl" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div className="modal fade bd-example-modal-xl" id="addReviewModalCenter" tabIndex="-1" role="dialog" aria-labelledby="addReviewModalCenterTitle" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered modal-xl" role="document">
           <div className="modal-content">
             <div className="modal-header">
