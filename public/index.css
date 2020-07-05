@@ -122,15 +122,6 @@ hr {
     margin: 0 0 0 0;
 }
 
-#sidebar {
-    min-width: 20%;
-    max-width: 20%;
-    margin: 0px 5% 0px 0px;
-    /* padding: 20px; */
-    /* display: inline-block; */
-    vertical-align: text-top;
-    /* margin: 0 30px; */
-}
 
 .sidebarAndRatings {
     width: 100%;
