@@ -26,7 +26,7 @@ class ImageModal extends Component {
                 <div className="modal-header">
                   <h5 className="modal-title">Photos</h5>
                   <button onClick={this.onClick} type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true"></span>
                   </button>
                 </div>
                 <div className="modal-body">
