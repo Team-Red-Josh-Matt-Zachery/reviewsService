@@ -3,4 +3,4 @@ Related Products Component
 
 
 ## New Comment
-First commit
+First commit attempt
