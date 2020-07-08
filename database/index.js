@@ -1,18 +1,19 @@
 const mongoose = require('mongoose');
+
 const mongoDB = 'mongodb://database/reviews';
 
 mongoose.connect(mongoDB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log('db connected'));
-.catch((err) => console.log('DB Error: ', err));
+  .then(() => console.log('db connected'));
+//  .catch((err) => console.log('DB Error: ', err));
 
 const db = mongoose.connection;
 
-// db.on('error', )
+db.on('error', console.error.bind(console, 'DB connection error: '));
 
-// const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 // let listSchema = new Schema({
 //   product_id: Integer,
@@ -23,7 +24,7 @@ const db = mongoose.connection;
 
 // let List = mongoose.model('List, listSchema');
 
-let reviewsSchema = new Schema({
+const reviewsSchema = new Schema({
   // product_id: Number,
   review_id: Number,
   rating: Number,
@@ -34,7 +35,7 @@ let reviewsSchema = new Schema({
   date: String,
   reviewer_name: String,
   helpfulness: Number,
-  // photos: [{id: String, url: String}], // [{type: String}]
+  photos: [{ id: String, url: String }], // [{type: String}]
   // photos: [{
   //   type: Object,
   //   properties: {
@@ -44,18 +45,23 @@ let reviewsSchema = new Schema({
   // }],
   name: String,
   email: String,
-  characteristics: Object,
+  // characteristics: Object,
   characteristics: {
-    type: Object,
-    properties: {
-      
-    }
+    Size: {
+      value: String,
+    },
+    Width: {
+      value: String,
+    },
+    Comfort: {
+      value: String,
+    },
   },
-})
+});
 
-let Reviews = mongoose.model('Reviews, reviewsSchema');
+const Reviews = mongoose.model('Reviews, reviewsSchema');
 
 module.exports = {
   Reviews,
 
-}
+};
