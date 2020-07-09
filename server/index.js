@@ -8,18 +8,18 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 //  /reviews/:product_id/list
-// app.get('api/reviews', (req, res) => {
+// app.get('/reviews/:product_id/list', (req, res) => {
 //   const { productId } = req.query;
-//   db.findOne(
+//   db.find(
 //     {
 //       product_id: productId,
 //     },
 //   )
-//     .then(data => res.json())
-//     .catch(err => console.log('Backend server Error: ', err));
+//     .then((data) => res.json(data))
+//     .catch((err) => console.log('Backend server Error: ', err));
 // });
-// // GET /reviews/:product_id/meta
-// app.get('api/reviews', (req, res) => {
+// // GET /reviews/:product_id/list
+// app.get('/reviews/:product_id/list', (req, res) => {
 //   // const { productId } = req.query;
 
 // });
@@ -30,12 +30,12 @@ app.use(express.static('public'));
 // });
 // // PUT /reviews/helpful/:review_id
 // app.put('api/reviews', (req, res) => {
-//   // const { productId } = req.query;
+
 
 // });
 // // PUT /reviews/report/:review_id
 // app.put('api/reviews', (req, res) => {
-//   // const { productId } = req.query;
+
 
 // });
 
