@@ -26,9 +26,9 @@ class App extends Component {
     this.sortByHelpful = this.sortByHelpful.bind(this);
     this.sortByRelevant = this.sortByRelevant.bind(this);
   }
-
+  // http://localhost:3004/reviews/5/list
   componentDidMount() {
-    fetch('localhost:3004/reviews/102/list')
+    fetch(' http://52.26.193.201:3000/reviews/102/list')
       .then(res => res.json())
       .then(data => this.setState({
         reviews: data.results,
