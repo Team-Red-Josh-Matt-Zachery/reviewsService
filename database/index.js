@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const mongoDB = 'mongodb://localhost:27017/reviews';
+const mongoURI = 'mongodb://localhost/reviews';
 
-mongoose.connect(mongoDB, {
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -25,7 +25,7 @@ const { Schema } = mongoose;
 // let List = mongoose.model('List, listSchema');
 
 const reviewsSchema = new Schema({
-  // product_id: Number,
+  product_id: Number,
   review_id: Number,
   rating: Number,
   summary: String,
@@ -61,8 +61,8 @@ const reviewsSchema = new Schema({
   },
 });
 
-const Reviews = mongoose.model('Reviews', reviewsSchema);
+const Review = mongoose.model('Review', reviewsSchema);
 
 module.exports = {
-  Reviews,
+  Review,
 };
