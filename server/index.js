@@ -17,8 +17,10 @@ app.use(express.static('public'));
 //  /reviews/:product_id/list
 app.get('/reviews/:product_id/list', (req, res) => {
   // const { productId } = req.query;
-  // console.log(res.body);
-  findAllReviews()
+  console.log(req.params);
+  // findAllReviews()
+  findAllReviews(req.params.product_id)
+  // findAllReviews(res.body.product_id)
     // .then((data) => res.json(data))
     .then((data) => res.send(data))
     .catch((err) => console.log('Backend server Error: ', err));
