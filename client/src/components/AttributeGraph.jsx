@@ -13,10 +13,10 @@ class AttributeGraph extends Component {
       fit: '',
     };
   }
-
+  // http://localhost:3004/reviews/5/meta
   componentDidMount() {
     fetch('http://52.26.193.201:3000/reviews/102/meta')
-      .then(res => res.json()) 
+      .then(res => res.json())
       .then(data => this.createGraphs(data));
   }
 

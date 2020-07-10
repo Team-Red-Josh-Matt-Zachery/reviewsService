@@ -59,8 +59,15 @@ const reviewsSchema = new Schema({
       value: String,
     },
   },
+  category: String,
+  default_price: String,
+  description: String,
+  id: Number,
+  product_name: String,
+  slogan: String,
+  style_id: Number,
 });
-
+// , { versionKey: false }
 const Review = mongoose.model('Review', reviewsSchema);
 
 module.exports = {

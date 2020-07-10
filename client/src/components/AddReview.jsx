@@ -16,7 +16,7 @@ class AddReview extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.submitImage = this.submitImage.bind(this);
   }
-
+  //  http://localhost:3004/products/5
   componentDidMount() {
     fetch('http://52.26.193.201:3000/products/30/')
       .then(response => response.json())
@@ -150,7 +150,7 @@ class AddReview extends React.Component {
                     <label className="btn btn-secondary">
                       Browse <input onChange={this.submitImage} id="upload-button" type="file" hidden></input>
                     </label>
-                    {this.state.photoShowIds.map((id, key) => 
+                    {this.state.photoShowIds.map((id, key) =>
                       <div key={key} id="upload_prev">
                         <img id="photoShowId" src={id} width="50%" height="50%" style={ id === '' ? { display:'none'} : {display : 'block'} }/>
                       </div>

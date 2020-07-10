@@ -10,22 +10,24 @@ const addReview = (reviewObject) => {
     .catch((err) => console.log('err', err));
 };
 
-const findAllReviews = (productId) => (
+const findAll = (productId) => (
   Review.find({ product_id: productId })
     .then((data) => data)
     .catch((err) => console.log('err', err))
 );
 
-const updateReview = (_id, reviewObject) => (
-  Review.updateOne({ _id }, reviewObject)
+const updateReview = (id, reviewObject) => (
+  Review.updateOne({ _id: id }, reviewObject)
     .then((data) => data)
+    .catch((err) => console.log('Database function Error: ', err))
 );
 
 const deleteReview = (reviewId) => (
   Review.deleteOne({ _id: reviewId })
     .then((res) => res)
+    .catch((err) => console.log('Database function Error: ', err))
 );
 
 module.exports = {
-  addReview, findAllReviews, updateReview, deleteReview,
+  addReview, findAll, updateReview, deleteReview,
 };

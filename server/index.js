@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 // const db = require('../database/index.js');
 // const { Review } = require('../database/index');
-const { addReview, findAllReviews, updateReview } = require('../database/db');
+const { addReview, findAll, updateReview } = require('../database/db');
 // const Review = require('../database/index.js');
 
 app.use(cors());
@@ -14,56 +14,86 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-//  /reviews/:product_id/list
 app.get('/reviews/:product_id/list', (req, res) => {
   // const { productId } = req.query;
-  console.log(req.params);
-  // findAllReviews()
-  findAllReviews(req.params.product_id)
-  // findAllReviews(res.body.product_id)
+  // console.log(req.params);
+  findAll(req.params.product_id)
     // .then((data) => res.json(data))
     .then((data) => res.send(data))
     .catch((err) => console.log('Backend server Error: ', err));
 });
-// // GET /reviews/:product_id/list
-// app.get('/reviews/:product_id/list', (req, res) => {
 
-// });
-// // POST /reviews/:product_id
+app.get('/products/:product_id', (req, res) => {
+  findAll(req.params.product_id)
+    .then((data) => res.send(data))
+    .catch((err) => console.log('Backend server Error: ', err));
+});
+
+app.get('/reviews/:product_id/meta', (req, res) => {
+  findAll(req.params.product_id)
+    .then((data) => res.send(data))
+    .catch((err) => console.log('Backend server Error: ', err));
+});
+
 app.post('/reviews/:product_id', (req, res) => {
   // const { productId } = req.query;
+  const { product_id } = req.params;
+  const {
+    review_id,
+    rating,
+    summary,
+    recommend,
+    response,
+    body,
+    reviewer_name,
+    helpfulness,
+    photos,
+    name,
+    email,
+    characteristics,
+    category,
+    default_price,
+    description,
+    id,
+    product_name,
+    slogan,
+    style_id,
+  } = req.body;
+
   const review = {
-    product_id: req.params.product_id,
-    review_id: req.body.review_id,
-    rating: req.body.rating,
-    summary: req.body.summary,
-    recommend: req.body.recommend,
-    response: req.body.response,
-    body: req.body.body,
-    reviewer_name: req.body.reviewer_name,
-    helpfulness: req.body.helpfulness,
-    photos: req.body.photos,
-    name: req.body.name,
-    email: req.body.email,
-    characteristics: req.body.characteristics,
+    product_id,
+    review_id,
+    rating,
+    summary,
+    recommend,
+    response,
+    body,
+    reviewer_name,
+    helpfulness,
+    photos,
+    name,
+    email,
+    characteristics,
+    category,
+    default_price,
+    description,
+    id,
+    product_name,
+    slogan,
+    style_id,
   };
   // console.log(req.params);
-  // Review.insertMany(review)
   addReview(review)
     .then((data) => res.json(data))
     .catch((err) => console.log('Backend server Error: ', err));
 });
-// // PUT /reviews/helpful/:review_id
-// app.patch('api/reviews', (req, res) => {
+
 app.put('/reviews/helpful/:review_id', (req, res) => {
-  updateReview(req.body)
-    .then((data) => res.send(data));
+  updateReview(req.params.review_id, req.body).then((data) => res.send(data));
 });
-// });
-// // PUT /reviews/report/:review_id
+
 app.put('/reviews/report/:review_id', (req, res) => {
-  updateReview(req.body)
-    .then((data) => res.send(data));
+  updateReview(req.params.review_id, req.body).then((data) => res.send(data));
 });
 
 app.listen(3004, () => console.log('Backend server listening on port 3004'));
