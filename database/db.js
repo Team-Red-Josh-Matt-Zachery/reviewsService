@@ -10,14 +10,14 @@ const addReview = (reviewObject) => {
     .catch((err) => console.log('err', err));
 };
 
-const findAllReviews = () => (
-  Review.find()
+const findAllReviews = (productId) => (
+  Review.find({ product_id: productId })
     .then((data) => data)
     .catch((err) => console.log('err', err))
 );
 
-const updateReview = (reviewObject) => (
-  Review.updateOne({ _id: reviewObject._id }, reviewObject)
+const updateReview = (_id, reviewObject) => (
+  Review.updateOne({ _id }, reviewObject)
     .then((data) => data)
 );
 
