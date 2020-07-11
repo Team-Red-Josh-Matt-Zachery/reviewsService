@@ -9,20 +9,7 @@ mongoose.connect(mongoURI, {
   .then(() => console.log('db connected'));
 //  .catch((err) => console.log('DB Error: ', err));
 
-// const db = mongoose.connection;
-
-// db.on('error', console.error.bind(console, 'DB connection error: '));
-
 const { Schema } = mongoose;
-
-// let listSchema = new Schema({
-//   product_id: Integer,
-//   page: Number,
-//   count: Number,
-//   sort: String,
-// })
-
-// let List = mongoose.model('List, listSchema');
 
 const reviewsSchema = new Schema({
   results: [

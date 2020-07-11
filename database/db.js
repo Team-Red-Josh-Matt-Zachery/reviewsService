@@ -1,4 +1,3 @@
-// const mongoose = require('mongoose');
 const { Review } = require('./index.js');
 
 const addReview = (reviewObject) => {
