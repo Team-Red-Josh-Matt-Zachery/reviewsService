@@ -16,13 +16,16 @@ class AddReview extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.submitImage = this.submitImage.bind(this);
   }
-  //  http://localhost:3004/products/5
+  // http://52.26.193.201:3000/products/4
+  // http://localhost:3004/products/4
   componentDidMount() {
-    fetch('http://52.26.193.201:3000/products/30/')
+    fetch('http://localhost:3004/products/4')
       .then(response => response.json())
-      .then(data => this.setState({
-        productName: data.name
-      }))
+      .then(data => {console.log(data);
+        this.setState({
+          productName: data.name
+        })
+      })
       .catch(err => console.log(err));
   }
 

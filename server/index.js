@@ -19,7 +19,7 @@ app.get('/reviews/:product_id/list', (req, res) => {
   // console.log(req.params);
   findAll(req.params.product_id)
     // .then((data) => res.json(data))
-    .then((data) => res.send(data))
+    .then((data) => { console.log(data); res.send(data); })
     .catch((err) => console.log('Backend server Error: ', err));
 });
 
@@ -39,14 +39,7 @@ app.post('/reviews/:product_id', (req, res) => {
   // const { productId } = req.query;
   const { product_id } = req.params;
   const {
-    review_id,
-    rating,
-    summary,
-    recommend,
-    response,
-    body,
-    reviewer_name,
-    helpfulness,
+    results,
     photos,
     name,
     email,
@@ -55,21 +48,41 @@ app.post('/reviews/:product_id', (req, res) => {
     default_price,
     description,
     id,
-    product_name,
+    style_name,
     slogan,
     style_id,
   } = req.body;
 
-  const review = {
-    product_id,
-    review_id,
+  const {
+    body,
+    date,
+    helpfulness,
+    // photos,
     rating,
-    summary,
     recommend,
     response,
-    body,
-    reviewer_name,
-    helpfulness,
+    review_id,
+    // name: results[0]: name,
+    summary,
+  } = results[0];
+  // console.log("results", results);
+  const review = {
+    results: [
+      {
+        body,
+        date,
+        helpfulness,
+        photos: results[0].photos,
+        rating,
+        recommend,
+        response,
+        review_id,
+        // { name: req.body.name },
+        name: results[0].name,
+        summary,
+      },
+    ],
+    product_id,
     photos,
     name,
     email,
@@ -78,11 +91,11 @@ app.post('/reviews/:product_id', (req, res) => {
     default_price,
     description,
     id,
-    product_name,
+    style_name,
     slogan,
     style_id,
   };
-  // console.log(req.params);
+  // console.log(req.body);
   addReview(review)
     .then((data) => res.json(data))
     .catch((err) => console.log('Backend server Error: ', err));

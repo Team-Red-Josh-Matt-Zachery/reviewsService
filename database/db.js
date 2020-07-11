@@ -17,7 +17,7 @@ const findAll = (productId) => (
 );
 
 const updateReview = (id, reviewObject) => (
-  Review.updateOne({ _id: id }, reviewObject)
+  Review.updateOne({ review_id: id }, reviewObject)
     .then((data) => data)
     .catch((err) => console.log('Database function Error: ', err))
 );
