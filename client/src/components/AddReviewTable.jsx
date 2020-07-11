@@ -14,11 +14,12 @@ class AddReviewTable extends Component {
     }
     this.hideRows = this.hideRows.bind(this);
   }
-  // http://localhost:3004/reviews/5/meta
+  // http://52.26.193.201:3000/reviews/4/meta
+  // http://localhost:3004/reviews/4/meta
   componentDidMount() {
-    fetch('http://52.26.193.201:3000/reviews/102/meta')
+    fetch('http://localhost:3004/reviews/4/meta')
       .then(res => res.json())
-      .then(data => this.hideRows(data));
+      .then(data => this.hideRows(data[0]));
   }
 
   hideRows(data) {

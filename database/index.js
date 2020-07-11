@@ -25,27 +25,26 @@ const { Schema } = mongoose;
 // let List = mongoose.model('List, listSchema');
 
 const reviewsSchema = new Schema({
+  results: [
+    {
+      body: String,
+      date: String,
+      helpfulness: Number,
+      photos: [{ id: Number, url: String }],
+      rating: Number,
+      recommend: Number,
+      response: String,
+      review_id: Number,
+      name: String,
+      summary: String,
+    },
+  ],
   product_id: Number,
-  review_id: Number,
-  rating: Number,
-  summary: String,
-  recommend: Boolean,
-  response: String,
-  body: String,
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-  reviewer_name: String,
-  helpfulness: Number,
+  // date: {
+  //   type: Date,
+  //   default: Date.now,
+  // },
   photos: [{ id: String, url: String }],
-  // photos: [{
-  //   type: Object,
-  //   properties: {
-  //     id: String,
-  //     url: String,
-  //   }
-  // }],
   name: String,
   email: String,
   characteristics: {
@@ -63,7 +62,7 @@ const reviewsSchema = new Schema({
   default_price: String,
   description: String,
   id: Number,
-  product_name: String,
+  style_name: String,
   slogan: String,
   style_id: Number,
 });
