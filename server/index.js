@@ -1,16 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-// const bp = require('body-parser');
 
 const app = express();
-// const db = require('../database/index.js');
-// const { Review } = require('../database/index');
 const { addReview, findAll, updateReview } = require('../database/db');
 // const Review = require('../database/index.js');
 
 app.use(cors());
-// app.use(bp.json());
-// app.use(bp.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
@@ -18,7 +13,6 @@ app.get('/reviews/:product_id/list', (req, res) => {
   // const { productId } = req.query;
   // console.log(req.params);
   findAll(req.params.product_id)
-    // .then((data) => res.json(data))
     .then((data) => { console.log(data); res.send(data); })
     .catch((err) => console.log('Backend server Error: ', err));
 });
@@ -62,7 +56,7 @@ app.post('/reviews/:product_id', (req, res) => {
     recommend,
     response,
     review_id,
-    // name: results[0]: name,
+    // name,
     summary,
   } = results[0];
   // console.log("results", results);
@@ -77,7 +71,6 @@ app.post('/reviews/:product_id', (req, res) => {
         recommend,
         response,
         review_id,
-        // { name: req.body.name },
         name: results[0].name,
         summary,
       },
