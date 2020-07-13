@@ -16,7 +16,7 @@ app.get('/reviews/:product_id/list', async (req, res) => {
   const findReviews = await findAll(req.params.product_id);
   // .then((data) => { console.log(data);
   try {
-    res.send(findReviews);
+    res.status(200).send(findReviews);
   } catch (e) {
     res.status(500).send('Back-end server Error: ', e);
   }
@@ -28,7 +28,7 @@ app.get('/products/:product_id', async (req, res) => {
   const findProduct = await findAll(req.params.product_id);
   // .then((data) => res.send(data))
   try {
-    res.send(findProduct);
+    res.status(200).send(findProduct);
   } catch (e) {
     res.status(500).send('Back-end server Error: ', e);
   }
@@ -38,7 +38,7 @@ app.get('/reviews/:product_id/meta', async (req, res) => {
   const findMeta = await findAll(req.params.product_id);
   // .then((data) => res.send(data))
   try {
-    res.send(findMeta);
+    res.status(200).send(findMeta);
   } catch (e) {
     res.status(500).send('Back-end server Error: ', e);
   }
@@ -107,7 +107,7 @@ app.post('/reviews/:product_id', async (req, res) => {
   const saveReview = await addReview(review);
   // .then((data) => res.json(data))
   try {
-    res.json(saveReview);
+    res.status(201).json(saveReview);
   } catch (e) {
     res.status(500).send('Back-end server Error: ', e);
   }
@@ -117,7 +117,7 @@ app.put('/reviews/helpful/:review_id', async (req, res) => {
   const helpful = await updateReview(req.params.review_id, req.body);
   // .then((data) => res.send(data));
   try {
-    res.send(helpful);
+    res.status(204).send(helpful);
   } catch (e) {
     res.status(500).send('Back-end server Error: ', e);
   }
@@ -127,7 +127,7 @@ app.put('/reviews/report/:review_id', async (req, res) => {
   const report = updateReview(req.params.review_id, req.body)
   // .then((data) => res.send(data));
   try {
-    res.send(report);
+    res.status(204).send(report);
   } catch (e) {
     res.status(500).send('Back-end server Error: ', e);
   }
