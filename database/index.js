@@ -6,8 +6,8 @@ mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-  .then(() => console.log('db connected'));
-//  .catch((err) => console.log('DB Error: ', err));
+  .then(() => console.log('Database connected'))
+  .catch((e) => console.error('Database connection Error: ', e));
 
 const { Schema } = mongoose;
 
@@ -27,13 +27,6 @@ const reviewsSchema = new Schema({
     },
   ],
   product_id: Number,
-  // date: {
-  //   type: Date,
-  //   default: Date.now,
-  // },
-  photos: [{ id: String, url: String }],
-  name: String,
-  email: String,
   characteristics: {
     Size: {
       value: String,
@@ -45,13 +38,16 @@ const reviewsSchema = new Schema({
       value: String,
     },
   },
-  category: String,
-  default_price: String,
-  description: String,
-  id: Number,
-  style_name: String,
-  slogan: String,
-  style_id: Number,
+  // photos: [{ id: String, url: String }],
+  // name: String,
+  // email: String,
+  // category: String,
+  // default_price: String,
+  // description: String,
+  // id: Number,
+  // style_name: String,
+  // slogan: String,
+  // style_id: Number,
 });
 // , { versionKey: false }
 const Review = mongoose.model('Review', reviewsSchema);
