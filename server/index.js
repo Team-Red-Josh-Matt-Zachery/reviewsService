@@ -49,6 +49,7 @@ app.post('/reviews/:product_id', async (req, res) => {
   const { product_id } = req.params;
   const {
     results,
+    ratings,
     characteristics,
     // photos,
     // name,
@@ -71,7 +72,7 @@ app.post('/reviews/:product_id', async (req, res) => {
     recommend,
     response,
     review_id,
-    // name,
+    reviewer_name,
     summary,
   } = results[0];
   // console.log("results", results);
@@ -86,11 +87,13 @@ app.post('/reviews/:product_id', async (req, res) => {
         recommend,
         response,
         review_id,
-        name: results[0].name,
+        reviewer_name,
+        // name: results[0].name,
         summary,
       },
     ],
     product_id,
+    ratings,
     characteristics,
     // photos,
     // name,
@@ -107,7 +110,7 @@ app.post('/reviews/:product_id', async (req, res) => {
   const saveReview = await addReview(review);
   // .then((data) => res.json(data))
   try {
-    res.status(201).json(saveReview);
+    res.status(201).send(saveReview);
   } catch (e) {
     res.status(500).send('Back-end server Error: ', e);
   }

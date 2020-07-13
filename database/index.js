@@ -15,26 +15,37 @@ const reviewsSchema = new Schema({
   results: [
     {
       body: String,
-      date: String,
+      date: Date,
       helpfulness: Number,
       photos: [{ id: Number, url: String }],
       rating: Number,
       recommend: Number,
       response: String,
       review_id: Number,
-      name: String,
+      reviewer_name: String,
       summary: String,
     },
   ],
   product_id: Number,
+  ratings: {
+    0: Number,
+    1: Number,
+    2: Number,
+    3: Number,
+    4: Number,
+    5: Number,
+  },
   characteristics: {
     Size: {
+      id: Number,
       value: String,
     },
     Width: {
+      id: Number,
       value: String,
     },
     Comfort: {
+      id: Number,
       value: String,
     },
   },
