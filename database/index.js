@@ -12,29 +12,29 @@ mongoose.connect(mongoURI, {
 const { Schema } = mongoose;
 
 const reviewsSchema = new Schema({
-  results: [
-    {
-      body: String,
-      date: Date,
-      helpfulness: Number,
-      photos: [{ id: Number, url: String }],
-      rating: Number,
-      recommend: Number,
-      response: String,
-      review_id: Number,
-      reviewer_name: String,
-      summary: String,
-    },
-  ],
+  // results: [
+  //   {
+  body: String,
+  date: Date,
+  helpfulness: Number,
+  photos: [{ id: Number, url: String }],
+  rating: Number,
+  recommend: Number,
+  response: String,
+  review_id: Number,
+  reviewer_name: String,
+  summary: String,
+  //   },
+  // ],
   product_id: Number,
-  ratings: {
-    0: Number,
-    1: Number,
-    2: Number,
-    3: Number,
-    4: Number,
-    5: Number,
-  },
+  // ratings: {
+  //   0: Number,
+  //   1: Number,
+  //   2: Number,
+  //   3: Number,
+  //   4: Number,
+  //   5: Number,
+  // },
   characteristics: {
     Size: {
       id: Number,
