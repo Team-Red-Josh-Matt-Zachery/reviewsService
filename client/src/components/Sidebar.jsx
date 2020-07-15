@@ -32,7 +32,7 @@ class Sidebar extends React.Component {
       .then(res => res.json())
       .then(data => { console.log(data);
         this.setState({
-          reviews: data[0].results,
+          reviews: data.results,
         })
       })
       .then(moarData => this.averageStarRating())

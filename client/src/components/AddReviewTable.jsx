@@ -19,7 +19,7 @@ class AddReviewTable extends Component {
   componentDidMount() {
     fetch('http://localhost:3004/reviews/4/meta')
       .then(res => res.json())
-      .then(data => this.hideRows(data[0]));
+      .then(data => {console.log('TABLE', data); this.hideRows(data[0])});
   }
 
   hideRows(data) {
