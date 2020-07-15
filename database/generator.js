@@ -8,16 +8,6 @@ const faker = require('faker');
 // const mongoose = require('mongoose');
 // const stream = require('stream');
 
-// const write = (data, callback) => {
-//   !stream.write(data)
-//     ? stream.once('drain', callback)
-//     : process.nextTick(callback);
-// };
-
-// write('hello', () => {
-//   console.log('Write completed, do more writes now.');
-// });
-
 const numberOfRecords = 1000000;
 
 const seedDatabase = (done) => {
@@ -121,6 +111,16 @@ const seedDatabase = (done) => {
 };
 
 seedDatabase();
+
+// const write = (data, callback) => {
+//   !stream.write(data)
+//     ? stream.once('drain', callback)
+//     : process.nextTick(callback);
+// };
+
+// write('hello', () => {
+//   console.log('Write completed, do more writes now.');
+// });
 
 // const seedDatabase = (done) => {
 //   const data = [];
