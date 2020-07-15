@@ -8,13 +8,13 @@ const stream = fs.createWriteStream(filename);
 const mongoose = require('mongoose');
 // const stream = require('stream');
 
-const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  poolSize: 100,
-  serverSelectionTimeoutMS: 6000000,
-  socketTimeoutMS: 45000,
-};
+// const options = {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   poolSize: 100,
+//   serverSelectionTimeoutMS: 6000000,
+//   socketTimeoutMS: 45000,
+// };
 
 // mongoose.connect('mongodb://localhost/reviews', options);
 
