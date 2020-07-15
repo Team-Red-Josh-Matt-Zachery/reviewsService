@@ -18,7 +18,7 @@ const options = {
 
 // mongoose.connect('mongodb://localhost/reviews', options);
 
-const numberOfRecords = 100000;
+const numberOfRecords = 500000;
 
 // const write = (data, callback) => {
 //   !stream.write(data)
