@@ -3,32 +3,12 @@ const faker = require('faker');
 // const argv = require('yargs');
 // const lines = argv.lines || 1000;
 // const filename = argv.output || 'reviewData.csv';
-const filename = 'reviewsData.json';
-const stream = fs.createWriteStream(filename);
-const mongoose = require('mongoose');
+// const filename = 'reviewsData.json';
+// const stream = fs.createWriteStream(filename);
+// const mongoose = require('mongoose');
 // const stream = require('stream');
 
-// const options = {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   poolSize: 100,
-//   serverSelectionTimeoutMS: 6000000,
-//   socketTimeoutMS: 45000,
-// };
-
-// mongoose.connect('mongodb://localhost/reviews', options);
-
-const numberOfRecords = 500000;
-
-// const write = (data, callback) => {
-//   !stream.write(data)
-//     ? stream.once('drain', callback)
-//     : process.nextTick(callback);
-// };
-
-// write('hello', () => {
-//   console.log('Write completed, do more writes now.');
-// });
+const numberOfRecords = 1000000;
 
 const seedDatabase = (done) => {
   const t0 = new Date();
@@ -53,7 +33,7 @@ const seedDatabase = (done) => {
       });
     }
     const review = {
-      review_id: i, // faker.random.number(100)
+      review_id: i,
       body: faker.hacker.phrase(),
       date: faker.date.recent(),
       helpfulness: faker.random.number({ max: 10 }),
@@ -131,6 +111,16 @@ const seedDatabase = (done) => {
 };
 
 seedDatabase();
+
+// const write = (data, callback) => {
+//   !stream.write(data)
+//     ? stream.once('drain', callback)
+//     : process.nextTick(callback);
+// };
+
+// write('hello', () => {
+//   console.log('Write completed, do more writes now.');
+// });
 
 // const seedDatabase = (done) => {
 //   const data = [];
@@ -241,6 +231,7 @@ seedDatabase();
 //   }
 // }
 
+// };
 // const startWriting = (writeStream, encoding, done) => {
 //   let i = lines;
 //   function writing() {
@@ -266,7 +257,6 @@ seedDatabase();
 //   }
 //   // initiate our writing function
 //   writing();
-// };
 
 // // write our 'header' line before we invoke the loop
 // stream.write('review_id, product_id, body, date, helpfulness, photos, rating, recommend, response, reviewer_name, summary, ratings, characteristics\n', 'utf-8');
@@ -274,30 +264,3 @@ seedDatabase();
 // startWriting(stream, 'utf-8', () => {
 //   stream.end();
 // });
-
-// const seed = () => {
-//   const t0 = new Date();
-//   let i = 0;
-//   while (i < numberOfRecords) {
-//     const document = createReview();
-//     const newReview = new Review(document);
-//     newReview.save();
-//     i++;
-// //   }
-//   const t1 = new Date();
-//   console.log(`Seeding took ${t1 - t0} milliseconds.`);
-// };
-
-// seed();
-
-// const exit = () => {
-//   mongoose.disconnect();
-// };
-
-// while (review_id <= 10000000)
-// create a product
-// For (0 - 30 iterations)
-// create a review with review_id and increment review_id
-// for (2 - 7 iterations)
-// create photos for that review
-// Increment product_id
