@@ -103,7 +103,7 @@ app.put('/reviews/report/:review_id', async (req, res) => {
   const report = updateReview(req.params.review_id, req.body);
   // .then((data) => res.send(data));
   try {
-    res.status(204).send(res);
+    res.status(204).send();
   } catch (e) {
     res.status(500).send('Back-end server Error: ', e);
   }

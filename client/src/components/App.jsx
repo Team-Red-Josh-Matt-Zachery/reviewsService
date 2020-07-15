@@ -31,9 +31,9 @@ class App extends Component {
   componentDidMount() {
     fetch('http://localhost:3004/reviews/4/list')
       .then(res => res.json())
-      .then(data => {console.log('APP.JSX', data[0]); this.setState({
-        reviews: data[0].results,
-        filterReviews: data[0].results,
+      .then(data => {console.log('APP.JSX', data); this.setState({
+        reviews: data.results,
+        filterReviews: data.results,
       })});
   }
 

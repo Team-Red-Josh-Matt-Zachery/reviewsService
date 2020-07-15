@@ -1,4 +1,4 @@
-// const fs = require('fs');
+const fs = require('fs');
 const faker = require('faker');
 // const argv = require('yargs');
 // const lines = argv.lines || 1000;
@@ -6,71 +6,160 @@ const faker = require('faker');
 // const stream = fs.createWriteStream(filename);
 
 const mongoose = require('mongoose');
-const Review = require('./index');
 
 mongoose.connect('mongodb://localhost/reviews', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-const createReview = () => {
-  const body = faker.hacker.phrase();
-  const date = faker.date.recent();
-  const helpfulness = faker.random.number({ max: 10 });
-  const photos = [];
-  for (let i = 0; i < faker.random.number({ max: 8 }); i++) {
-    photos.photo(faker.image.imageUrl()[i]);
-  }
-  const id = faker.random.number(4);
-  const url = faker.image.imageUrl();
-  // }];
-  const rating = faker.random.number({ max: 5 });
-  const recommend = faker.random.number({ max: 1 });
-  const response = faker.hacker.phrase();
-  const review_id = faker.random.number(100);
-  const reviewer_name = faker.name.firstName();
-  const summary = faker.hacker.phrase();
+const numberOfRecords = 1000000;
 
-  const results = {
-    body: faker.hacker.phrase(),
-    date: faker.date.recent(),
-    helpfulness: faker.random.number({ max: 10 }),
-    photos: [{ id: faker.random.number(4), url: faker.image.imageUrl() }],
-    rating: faker.random.number({ max: 5 }),
-    recommend: faker.random.number({ max: 1 }),
-    response: faker.hacker.phrase(),
-    review_id: faker.random.number(100),
-    reviewer_name: faker.name.firstName(),
-    summary: faker.hacker.phrase(),
-  };
-  const product_id = 0;
-  const ratings = {
+const seedDatabase = () => {
+  const data = [];
+  const t0 = new Date();
+  for (let i = 0; i < numberOfRecords; i++) {
+    const photosArray = [];
+    for (let j = 0; j < faker.random.number({ max: 9 }); j++) {
+      photosArray.push({ id: faker.random.number(1000), url: `${faker.image.imageUrl(400, 400, 'fashion')}?random=${Date.now()}` });
+    }
+    const review = {
+      review_id: i, // faker.random.number(100)
+      body: faker.hacker.phrase(),
+      date: faker.date.recent(),
+      helpfulness: faker.random.number({ max: 10 }),
+      photos: photosArray,
+      rating: faker.random.number({ max: 5 }),
+      recommend: faker.random.number({ max: 1 }),
+      response: faker.hacker.phrase(),
+      reviewer_name: faker.name.firstName(),
+      summary: faker.hacker.phrase(),
+      product_id: faker.random.number(100000),
+      ratings: {
+        0: faker.random.number({ max: 30 }),
+        1: faker.random.number({ max: 30 }),
+        2: faker.random.number({ max: 30 }),
+        3: faker.random.number({ max: 30 }),
+        4: faker.random.number({ max: 30 }),
+        5: faker.random.number({ max: 30 }),
+      },
+      recommended: {
+        0: faker.random.number({ max: 30 }),
+        1: faker.random.number({ max: 30 }),
+      },
+      characteristics: {
+        Size: {
+          id: faker.random.number(20),
+          value: faker.random.number({ max: 5 }),
+        },
+        Width: {
+          id: faker.random.number(20),
+          value: faker.random.number({ max: 5 }),
+        },
+        Comfort: {
+          id: faker.random.number(20),
+          value: faker.random.number({ max: 5 }),
+        },
+        Fit: {
+          id: faker.random.number(20),
+          value: faker.random.number({ max: 5 }),
+        },
+        Length: {
+          id: faker.random.number(20),
+          value: faker.random.number({ max: 5 }),
+        },
+        Quality: {
+          id: faker.random.number(20),
+          value: faker.random.number({ max: 5 }),
+        },
+      },
+    };
+    data.push(review);
+    // if (i % 10000 === 0) console.log(`${i / 10000}%`);
+  }
+  fs.writeFileSync('database/reviewData.json', JSON.stringify(data, null, 2), { flag: 'as' });
+  const t1 = new Date();
+  console.log(`Seeding took ${t1 - t0} milliseconds.`);
+};
+
+seedDatabase();
+
+const review = {
+  review_id: i, // faker.random.number(100)
+  body: faker.hacker.phrase(),
+  date: faker.date.recent(),
+  helpfulness: faker.random.number({ max: 10 }),
+  photos: photosArray,
+  rating: faker.random.number({ max: 5 }),
+  recommend: faker.random.number({ max: 1 }),
+  response: faker.hacker.phrase(),
+  reviewer_name: faker.name.firstName(),
+  summary: faker.hacker.phrase(),
+  product_id: faker.random.number(100000),
+  ratings: {
     0: faker.random.number({ max: 30 }),
     1: faker.random.number({ max: 30 }),
     2: faker.random.number({ max: 30 }),
     3: faker.random.number({ max: 30 }),
     4: faker.random.number({ max: 30 }),
     5: faker.random.number({ max: 30 }),
-  };
-  const characteristics = {
+  },
+  recommended: {
+    0: faker.random.number({ max: 30 }),
+    1: faker.random.number({ max: 30 }),
+  },
+  characteristics: {
     Size: {
-      id: faker.random.number(2),
+      id: faker.random.number(20),
       value: faker.random.number({ max: 5 }),
     },
     Width: {
-      id: faker.random.number(2),
+      id: faker.random.number(20),
       value: faker.random.number({ max: 5 }),
     },
     Comfort: {
-      id: faker.random.number(2),
+      id: faker.random.number(20),
       value: faker.random.number({ max: 5 }),
     },
-  };
-  // ${review_id},${body},${date},${helpfulness},${photos},
-  // ${rating},${recommend},${response},${reviewer_name},${summary},
-  return `${review_id},${body},${date},${helpfulness},${photos},
-${rating},${recommend},${response},${reviewer_name},${summary},${product_id},${ratings},${characteristics},\n`;
+    Fit: {
+      id: faker.random.number(20),
+      value: faker.random.number({ max: 5 }),
+    },
+    Length: {
+      id: faker.random.number(20),
+      value: faker.random.number({ max: 5 }),
+    },
+    Quality: {
+      id: faker.random.number(20),
+      value: faker.random.number({ max: 5 }),
+    },
+  },
 };
+
+// Write the data to the supplied writable stream one million times.
+// Be attentive to back-pressure.
+function writeOneMillionTimes(writer, data, encoding, callback) {
+  let i = 1000000;
+  write();
+  function write() {
+    let ok = true;
+    do {
+      i--;
+      if (i === 0) {
+        // Last time!
+        writer.write(data, encoding, callback);
+      } else {
+        // See if we should continue, or wait.
+        // Don't pass the callback, because we're not done yet.
+        ok = writer.write(data, encoding);
+      }
+    } while (i > 0 && ok);
+    if (i > 0) {
+      // Had to stop early!
+      // Write some more once it drains.
+      writer.once('drain', write);
+    }
+  }
+}
 
 const startWriting = (writeStream, encoding, done) => {
   let i = lines;
@@ -99,69 +188,67 @@ const startWriting = (writeStream, encoding, done) => {
   writing();
 };
 
-// write our 'header' line before we invoke the loop
-stream.write('review_id, product_id, body, date, helpfulness, photos, rating, recommend, response, reviewer_name, summary, ratings, characteristics\n', 'utf-8');
-// invoke startWriting and pass callback
-startWriting(stream, 'utf-8', () => {
-  stream.end();
-});
+// // write our 'header' line before we invoke the loop
+// stream.write('review_id, product_id, body, date, helpfulness, photos, rating, recommend, response, reviewer_name, summary, ratings, characteristics\n', 'utf-8');
+// // invoke startWriting and pass callback
+// startWriting(stream, 'utf-8', () => {
+//   stream.end();
+// });
 
-const review = [
-  new Review({
-    results: {
-      body: faker.hacker.phrase(),
-      date: faker.date.recent(),
-      helpfulness: faker.random.number({ max: 10 }),
-      photos: [{ id: faker.random.number(4), url: faker.image.imageUrl() }],
-      rating: faker.random.number({ max: 5 }),
-      recommend: faker.random.number({ max: 1 }),
-      response: faker.hacker.phrase(),
-      review_id: faker.random.number(100),
-      reviewer_name: faker.name.firstName(),
-      summary: faker.hacker.phrase(),
-    },
-    product_id: faker.random.number(100),
-    ratings: {
-      0: faker.random.number({ max: 30 }),
-      1: faker.random.number({ max: 30 }),
-      2: faker.random.number({ max: 30 }),
-      3: faker.random.number({ max: 30 }),
-      4: faker.random.number({ max: 30 }),
-      5: faker.random.number({ max: 30 }),
-    },
-    characteristics: {
-      Size: {
-        id: faker.random.number(2),
-        value: faker.random.number({ max: 5 }),
-      },
-      Width: {
-        id: faker.random.number(2),
-        value: faker.random.number({ max: 5 }),
-      },
-      Comfort: {
-        id: faker.random.number(2),
-        value: faker.random.number({ max: 5 }),
-      },
-    },
-  }),
-];
+// const review = [
+//   new Review({
+//     results: {
+//       body: faker.hacker.phrase(),
+//       date: faker.date.recent(),
+//       helpfulness: faker.random.number({ max: 10 }),
+//       photos: [{ id: faker.random.number(4), url: faker.image.imageUrl() }],
+//       rating: faker.random.number({ max: 5 }),
+//       recommend: faker.random.number({ max: 1 }),
+//       response: faker.hacker.phrase(),
+//       review_id: faker.random.number(100),
+//       reviewer_name: faker.name.firstName(),
+//       summary: faker.hacker.phrase(),
+//     },
+//     product_id: faker.random.number(100),
+//     ratings: {
+//       0: faker.random.number({ max: 30 }),
+//       1: faker.random.number({ max: 30 }),
+//       2: faker.random.number({ max: 30 }),
+//       3: faker.random.number({ max: 30 }),
+//       4: faker.random.number({ max: 30 }),
+//       5: faker.random.number({ max: 30 }),
+//     },
+//     characteristics: {
+//       Size: {
+//         id: faker.random.number(2),
+//         value: faker.random.number({ max: 5 }),
+//       },
+//       Width: {
+//         id: faker.random.number(2),
+//         value: faker.random.number({ max: 5 }),
+//       },
+//       Comfort: {
+//         id: faker.random.number(2),
+//         value: faker.random.number({ max: 5 }),
+//       },
+//     },
+//   }),
+// ];
 
-const numberOfRecords = 10;
+// const seed = () => {
+//   const t0 = new Date();
+//   let i = 0;
+//   while (i < numberOfRecords) {
+//     const document = createReview();
+//     const newReview = new Review(document);
+//     newReview.save();
+//     i++;
+// //   }
+//   const t1 = new Date();
+//   console.log(`Seeding took ${t1 - t0} milliseconds.`);
+// };
 
-const seed = () => {
-  const t0 = new Date();
-  let i = 0;
-  while (i < numberOfRecords) {
-    const document = createReview();
-    const newReview = new Review(document);
-    newReview.save();
-    i++;
-  }
-  const t1 = new Date();
-  console.log(`Seeding took ${t1 - t0} milliseconds.`);
-};
-
-seed();
+// seed();
 
 // const exit = () => {
 //   mongoose.disconnect();

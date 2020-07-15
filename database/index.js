@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const mongoURI = 'mongodb://localhost/reviews';
 
-mongoose.connect(mongoURI, {
+mongoose.connect(mongoURI, { // autoIndex: false
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -12,8 +12,6 @@ mongoose.connect(mongoURI, {
 const { Schema } = mongoose;
 
 const reviewsSchema = new Schema({
-  // results: [
-  //   {
   body: String,
   date: Date,
   helpfulness: Number,
@@ -21,20 +19,10 @@ const reviewsSchema = new Schema({
   rating: Number,
   recommend: Number,
   response: String,
-  review_id: Number,
+  review_id: Number, // { type: Number, index: true }
   reviewer_name: String,
   summary: String,
-  //   },
-  // ],
-  product_id: Number,
-  // ratings: {
-  //   0: Number,
-  //   1: Number,
-  //   2: Number,
-  //   3: Number,
-  //   4: Number,
-  //   5: Number,
-  // },
+  product_id: Number, // { type: Number, index: true }
   characteristics: {
     Size: {
       id: Number,
@@ -48,17 +36,19 @@ const reviewsSchema = new Schema({
       id: Number,
       value: String,
     },
+    Fit: {
+      id: Number,
+      value: String,
+    },
+    Length: {
+      id: Number,
+      value: String,
+    },
+    Quality: {
+      id: Number,
+      value: String,
+    },
   },
-  // photos: [{ id: String, url: String }],
-  // name: String,
-  // email: String,
-  // category: String,
-  // default_price: String,
-  // description: String,
-  // id: Number,
-  // style_name: String,
-  // slogan: String,
-  // style_id: Number,
 });
 // , { versionKey: false }
 const Review = mongoose.model('Review', reviewsSchema);
