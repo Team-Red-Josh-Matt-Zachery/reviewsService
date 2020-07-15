@@ -18,7 +18,7 @@ const faker = require('faker');
 //   console.log('Write completed, do more writes now.');
 // });
 
-const numberOfRecords = 1000000;
+const numberOfRecords = 100000;
 
 const seedDatabase = (done) => {
   const t0 = new Date();
