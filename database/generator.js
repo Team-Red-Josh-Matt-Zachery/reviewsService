@@ -11,7 +11,7 @@ const faker = require('faker');
 const numberOfRecords = 10000000;
 
 const seedDatabase = () => {
-  const t0 = new Date();
+  const start = new Date().getTime();
   fs.writeFileSync(
     'database/reviewDataIndex.json',
     '[',
@@ -104,8 +104,8 @@ const seedDatabase = () => {
         });
     if (i % 100000 === 0) console.log(`${i / 100000}%`);
   }
-  const t1 = new Date();
-  console.log(`Seeding took ${t1 - t0} milliseconds.`);
+  const stop = new Date().getTime();
+  console.log(`Seeding took ${stop - start} milliseconds.`);
 };
 
 seedDatabase();
@@ -257,7 +257,8 @@ seedDatabase();
 //   writing();
 
 // // write our 'header' line before we invoke the loop
-// stream.write('review_id, product_id, body, date, helpfulness, photos, rating, recommend, response, reviewer_name, summary, ratings, characteristics\n', 'utf-8');
+// stream.write('review_id, product_id, body, date, helpfulness, photos,
+// rating, recommend, response, reviewer_name, summary, ratings, characteristics\n', 'utf-8');
 // // invoke startWriting and pass callback
 // startWriting(stream, 'utf-8', () => {
 //   stream.end();

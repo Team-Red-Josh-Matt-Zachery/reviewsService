@@ -9,6 +9,8 @@ mongoose.connect(mongoURI, { // autoIndex: false
   .then(() => console.log('Database connected'))
   .catch((e) => console.error('Database connection Error: ', e));
 
+mongoose.set('useCreateIndex', true);
+
 const { Schema } = mongoose;
 
 const reviewsSchema = new Schema({
