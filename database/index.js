@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const mongoURI = 'mongodb://localhost/reviews';
 
-mongoose.connect(mongoURI, { // autoIndex: false
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -21,10 +21,10 @@ const reviewsSchema = new Schema({
   rating: Number,
   recommend: Number,
   response: String,
-  review_id: { type: Number, index: true },
+  review_id: Number,
   reviewer_name: String,
   summary: String,
-  product_id: { type: Number, index: true },
+  product_id: Number,
   characteristics: {
     Size: {
       id: Number,
@@ -52,7 +52,7 @@ const reviewsSchema = new Schema({
     },
   },
 });
-// , { versionKey: false }
+
 const Review = mongoose.model('Review', reviewsSchema);
 
 module.exports = {

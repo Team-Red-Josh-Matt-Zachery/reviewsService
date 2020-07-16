@@ -3,7 +3,6 @@ const { Review } = require('./index.js');
 const addReview = (reviewObject) => {
   const newReview = new Review(reviewObject);
   return newReview
-    // .insertMany()
     .save()
     .then((data) => data)
     .catch((e) => console.error(e));

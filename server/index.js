@@ -16,9 +16,9 @@ app.get('/reviews/:product_id/list', (req, res) => {
     results: '',
   };
   findAll(req.params.product_id)
-    .then((data) => (allReviews.results = data))
+    .then((data) => allReviews.results = data)
     .then(() => res.send(allReviews))
-    .catch((e) => console.log('Backend server Error: ', e));
+    .catch((err) => console.log('Backend server Error: ', err));
 });
 // try {
 //   allReviews.results = res;
@@ -89,26 +89,24 @@ app.post('/reviews/:product_id', async (req, res) => {
   }
 });
 
-app.put('/reviews/helpful/:review_id', (req, res) => {
-  updateReview(req.params.review_id, req.body)
-    .then((data) => res.send(data))
-    .catch(res.status(500).send((e) => console.log('Backend server Error: ', e)));
-  // try {
-  //   res.status(204).send(helpful);
-  // } catch (e) {
-  //   res.status(500).send('Back-end server Error: ', e);
-  // }
+app.put('/reviews/helpful/:review_id', async (req, res) => {
+  const helpful = await updateReview(req.params.review_id, req.body);
+  // .then((data) => res.send(data));
+  try {
+    res.status(204).send(helpful);
+  } catch (e) {
+    res.status(500).send('Back-end server Error: ', e);
+  }
 });
 
-app.put('/reviews/report/:review_id', (req, res) => {
-  updateReview(req.params.review_id, req.body)
-    .then((data) => res.send(data))
-    .catch(res.status(500).send((e) => console.log('Backend server Error: ', e)));
-  // try {
-  //   res.status(204).send();
-  // } catch (e) {
-  //   res.status(500).send('Back-end server Error: ', e);
-  // }
+app.put('/reviews/report/:review_id', async (req, res) => {
+  const report = updateReview(req.params.review_id, req.body);
+  // .then((data) => res.send(data));
+  try {
+    res.status(204).send(report);
+  } catch (e) {
+    res.status(500).send('Back-end server Error: ', e);
+  }
 });
 
 app.listen(PORT, () => console.log(`Backend server listening on port ${PORT}`));
