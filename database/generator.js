@@ -10,7 +10,7 @@ const faker = require('faker');
 
 const numberOfRecords = 1000000;
 
-const seedDatabase = (done) => {
+const seedDatabase = () => {
   const t0 = new Date();
   fs.writeFileSync(
     'database/reviewData.json',
@@ -93,17 +93,15 @@ const seedDatabase = (done) => {
     );
     i !== numberOfRecords - 1
       ? fs.writeFileSync('database/reviewData.json', ',',
-          { flag: 'as' },
-          (e) => {
-            if (e) console.error(e);
-          },
-        )
-      : fs.writeFileSync('database/reviewData.json', ']',
-          { flag: 'as' },
-          (e) => {
+        { flag: 'as' },
+        (e) => {
           if (e) console.error(e);
-          },
-        );
+        })
+      : fs.writeFileSync('database/reviewData.json', ']',
+        { flag: 'as' },
+        (e) => {
+          if (e) console.error(e);
+        });
     if (i % 10000 === 0) console.log(`${i / 10000}%`);
   }
   const t1 = new Date();
