@@ -8,12 +8,12 @@ const faker = require('faker');
 // const mongoose = require('mongoose');
 // const stream = require('stream');
 
-const numberOfRecords = 1000000;
+const numberOfRecords = 10000000;
 
 const seedDatabase = () => {
   const t0 = new Date();
   fs.writeFileSync(
-    'database/reviewData.json',
+    'database/reviewDataIndex.json',
     '[',
     (e) => {
       if (e) console.error(e);
@@ -84,7 +84,7 @@ const seedDatabase = () => {
       },
     };
     fs.writeFileSync(
-      'database/reviewData.json',
+      'database/reviewDataIndex.json',
       JSON.stringify(review, null, 2),
       { flag: 'as' },
       (e) => {
@@ -92,17 +92,17 @@ const seedDatabase = () => {
       },
     );
     i !== numberOfRecords - 1
-      ? fs.writeFileSync('database/reviewData.json', ',',
+      ? fs.writeFileSync('database/reviewDataIndex.json', ',',
         { flag: 'as' },
         (e) => {
           if (e) console.error(e);
         })
-      : fs.writeFileSync('database/reviewData.json', ']',
+      : fs.writeFileSync('database/reviewDataIndex.json', ']',
         { flag: 'as' },
         (e) => {
           if (e) console.error(e);
         });
-    if (i % 10000 === 0) console.log(`${i / 10000}%`);
+    if (i % 100000 === 0) console.log(`${i / 100000}%`);
   }
   const t1 = new Date();
   console.log(`Seeding took ${t1 - t0} milliseconds.`);

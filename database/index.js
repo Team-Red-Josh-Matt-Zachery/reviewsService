@@ -19,10 +19,10 @@ const reviewsSchema = new Schema({
   rating: Number,
   recommend: Number,
   response: String,
-  review_id: Number, // { type: Number, index: true }
+  review_id: { type: Number, index: true },
   reviewer_name: String,
   summary: String,
-  product_id: Number, // { type: Number, index: true }
+  product_id: { type: Number, index: true },
   characteristics: {
     Size: {
       id: Number,
