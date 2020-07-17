@@ -3,7 +3,6 @@ const { Review } = require('./index.js');
 const addReview = (reviewObject) => {
   const newReview = new Review(reviewObject);
   return newReview
-    // .insertMany()
     .save()
     .then((data) => data)
     .catch((e) => console.error(e));
@@ -11,7 +10,7 @@ const addReview = (reviewObject) => {
 
 const findAll = (productId) => (
   Review
-    .find({ product_id: productId })
+    .find({ product_id: productId }, null, { limit: 10 })
     .then((data) => data)
     .catch((e) => console.error(e))
 );
