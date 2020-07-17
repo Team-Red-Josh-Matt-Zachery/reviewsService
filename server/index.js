@@ -93,7 +93,7 @@ app.put('/reviews/helpful/:review_id', (req, res) => {
   // const helpful = await updateReview(req.params.review_id, req.body);
   updateReview(req.params.review_id, req.body)
     .then((data) => res.send(data))
-    .catch((e) => res.status(500).send(e));
+    .catch((e) => res.send(e));
   // try {
   //   res.status(204).send(helpful);
   // } catch (e) {
