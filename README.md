@@ -1,17 +1,28 @@
 # Reviews-Service
 
-## Metrics Comment
+## System Design / Web Scale Metrics
 
-GET /reviews/:product_id/list
+  ## get a list of reviews by product
 
-GET /reviews/:product_id/meta
+    GET /reviews/:product_id/list
+      Baseline Response Time --> 147.4ms
+      Optimized Time ----------> 
+  ## get a list of meta data by product
 
-POST /reviews/:product_id
+    GET /reviews/:product_id/meta
 
-## helpfulness
+  ## get a list of product info by product
 
-PUT /reviews/report/:review_id
+    GET /products/:product_id
 
-## reported
+  ## add a review
 
-PUT /reviews/helpful/:review_id
+    POST /reviews/:product_id
+
+  ## reported
+
+    PUT /reviews/report/:review_id
+
+  ## helpfulness
+
+    PUT /reviews/helpful/:review_id

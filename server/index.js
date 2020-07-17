@@ -89,21 +89,23 @@ app.post('/reviews/:product_id', async (req, res) => {
   }
 });
 
-app.put('/reviews/helpful/:review_id', async (req, res) => {
-  const helpful = await updateReview(req.params.review_id, req.body);
-  // .then((data) => res.send(data));
-  try {
-    res.status(204).send(helpful);
-  } catch (e) {
-    res.status(500).send('Back-end server Error: ', e);
-  }
+app.put('/reviews/helpful/:review_id', (req, res) => {
+  // const helpful = await updateReview(req.params.review_id, req.body);
+  updateReview(req.params.review_id, req.body)
+    .then((data) => res.send(data))
+    .catch((e) => res.status(500).send(e));
+  // try {
+  //   res.status(204).send(helpful);
+  // } catch (e) {
+  //   res.status(500).send('Back-end server Error: ', e);
+  // }
 });
 
 app.put('/reviews/report/:review_id', async (req, res) => {
   const report = updateReview(req.params.review_id, req.body);
   // .then((data) => res.send(data));
   try {
-    res.status(204).send(report);
+    res.send(report);
   } catch (e) {
     res.status(500).send('Back-end server Error: ', e);
   }

@@ -10,7 +10,7 @@ const addReview = (reviewObject) => {
 
 const findAll = (productId) => (
   Review
-    .find({ product_id: productId })
+    .find({ product_id: productId }, null, { limit: 10 })
     .then((data) => data)
     .catch((e) => console.error(e))
 );
