@@ -1,5 +1,5 @@
 # Sidecountry Shop
-> Sidecountry is an online apparel shopping website styled to be mobile-first. This repo is the Reviews Service element of the site.
+> Sidecountry is an apparel shopping website styled to be mobile-first. This repo is the Reviews Service element of the site.
 
 ![Intro Image](public/media/current-progress.png)
 
