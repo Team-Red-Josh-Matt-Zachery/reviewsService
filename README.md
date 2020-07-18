@@ -62,15 +62,7 @@ Now, navigate to http://localhost:3004 in your browser
 
 
 ## Built With
-* React Native
-* Native Base
-* D3.js
+* React
 * Node.js
-* Bcrypt
-* Knex.js
 * Express
-* PostgreSQL
-
-## Authors
-Melissa Utomo
-* [Github Profile](https://github.com/mafutomo)
+* MongoDB
