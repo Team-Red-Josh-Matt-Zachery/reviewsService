@@ -39,6 +39,8 @@ scenarios:
         - get:
             url: "/"
         count: 100
+      # - get:
+      #     url: /bundle.js
       # call getProductId() to create id variable
       - loop:
         - function: "getProductId"
