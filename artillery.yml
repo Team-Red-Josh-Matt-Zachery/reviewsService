@@ -1,0 +1,65 @@
+config:
+  # target: ""
+  # environments:
+    # dev:
+    #   target: ""
+  local:
+  target: "http://localhost:3004"
+  http:
+    pool: 10 # All HTTP requests from all virtual users will be sent over the same 10 connections
+    # This can be useful to emulate the conditions when the target would normally be behind a load-balancer and
+    # would have a fixed number of connections established at any given time.
+  phases:
+    - duration: 60
+      arrivalRate: 5
+      rampTo: 15
+      name: "Warm-up the service"
+
+    - duration: 20
+      arrivalRate: 7
+      name: "Drop to Low Traffic"
+
+    - duration: 40
+      arrivalRate: 9
+      rampTo: 12
+      name: "Ramp to High Traffic"
+
+    - duration: 10
+      arrivalRate: 17
+      name: "Traffic Spike"
+
+    - duration: 50
+      arrivalRate: 5
+      name: "Return to Low Traffic"
+  processor: "./scenarios.js"
+scenarios:
+  - name: "Load page, mark review as helpful, then report"
+    flow:
+      - loop:
+        - get:
+            url: "/"
+        count: 100
+      # call getProductId() to create id variable
+      - loop:
+        - function: "getProductId"
+        - get:
+            url: "/reviews/{{ product_id }}/list"
+        count: 2
+
+      - function: "getProductId"
+      - get:
+          url: "/products/{{ product_id }}"
+
+      - function: "getProductId"
+      - get:
+          url: "/reviews/{{ product_id }}/meta"
+
+      - loop:
+        - function: "getReviewId"
+        - put:
+            url: "/reviews/helpful/{{ review_id }}"
+        count: 2
+
+      - function: "getReviewId"
+      - put:
+          url: "/reviews/report/{{ review_id }}"
