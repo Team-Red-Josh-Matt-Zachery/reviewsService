@@ -1,5 +1,7 @@
+# Faker data 10M records
 database/reviewData.json
 database/reviewDataIndex.json
+
 # Logs
 logs
 .log
