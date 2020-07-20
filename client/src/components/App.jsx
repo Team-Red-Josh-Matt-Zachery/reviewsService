@@ -7,6 +7,7 @@ class App extends Component {
     super();
 
     this.state = {
+      currentProduct: Math.floor(Math.random() * 1000 + 1),
       reviews: [],
       filterReviews: [],
       filterCounter: 0,
@@ -29,7 +30,8 @@ class App extends Component {
   // http://52.26.193.201:3000/reviews/4/list
   // http://localhost:3004/reviews/4/list
   componentDidMount() {
-    fetch('http://localhost:3004/reviews/4/list')
+    const { currentProduct } = this.state;
+    fetch(`http://localhost:3004/reviews/${currentProduct}/list`)
       .then(res => res.json())
       .then(data => {console.log('APP.JSX', data); this.setState({
         reviews: data.results,

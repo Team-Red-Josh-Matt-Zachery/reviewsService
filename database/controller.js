@@ -15,7 +15,7 @@ const findAll = (productId) => (
     .catch((e) => console.error(e))
 );
 
-const updateReview = (id, reviewObject = { helpfulness: 1 }) => (
+const updateReview = (id, reviewObject /* = { helpfulness: 1 } */) => (
   Review
     .updateOne({ review_id: id }, reviewObject)
     .then((data) => data)

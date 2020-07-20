@@ -5,6 +5,7 @@ class AttributeGraph extends Component {
     super(props);
 
     this.state = {
+      currentProduct: Math.floor(Math.random() * 1000 + 1),
       size: '',
       width: '',
       comfort: '',
@@ -17,7 +18,8 @@ class AttributeGraph extends Component {
   // http://52.26.193.201:3000/reviews/4/meta
   // http://localhost:3004/reviews/4/meta
   componentDidMount() {
-    fetch('http://localhost:3004/reviews/4/meta')
+    const { currentProduct } = this.state;
+    fetch(`http://localhost:3004/reviews/${currentProduct}/meta`)
       .then((res) => res.json())
       .then((data) => {
         console.log('ATTGraph', data[0]);
