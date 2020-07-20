@@ -9,28 +9,50 @@ config:
     pool: 10 # All HTTP requests from all virtual users will be sent over the same 10 connections
     # This can be useful to emulate the conditions when the target would normally be behind a load-balancer and
     # would have a fixed number of connections established at any given time.
-  phases:
-    - duration: 60
-      arrivalRate: 5
-      rampTo: 15
+  phases: [
+    {
+      duration: 40,
+      arrivalRate: 10,
+      rampTo: 16,
       name: "Warm-up the service"
-
-    - duration: 20
-      arrivalRate: 7
-      name: "Drop to Low Traffic"
-
-    - duration: 40
-      arrivalRate: 9
-      rampTo: 12
-      name: "Ramp to High Traffic"
-
-    - duration: 10
-      arrivalRate: 17
+    },
+    # {
+    #   duration: 20,
+    #   arrivalRate: 7,
+    #   name: "Drop to Low Traffic"
+    # },
+    # {
+    #   duration: 40,
+    #   arrivalRate: 9,
+    #   rampTo: 12,
+    #   name: "Ramp to High Traffic"
+    # },
+    # {
+    #   duration: 10,
+    #   arrivalRate: 16,
+    #   name: "Traffic Spike"
+    # },
+    {
+      duration: 40,
+      arrivalRate: 16,
+      rampTo: 25,
       name: "Traffic Spike"
-
-    - duration: 50
-      arrivalRate: 5
-      name: "Return to Low Traffic"
+    },
+    {
+    duration: 60,
+    arrivalRate: 23,
+    name: "Sustained High load"
+    },
+    # {
+    #   duration: 30,
+    #   arrivalRate: 5,
+    #   name: "Return to Low Traffic"
+    # }
+  ]
+  ensure: {
+    maxErrorRate: 0.1,
+    p99: 500
+  }
   processor: "./scenarios.js"
 scenarios:
   - name: "Load page, mark review as helpful, then report"
@@ -38,7 +60,9 @@ scenarios:
       - loop:
         - get:
             url: "/"
-        count: 100
+        count: 55
+      # - get:
+      #     url: /bundle.js
       # call getProductId() to create id variable
       - loop:
         - function: "getProductId"
@@ -60,6 +84,7 @@ scenarios:
             url: "/reviews/helpful/{{ review_id }}"
         count: 2
 
+      - think: 2
       - function: "getReviewId"
       - put:
           url: "/reviews/report/{{ review_id }}"
