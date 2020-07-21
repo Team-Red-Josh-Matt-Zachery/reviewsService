@@ -12,7 +12,7 @@ config:
   phases: [
     {
       duration: 40,
-      arrivalRate: 10,
+      arrivalRate: 2,
       rampTo: 16,
       name: "Warm-up the service"
     },
@@ -33,14 +33,14 @@ config:
     #   name: "Traffic Spike"
     # },
     {
-      duration: 40,
+      duration: 50,
       arrivalRate: 16,
-      rampTo: 25,
+      rampTo: 20,
       name: "Traffic Spike"
     },
     {
-    duration: 60,
-    arrivalRate: 23,
+    duration: 40,
+    arrivalRate: 20,
     name: "Sustained High load"
     },
     # {
@@ -60,7 +60,7 @@ scenarios:
       - loop:
         - get:
             url: "/"
-        count: 55
+        count: 50
       # - get:
       #     url: /bundle.js
       # call getProductId() to create id variable

@@ -257,8 +257,8 @@ seedDatabase();
 //   writing();
 
 // // write our 'header' line before we invoke the loop
-// stream.write('review_id, product_id, body, date, helpfulness, photos,
-// rating, recommend, response, reviewer_name, summary, ratings, characteristics\n', 'utf-8');
+// stream.write('review_id, product_id, body, date, helpfulness, photos, rating,
+// recommend, response, reviewer_name, summary\n', 'utf-8');
 // // invoke startWriting and pass callback
 // startWriting(stream, 'utf-8', () => {
 //   stream.end();
