@@ -24,6 +24,7 @@
     "moment": "^2.27.0",
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.22",
+    "newrelic": "^6.11.0",
     "rater-js": "^1.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
