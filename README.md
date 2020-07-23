@@ -57,9 +57,6 @@ Now, navigate to http://localhost:3004 in your browser
       Baseline Response Time --> 34.71429(ms)
       Optimized Time ----------> 10.2(ms)
 
-# Business Requirements Image
-![](public/media/project-img.png)
-
 
 ## Built With
 * React
