@@ -1,19 +1,19 @@
 # Sidecountry Shop
 > About
-Sidecountry is an apparel shopping website styled to be mobile-first. This repo is the Reviews Service element of the app which showcases my skillset in Web Scale and Back-end optimization.
+Sidecountry is an apparel shopping website styled to be mobile-first. This repo is the Reviews Service element of the app which showcases my skill set in Web Scale and Back-end optimization.
 
 ![Intro Image](public/media/current-progress.png)
-
 The app provides stats and commentary from previous customers as well as the ability to contribute additional reviews.
 
 ## My Contribution to this Project
-I was given this legacy code base and tasked with:
-  - Generate a simulated dataset of 10 million realistic records
-  - Build an API to support appropriate CRUD operations that conform to REST standards
-  - Scale the app and Optimize performance (locally and deployed in production) to meet the following benchmarks:
-    * Response time: 50(ms) -locally
-    * Requests Per Second: 1000
-    * Error rate: < 1%
+I was given a legacy Front-end codebase and tasked with designing a scalable back-end that could maintain performance/resilience under production-level traffic.
+  - High level deliverables:
+    > Built an API to support CRUD operations to fit legacy code that conform to REST standards
+    > Emulated scenarios of production-level traffic by:
+      * Generated a simulated dataset of 10 million realistic records
+      * Stress tested queries that utilize thorough scenario coverage via Artillery.io load tester
+    > Horizontally scaled app on AWS and optimized performance under load while deployed to meet the following benchmarks:
+      * Response time: 50(ms)   * Requests Per Second: 1000   * Error rate: < 1%
 
 ## Related Projects
 - https://github.com/sidecountry-shop/productDetails
