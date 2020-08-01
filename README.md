@@ -16,8 +16,8 @@ I was given a legacy Front-end codebase and tasked with designing a scalable bac
       * Response time: 50(ms)   * Requests Per Second: 1000   * Error rate: < 1%
 
 # System Design / Web Scale Metrics
-![Intro Image](public/media/newRelic.png)
-![Intro Image](public/media/artilleryio.png)
+![Intro Image](public/media/newRelic.jpg)
+![Intro Image](public/media/artilleryio.jpg)
 
 ## Related Projects
 - https://github.com/sidecountry-shop/productDetails
