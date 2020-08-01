@@ -3,23 +3,25 @@
 Sidecountry is an apparel shopping website styled to be mobile-first. This repo is the Reviews Service element of the app which showcases my skill set in Web Scale and Back-end optimization.
 
 ![Intro Image](public/media/current-progress.png)
-The app provides stats and commentary from previous customers as well as the ability to contribute additional reviews.
+The app provides stats and commentary from previous customers as well as the ability to contribute additional reviews, mark as helpful, and flag reviews.
 
 ## My Contribution to this Project
 I was given a legacy Front-end codebase and tasked with designing a scalable back-end that could maintain performance/resilience under production-level traffic.
   - High level deliverables:
     > Built an API to support CRUD operations to fit legacy code that conform to REST standards
     > Emulated scenarios of production-level traffic by:
-      * Generated a simulated dataset of 10 million realistic records
+      * Generated a simulated dataset of 10 million realistic JSON/BSON records
       * Stress tested queries that utilize thorough scenario coverage via Artillery.io load tester
-    > Horizontally scaled app on AWS and optimized performance under load while deployed to meet the following benchmarks:
-      * Response time: 50(ms)   * Requests Per Second: 1000   * Error rate: < 1%
+    > Horizontally scaled app on AWS Round-Robin load balancers and optimized performance under load while deployed to meet the following benchmarks:
+      * Response time: 50(ms)   * Requests Per Second: 100+   * Error rate: < 1%
 
 # System Design / Web Scale Metrics
-![Intro Image](public/media/newRelic.jpg)
+
 ### New Relic APM
-![Intro Image](public/media/artilleryio.jpg)
+![Intro Image](public/media/newRelic.jpg)
+
 ### Artillery.io
+![Intro Image](public/media/artilleryio.jpg)
 
 
 ## Related Projects
