@@ -8,12 +8,14 @@
 ## My Contribution to this Project
 > I was given a legacy Front-end codebase and tasked with designing a scalable back-end that could maintain performance/resilience under production-level traffic.
   - High level deliverables:
-    > Built an API to support CRUD operations to fit legacy code that conform to REST standards
-    > Horizontally scaled app on AWS Round-Robin load balancers and optimized performance under load while deployed to meet the following benchmarks:
-      * Response time: 50(ms)   * Requests Per Second: 100+   * Error rate: < 1%
-    > Emulated scenarios of production-level traffic by:
-      * Generated a simulated dataset of 10 million realistic JSON/BSON records
-      * Stress tested queries that utilize thorough scenario coverage via Artillery.io load tester
+    * Built an API to support CRUD operations to fit legacy code that conform to REST standards
+    * Ensured the UI continued to function as I re-engineered the server layer
+    * Horizontally scaled the deployed app on AWS Round-Robin load balancers and optimized performance under load to meet the following benchmarks:
+      >  * Response time: 50(ms)   * Requests Per Second: 100+   * Error rate: < 1%
+    * Emulated scenarios of production-level traffic by:
+      > Generated a simulated dataset of more than 10 million realistic JSON/BSON records
+      > Stress tested queries with randomized data in the final 10% of this huge dataset
+      > Stress tested queries that utilize thorough scenario coverage via Artillery.io load tester
 
 # System Design / Web Scale Metrics
 
