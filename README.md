@@ -11,7 +11,9 @@
     * Built an API to support CRUD operations to fit legacy code that conform to REST standards
     * Ensured the UI continued to function as I re-engineered the server layer
     * Horizontally scaled the deployed app on AWS Round-Robin load balancers and optimized performance under load to meet the following benchmarks:
-      >  * Response time: 50(ms)   * Requests Per Second: 100+   * Error rate: < 1%
+      > * Response time: 50(ms)   
+      > * Requests Per Second: 100+
+      > * Error rate: < 1%
     * Emulated scenarios of production-level traffic by:
       > Generated a simulated dataset of more than 10 million realistic JSON/BSON records
       > Stress tested queries with randomized data in the final 10% of this huge dataset
