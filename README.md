@@ -15,9 +15,9 @@
       > * Requests Per Second: 100+
       > * Error rate: < 1%
     * Emulated scenarios of production-level traffic by:
-      > Generated a simulated dataset of more than 10 million realistic JSON/BSON records
-      > Stress tested queries with randomized data in the final 10% of this huge dataset
-      > Stress tested queries that utilize thorough scenario coverage via Artillery.io load tester
+      > * Generated a simulated dataset of more than 10 million realistic JSON/BSON records
+      > * Stress tested queries with randomized data in the final 10% of this huge dataset
+      > * Stress tested queries that utilize thorough scenario coverage via Artillery.io load tester
 
 # System Design / Web Scale Metrics
 
