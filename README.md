@@ -1,13 +1,12 @@
 # Sidecountry Shop
->
-Sidecountry is an apparel shopping website styled to be mobile-first. This repo is the Reviews Service element of the app which showcases my skill set in Web Scale and Back-end optimization.
+> Sidecountry is an apparel shopping website styled to be mobile-first. This repo is the Reviews Service element of the app which showcases my skill set in Web Scale and Back-end optimization.
 
 ![Intro Image](public/media/current-progress.png)
 
 > The app provides stats and commentary from previous customers as well as the ability to contribute additional reviews, mark as helpful, and flag reviews.
 
 ## My Contribution to this Project
-I was given a legacy Front-end codebase and tasked with designing a scalable back-end that could maintain performance/resilience under production-level traffic.
+> I was given a legacy Front-end codebase and tasked with designing a scalable back-end that could maintain performance/resilience under production-level traffic.
   - High level deliverables:
     > Built an API to support CRUD operations to fit legacy code that conform to REST standards
     > Horizontally scaled app on AWS Round-Robin load balancers and optimized performance under load while deployed to meet the following benchmarks:
