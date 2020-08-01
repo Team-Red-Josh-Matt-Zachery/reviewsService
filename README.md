@@ -17,7 +17,10 @@ I was given a legacy Front-end codebase and tasked with designing a scalable bac
 
 # System Design / Web Scale Metrics
 ![Intro Image](public/media/newRelic.jpg)
+### New Relic APM
 ![Intro Image](public/media/artilleryio.jpg)
+### Artillery.io
+
 
 ## Related Projects
 - https://github.com/sidecountry-shop/productDetails
