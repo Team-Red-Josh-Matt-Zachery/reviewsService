@@ -1,10 +1,10 @@
 # Sidecountry Shop
-> About
+>
 Sidecountry is an apparel shopping website styled to be mobile-first. This repo is the Reviews Service element of the app which showcases my skill set in Web Scale and Back-end optimization.
 
 ![Intro Image](public/media/current-progress.png)
 
-The app provides stats and commentary from previous customers as well as the ability to contribute additional reviews, mark as helpful, and flag reviews.
+> The app provides stats and commentary from previous customers as well as the ability to contribute additional reviews, mark as helpful, and flag reviews.
 
 ## My Contribution to this Project
 I was given a legacy Front-end codebase and tasked with designing a scalable back-end that could maintain performance/resilience under production-level traffic.
