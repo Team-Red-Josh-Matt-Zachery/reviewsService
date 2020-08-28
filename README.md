@@ -3,7 +3,7 @@
 
 ![Intro Image](public/media/current-progress.png)
 
-> The app provides stats and commentary from previous customers as well as the ability to contribute additional reviews, mark as helpful, and flag reviews.
+> The app provides stats and commentary from previous customers as well as the ability to contribute additional reviews, mark as helpful, and flag reviews. 
 
 ## My Contribution to this Project
 > I was given a legacy Front-end codebase and tasked with designing a scalable back-end that could maintain performance/resilience under production-level traffic.
