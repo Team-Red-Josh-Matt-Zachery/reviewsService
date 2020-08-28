@@ -1,5 +1,5 @@
 # Sidecountry Shop
-> Sidecountry is an apparel shopping website styled to be mobile-first. This repo is the Reviews Service element of the app which showcases my skill set in Web Scale and Back-end optimization.
+> Sidecountry is an apparel shopping web app styled to be mobile-first. This repo is the Reviews Service element of the app which showcases my skill set in Web Scale and Back-end optimization.
 
 ![Intro Image](public/media/current-progress.png)
 
