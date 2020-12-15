@@ -2,8 +2,6 @@
 database/reviewData.json
 database/reviewDataIndex.json
 
-# New Relic license key: aadde7484b6fde2296d43a1d17d40a41239cNRAL
-
 # Logs
 logs
 .log
