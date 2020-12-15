@@ -19,7 +19,6 @@ app.get('/reviews/:product_id/list', (req, res) => {
   findAll(req.params.product_id)
     .then((data) => allReviews.results = data)
     .then(() => res.send(allReviews))
-    .catch((err) => console.log('Backend server Error: ', err));
 });
 // try {
 //   allReviews.results = res;

@@ -22,7 +22,6 @@ const reviewsSchema = new Schema({
   recommend: Number,
   response: String,
   review_id: { type: Number, index: true },
-  reviewer_name: String,
   summary: String,
   product_id: { type: Number, index: true },
   characteristics: {

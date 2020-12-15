@@ -26,7 +26,6 @@ const deleteReview = (reviewId) => (
   Review
     .deleteOne({ _id: reviewId })
     .then((data) => data)
-    .catch((e) => console.error(e))
 );
 
 module.exports = {
