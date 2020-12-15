@@ -203,6 +203,8 @@ seedDatabase();
 
 // seedDatabase();
 
+
+
 // Write the data to the supplied writable stream one million times.
 // Be attentive to back-pressure.
 // function writeOneMillionTimes(writer, data, encoding, callback) {
@@ -216,6 +218,7 @@ seedDatabase();
 //         // Last time!
 //         writer.write(data, encoding, callback);
 //       } else {
+
 //         // See if we should continue, or wait.
 //         // Don't pass the callback, because we're not done yet.
 //         ok = writer.write(data, encoding);
@@ -237,17 +240,22 @@ seedDatabase();
 //     do {
 //       i--;
 //       const post = createPost();
+
 //       // check if i === 0 so we would write and call 'done'
 //       if (i === 0) {
+
 //         // we are done so fire callback
 //         writeStream.write(post, encoding, done);
 //       } else {
+
 //         // we are not done so don't fire callback
 //         writeStream.write(post, encoding);
 //       }
+
 //       // else call write and continue looping
 //     } while (i > 0 && canWrite);
 //     if (i > 0 && !canWrite) {
+
 //       // our buffer for stream filled and need to wait for drain
 //       // Write some more once it drains.
 //       writeStream.once('drain', writing);
